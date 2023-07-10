@@ -8,11 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
-    func transformToCircle() {
-        self.layer.cornerRadius = self.bounds.width / 2
-    }
-    
+extension UIView {    
     func addElevation() {
         self.layer.shadowColor = UIColor.black.withAlphaComponent(0.4).cgColor
         self.layer.shadowOpacity = 0.5

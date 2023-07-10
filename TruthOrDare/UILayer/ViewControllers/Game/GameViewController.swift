@@ -11,18 +11,21 @@ class GameViewController: UIViewController {
 
     let game = Game()
     
-    @IBOutlet weak var playerName: UILabel!
-    @IBOutlet weak var playerColor: UIView!
-    
     @IBOutlet weak var numberOfPlayers: UILabel!
+    
+    var playerNameView: UIView!
+    var playerNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.playerName.text = self.game.getNumberOfPlayers() == 0 ? "No players" : game.getPlayer()?.name
-        self.playerColor.transformToCircle()
-        self.playerColor.addElevation()
         self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
+        
+        self.setupPlayerNameLabel()
+        self.setupPlayerNameView()
+        self.playerNameView.isHidden = true
+        self.showPlayerNameLabel(hasPlayers: false)
+        self.playerNameLabel.text = "Add players to start playing..."
     }
     
     @IBAction func onBack(_ sender: Any) {
@@ -31,17 +34,86 @@ class GameViewController: UIViewController {
     
     
     @IBAction func onAdd(_ sender: Any) {
+        if self.game.getNumberOfPlayers() == 0 {
+            print("called")
+            self.playerNameView.isHidden = false
+        }
+        
+        self.removePlayerNameLabel(hasPlayers: false)
+        
         let player = Player(name: "Imran")
         self.game.addPlayer(player)
+       
+        self.showPlayerNameLabel(hasPlayers: true)
         
-        self.playerName.text = game.getPlayer()?.name
-        self.playerColor.backgroundColor = player.color
         self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
+        self.playerNameLabel.text = game.getPlayer()?.name
+        self.playerNameView.backgroundColor = player.color
     }
     
     @IBAction func onDare(_ sender: Any) {
     }
     
     @IBAction func onTruth(_ sender: Any) {
+    }
+    
+    private func setupPlayerNameView() {
+        let width = self.view.frame.width - 120
+        
+        self.playerNameView = UIView()
+        self.playerNameView.backgroundColor = .white
+        
+        self.playerNameView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(playerNameView)
+        
+        NSLayoutConstraint.activate([
+            self.playerNameView.widthAnchor.constraint(equalToConstant: width),
+            self.playerNameView.heightAnchor.constraint(equalTo: self.playerNameView.widthAnchor),
+            self.playerNameView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.playerNameView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        ])
+        
+        self.playerNameView.layer.cornerRadius = width / 2
+        self.playerNameView.addElevation()
+    }
+    
+    private func setupPlayerNameLabel() {
+        self.playerNameLabel = UILabel()
+        self.playerNameLabel.textColor = .black
+        self.playerNameLabel.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func showPlayerNameLabel(hasPlayers: Bool) {
+        if hasPlayers {
+            self.playerNameView.addSubview(self.playerNameLabel)
+            
+            NSLayoutConstraint.activate([
+                self.playerNameLabel.centerXAnchor.constraint(equalTo: self.playerNameView.centerXAnchor),
+                self.playerNameLabel.centerYAnchor.constraint(equalTo: self.playerNameView.centerYAnchor)
+            ])
+        } else {
+            self.view.addSubview(self.playerNameLabel)
+            
+            NSLayoutConstraint.activate([
+                self.playerNameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                self.playerNameLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            ])
+        }
+    }
+
+    private func removePlayerNameLabel(hasPlayers: Bool) {
+        if hasPlayers {
+            NSLayoutConstraint.deactivate([
+                self.playerNameLabel.centerXAnchor.constraint(equalTo: self.playerNameView.centerXAnchor),
+                self.playerNameLabel.centerYAnchor.constraint(equalTo: self.playerNameView.centerYAnchor)
+            ])
+        } else {
+            NSLayoutConstraint.deactivate([
+                self.playerNameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                self.playerNameLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            ])
+        }
+        
+        self.playerNameLabel.removeFromSuperview()
     }
 }
