@@ -1,0 +1,649 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */; };
+		CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031812A5C21CA0089E839 /* SceneDelegate.swift */; };
+		CAE031842A5C21CA0089E839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031832A5C21CA0089E839 /* ViewController.swift */; };
+		CAE031872A5C21CA0089E839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAE031852A5C21CA0089E839 /* Main.storyboard */; };
+		CAE031892A5C21CB0089E839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAE031882A5C21CB0089E839 /* Assets.xcassets */; };
+		CAE0318C2A5C21CB0089E839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAE0318A2A5C21CB0089E839 /* LaunchScreen.storyboard */; };
+		CAE031972A5C21CB0089E839 /* TruthOrDareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031962A5C21CB0089E839 /* TruthOrDareTests.swift */; };
+		CAE031A12A5C21CB0089E839 /* TruthOrDareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031A02A5C21CB0089E839 /* TruthOrDareUITests.swift */; };
+		CAE031A32A5C21CB0089E839 /* TruthOrDareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031A22A5C21CB0089E839 /* TruthOrDareUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CAE031932A5C21CB0089E839 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAE031742A5C21CA0089E839 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CAE0317B2A5C21CA0089E839;
+			remoteInfo = TruthOrDare;
+		};
+		CAE0319D2A5C21CB0089E839 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAE031742A5C21CA0089E839 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CAE0317B2A5C21CA0089E839;
+			remoteInfo = TruthOrDare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CAE0317C2A5C21CA0089E839 /* TruthOrDare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruthOrDare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CAE031812A5C21CA0089E839 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CAE031832A5C21CA0089E839 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CAE031862A5C21CA0089E839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CAE031882A5C21CB0089E839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CAE0318B2A5C21CB0089E839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CAE0318D2A5C21CB0089E839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAE031922A5C21CB0089E839 /* TruthOrDareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TruthOrDareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAE031962A5C21CB0089E839 /* TruthOrDareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruthOrDareTests.swift; sourceTree = "<group>"; };
+		CAE0319C2A5C21CB0089E839 /* TruthOrDareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TruthOrDareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAE031A02A5C21CB0089E839 /* TruthOrDareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruthOrDareUITests.swift; sourceTree = "<group>"; };
+		CAE031A22A5C21CB0089E839 /* TruthOrDareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruthOrDareUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CAE031792A5C21CA0089E839 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAE0318F2A5C21CB0089E839 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAE031992A5C21CB0089E839 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CAE031732A5C21CA0089E839 = {
+			isa = PBXGroup;
+			children = (
+				CAE0317E2A5C21CA0089E839 /* TruthOrDare */,
+				CAE031952A5C21CB0089E839 /* TruthOrDareTests */,
+				CAE0319F2A5C21CB0089E839 /* TruthOrDareUITests */,
+				CAE0317D2A5C21CA0089E839 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CAE0317D2A5C21CA0089E839 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CAE0317C2A5C21CA0089E839 /* TruthOrDare.app */,
+				CAE031922A5C21CB0089E839 /* TruthOrDareTests.xctest */,
+				CAE0319C2A5C21CB0089E839 /* TruthOrDareUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CAE0317E2A5C21CA0089E839 /* TruthOrDare */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031AF2A5C23B00089E839 /* BusinessLogicLayer */,
+				CAE031B12A5C23DA0089E839 /* UILayer */,
+				CAE031B02A5C23D30089E839 /* ServiceLayer */,
+				CAE031B22A5C23E00089E839 /* StorageLayer */,
+				CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */,
+				CAE031812A5C21CA0089E839 /* SceneDelegate.swift */,
+				CAE031832A5C21CA0089E839 /* ViewController.swift */,
+				CAE031852A5C21CA0089E839 /* Main.storyboard */,
+				CAE031882A5C21CB0089E839 /* Assets.xcassets */,
+				CAE0318A2A5C21CB0089E839 /* LaunchScreen.storyboard */,
+				CAE0318D2A5C21CB0089E839 /* Info.plist */,
+			);
+			path = TruthOrDare;
+			sourceTree = "<group>";
+		};
+		CAE031952A5C21CB0089E839 /* TruthOrDareTests */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031962A5C21CB0089E839 /* TruthOrDareTests.swift */,
+			);
+			path = TruthOrDareTests;
+			sourceTree = "<group>";
+		};
+		CAE0319F2A5C21CB0089E839 /* TruthOrDareUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031A02A5C21CB0089E839 /* TruthOrDareUITests.swift */,
+				CAE031A22A5C21CB0089E839 /* TruthOrDareUITestsLaunchTests.swift */,
+			);
+			path = TruthOrDareUITests;
+			sourceTree = "<group>";
+		};
+		CAE031AF2A5C23B00089E839 /* BusinessLogicLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusinessLogicLayer;
+			sourceTree = "<group>";
+		};
+		CAE031B02A5C23D30089E839 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		CAE031B12A5C23DA0089E839 /* UILayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UILayer;
+			sourceTree = "<group>";
+		};
+		CAE031B22A5C23E00089E839 /* StorageLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StorageLayer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CAE0317B2A5C21CA0089E839 /* TruthOrDare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAE031A62A5C21CB0089E839 /* Build configuration list for PBXNativeTarget "TruthOrDare" */;
+			buildPhases = (
+				CAE031782A5C21CA0089E839 /* Sources */,
+				CAE031792A5C21CA0089E839 /* Frameworks */,
+				CAE0317A2A5C21CA0089E839 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TruthOrDare;
+			productName = TruthOrDare;
+			productReference = CAE0317C2A5C21CA0089E839 /* TruthOrDare.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CAE031912A5C21CB0089E839 /* TruthOrDareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAE031A92A5C21CB0089E839 /* Build configuration list for PBXNativeTarget "TruthOrDareTests" */;
+			buildPhases = (
+				CAE0318E2A5C21CB0089E839 /* Sources */,
+				CAE0318F2A5C21CB0089E839 /* Frameworks */,
+				CAE031902A5C21CB0089E839 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CAE031942A5C21CB0089E839 /* PBXTargetDependency */,
+			);
+			name = TruthOrDareTests;
+			productName = TruthOrDareTests;
+			productReference = CAE031922A5C21CB0089E839 /* TruthOrDareTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CAE0319B2A5C21CB0089E839 /* TruthOrDareUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAE031AC2A5C21CB0089E839 /* Build configuration list for PBXNativeTarget "TruthOrDareUITests" */;
+			buildPhases = (
+				CAE031982A5C21CB0089E839 /* Sources */,
+				CAE031992A5C21CB0089E839 /* Frameworks */,
+				CAE0319A2A5C21CB0089E839 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CAE0319E2A5C21CB0089E839 /* PBXTargetDependency */,
+			);
+			name = TruthOrDareUITests;
+			productName = TruthOrDareUITests;
+			productReference = CAE0319C2A5C21CB0089E839 /* TruthOrDareUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CAE031742A5C21CA0089E839 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					CAE0317B2A5C21CA0089E839 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					CAE031912A5C21CB0089E839 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = CAE0317B2A5C21CA0089E839;
+					};
+					CAE0319B2A5C21CB0089E839 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = CAE0317B2A5C21CA0089E839;
+					};
+				};
+			};
+			buildConfigurationList = CAE031772A5C21CA0089E839 /* Build configuration list for PBXProject "TruthOrDare" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CAE031732A5C21CA0089E839;
+			productRefGroup = CAE0317D2A5C21CA0089E839 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CAE0317B2A5C21CA0089E839 /* TruthOrDare */,
+				CAE031912A5C21CB0089E839 /* TruthOrDareTests */,
+				CAE0319B2A5C21CB0089E839 /* TruthOrDareUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CAE0317A2A5C21CA0089E839 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAE0318C2A5C21CB0089E839 /* LaunchScreen.storyboard in Resources */,
+				CAE031892A5C21CB0089E839 /* Assets.xcassets in Resources */,
+				CAE031872A5C21CA0089E839 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAE031902A5C21CB0089E839 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAE0319A2A5C21CB0089E839 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CAE031782A5C21CA0089E839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAE031842A5C21CA0089E839 /* ViewController.swift in Sources */,
+				CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */,
+				CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAE0318E2A5C21CB0089E839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAE031972A5C21CB0089E839 /* TruthOrDareTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAE031982A5C21CB0089E839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAE031A12A5C21CB0089E839 /* TruthOrDareUITests.swift in Sources */,
+				CAE031A32A5C21CB0089E839 /* TruthOrDareUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CAE031942A5C21CB0089E839 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CAE0317B2A5C21CA0089E839 /* TruthOrDare */;
+			targetProxy = CAE031932A5C21CB0089E839 /* PBXContainerItemProxy */;
+		};
+		CAE0319E2A5C21CB0089E839 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CAE0317B2A5C21CA0089E839 /* TruthOrDare */;
+			targetProxy = CAE0319D2A5C21CB0089E839 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CAE031852A5C21CA0089E839 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CAE031862A5C21CA0089E839 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CAE0318A2A5C21CB0089E839 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CAE0318B2A5C21CB0089E839 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CAE031A42A5C21CB0089E839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CAE031A52A5C21CB0089E839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CAE031A72A5C21CB0089E839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9258H7N9X2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TruthOrDare/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Truth AI";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.trivia-games";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.imranhajiyev.TruthOrDare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CAE031A82A5C21CB0089E839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9258H7N9X2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TruthOrDare/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Truth AI";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.trivia-games";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.imranhajiyev.TruthOrDare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		CAE031AA2A5C21CB0089E839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9258H7N9X2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.imranhajiyev.TruthOrDareTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TruthOrDare.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TruthOrDare";
+			};
+			name = Debug;
+		};
+		CAE031AB2A5C21CB0089E839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9258H7N9X2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.imranhajiyev.TruthOrDareTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TruthOrDare.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TruthOrDare";
+			};
+			name = Release;
+		};
+		CAE031AD2A5C21CB0089E839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9258H7N9X2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.imranhajiyev.TruthOrDareUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TruthOrDare;
+			};
+			name = Debug;
+		};
+		CAE031AE2A5C21CB0089E839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9258H7N9X2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.imranhajiyev.TruthOrDareUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TruthOrDare;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CAE031772A5C21CA0089E839 /* Build configuration list for PBXProject "TruthOrDare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAE031A42A5C21CB0089E839 /* Debug */,
+				CAE031A52A5C21CB0089E839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CAE031A62A5C21CB0089E839 /* Build configuration list for PBXNativeTarget "TruthOrDare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAE031A72A5C21CB0089E839 /* Debug */,
+				CAE031A82A5C21CB0089E839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CAE031A92A5C21CB0089E839 /* Build configuration list for PBXNativeTarget "TruthOrDareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAE031AA2A5C21CB0089E839 /* Debug */,
+				CAE031AB2A5C21CB0089E839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CAE031AC2A5C21CB0089E839 /* Build configuration list for PBXNativeTarget "TruthOrDareUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAE031AD2A5C21CB0089E839 /* Debug */,
+				CAE031AE2A5C21CB0089E839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CAE031742A5C21CA0089E839 /* Project object */;
+}
