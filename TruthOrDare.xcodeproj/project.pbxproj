@@ -16,6 +16,13 @@
 		CAE031972A5C21CB0089E839 /* TruthOrDareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031962A5C21CB0089E839 /* TruthOrDareTests.swift */; };
 		CAE031A12A5C21CB0089E839 /* TruthOrDareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031A02A5C21CB0089E839 /* TruthOrDareUITests.swift */; };
 		CAE031A32A5C21CB0089E839 /* TruthOrDareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031A22A5C21CB0089E839 /* TruthOrDareUITestsLaunchTests.swift */; };
+		CAE031B82A5C2F9D0089E839 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAE031B72A5C2F9D0089E839 /* Game.storyboard */; };
+		CAE031BD2A5C35F00089E839 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031BC2A5C35F00089E839 /* GameViewController.swift */; };
+		CAE031C22A5C390A0089E839 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031C12A5C390A0089E839 /* Game.swift */; };
+		CAE031C52A5C39220089E839 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031C42A5C39220089E839 /* Player.swift */; };
+		CAE031C82A5C65B70089E839 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAE031C72A5C65B70089E839 /* Settings.storyboard */; };
+		CAE031CA2A5C65E00089E839 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031C92A5C65E00089E839 /* SettingsViewController.swift */; };
+		CAE031CD2A5C681B0089E839 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031CC2A5C681B0089E839 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,13 @@
 		CAE0319C2A5C21CB0089E839 /* TruthOrDareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TruthOrDareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE031A02A5C21CB0089E839 /* TruthOrDareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruthOrDareUITests.swift; sourceTree = "<group>"; };
 		CAE031A22A5C21CB0089E839 /* TruthOrDareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruthOrDareUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CAE031B72A5C2F9D0089E839 /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
+		CAE031BC2A5C35F00089E839 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		CAE031C12A5C390A0089E839 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		CAE031C42A5C39220089E839 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		CAE031C72A5C65B70089E839 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		CAE031C92A5C65E00089E839 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CAE031CC2A5C681B0089E839 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +119,7 @@
 				CAE031B22A5C23E00089E839 /* StorageLayer */,
 				CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */,
 				CAE031812A5C21CA0089E839 /* SceneDelegate.swift */,
-				CAE031832A5C21CA0089E839 /* ViewController.swift */,
-				CAE031852A5C21CA0089E839 /* Main.storyboard */,
 				CAE031882A5C21CB0089E839 /* Assets.xcassets */,
-				CAE0318A2A5C21CB0089E839 /* LaunchScreen.storyboard */,
 				CAE0318D2A5C21CB0089E839 /* Info.plist */,
 			);
 			path = TruthOrDare;
@@ -134,6 +145,7 @@
 		CAE031AF2A5C23B00089E839 /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				CAE031BE2A5C38E10089E839 /* Model */,
 			);
 			path = BusinessLogicLayer;
 			sourceTree = "<group>";
@@ -148,6 +160,9 @@
 		CAE031B12A5C23DA0089E839 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
+				CAE031CB2A5C680B0089E839 /* Extensions */,
+				CAE031B42A5C25D80089E839 /* ViewControllers */,
+				CAE031B32A5C25D20089E839 /* Storyboards */,
 			);
 			path = UILayer;
 			sourceTree = "<group>";
@@ -157,6 +172,92 @@
 			children = (
 			);
 			path = StorageLayer;
+			sourceTree = "<group>";
+		};
+		CAE031B32A5C25D20089E839 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031B92A5C35D90089E839 /* Menu */,
+				CAE031B62A5C2F960089E839 /* Game */,
+				CAE031B52A5C25E30089E839 /* Launch */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CAE031B42A5C25D80089E839 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031BB2A5C35E20089E839 /* Game */,
+				CAE031BA2A5C35E00089E839 /* Menu */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CAE031B52A5C25E30089E839 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				CAE0318A2A5C21CB0089E839 /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		CAE031B62A5C2F960089E839 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031B72A5C2F9D0089E839 /* Game.storyboard */,
+				CAE031C72A5C65B70089E839 /* Settings.storyboard */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		CAE031B92A5C35D90089E839 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031852A5C21CA0089E839 /* Main.storyboard */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		CAE031BA2A5C35E00089E839 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031832A5C21CA0089E839 /* ViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		CAE031BB2A5C35E20089E839 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031BC2A5C35F00089E839 /* GameViewController.swift */,
+				CAE031C92A5C65E00089E839 /* SettingsViewController.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		CAE031BE2A5C38E10089E839 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031BF2A5C38FB0089E839 /* Classes */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CAE031BF2A5C38FB0089E839 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031C12A5C390A0089E839 /* Game.swift */,
+				CAE031C42A5C39220089E839 /* Player.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		CAE031CB2A5C680B0089E839 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031CC2A5C681B0089E839 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,9 +364,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE031B82A5C2F9D0089E839 /* Game.storyboard in Resources */,
 				CAE0318C2A5C21CB0089E839 /* LaunchScreen.storyboard in Resources */,
 				CAE031892A5C21CB0089E839 /* Assets.xcassets in Resources */,
 				CAE031872A5C21CA0089E839 /* Main.storyboard in Resources */,
+				CAE031C82A5C65B70089E839 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +393,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE031BD2A5C35F00089E839 /* GameViewController.swift in Sources */,
+				CAE031C22A5C390A0089E839 /* Game.swift in Sources */,
+				CAE031CA2A5C65E00089E839 /* SettingsViewController.swift in Sources */,
 				CAE031842A5C21CA0089E839 /* ViewController.swift in Sources */,
 				CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */,
+				CAE031C52A5C39220089E839 /* Player.swift in Sources */,
+				CAE031CD2A5C681B0089E839 /* UIViewExtension.swift in Sources */,
 				CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
