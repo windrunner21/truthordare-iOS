@@ -10,6 +10,14 @@ import UIKit
 class GameViewController: UIViewController {
 
     let game = Game()
+    let addPlayerView: AddPlayerView = AddPlayerView(
+        frame: CGRect(
+            x: 30,
+            y: UIScreen.main.bounds.height / 2 - 150,
+            width: UIScreen.main.bounds.width - 60,
+            height: 250
+        )
+    )
     
     @IBOutlet weak var numberOfPlayers: UILabel!
     
@@ -30,25 +38,25 @@ class GameViewController: UIViewController {
     
     @IBAction func onBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-    }
-    
+    }    
     
     @IBAction func onAdd(_ sender: Any) {
-        if self.game.getNumberOfPlayers() == 0 {
-            print("called")
-            self.playerNameView.isHidden = false
-        }
-        
-        self.removePlayerNameLabel(hasPlayers: false)
-        
-        let player = Player(name: "Imran")
-        self.game.addPlayer(player)
-       
-        self.showPlayerNameLabel(hasPlayers: true)
-        
-        self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
-        self.playerNameLabel.text = game.getPlayer()?.name
-        self.playerNameView.backgroundColor = player.color
+        self.view.addSubview(addPlayerView)
+        self.addPlayerView.show()
+//        if self.game.getNumberOfPlayers() == 0 {
+//            self.playerNameView.isHidden = false
+//        }
+//
+//        self.removePlayerNameLabel(hasPlayers: false)
+//
+//        let player = Player(name: "Imran")
+//        self.game.addPlayer(player)
+//
+//        self.showPlayerNameLabel(hasPlayers: true)
+//
+//        self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
+//        self.playerNameLabel.text = game.getPlayer()?.name
+//        self.playerNameView.backgroundColor = player.color
     }
     
     @IBAction func onDare(_ sender: Any) {

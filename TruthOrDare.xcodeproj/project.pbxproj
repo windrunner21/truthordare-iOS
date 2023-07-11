@@ -23,6 +23,9 @@
 		CAE031C82A5C65B70089E839 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAE031C72A5C65B70089E839 /* Settings.storyboard */; };
 		CAE031CA2A5C65E00089E839 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031C92A5C65E00089E839 /* SettingsViewController.swift */; };
 		CAE031CD2A5C681B0089E839 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031CC2A5C681B0089E839 /* UIViewExtension.swift */; };
+		CAE031D22A5CA11F0089E839 /* AddPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE031D12A5CA11F0089E839 /* AddPlayer.xib */; };
+		CAE031D42A5CA1510089E839 /* AddPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031D32A5CA1510089E839 /* AddPlayerView.swift */; };
+		CAE031D82A5D37680089E839 /* PlayerPropertyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031D72A5D37680089E839 /* PlayerPropertyType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		CAE031C72A5C65B70089E839 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		CAE031C92A5C65E00089E839 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CAE031CC2A5C681B0089E839 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		CAE031D12A5CA11F0089E839 /* AddPlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPlayer.xib; sourceTree = "<group>"; };
+		CAE031D32A5CA1510089E839 /* AddPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerView.swift; sourceTree = "<group>"; };
+		CAE031D72A5D37680089E839 /* PlayerPropertyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPropertyType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,7 @@
 		CAE031B12A5C23DA0089E839 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
+				CAE031CE2A5CA0810089E839 /* Utils */,
 				CAE031CB2A5C680B0089E839 /* Extensions */,
 				CAE031B42A5C25D80089E839 /* ViewControllers */,
 				CAE031B32A5C25D20089E839 /* Storyboards */,
@@ -238,6 +245,7 @@
 		CAE031BE2A5C38E10089E839 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CAE031D52A5D37560089E839 /* Enums */,
 				CAE031BF2A5C38FB0089E839 /* Classes */,
 			);
 			path = Model;
@@ -258,6 +266,39 @@
 				CAE031CC2A5C681B0089E839 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CAE031CE2A5CA0810089E839 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031CF2A5CA0860089E839 /* Views */,
+				CAE031D02A5CA08B0089E839 /* UIViews */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CAE031CF2A5CA0860089E839 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031D32A5CA1510089E839 /* AddPlayerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CAE031D02A5CA08B0089E839 /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031D12A5CA11F0089E839 /* AddPlayer.xib */,
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
+		CAE031D52A5D37560089E839 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031D72A5D37680089E839 /* PlayerPropertyType.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +407,7 @@
 			files = (
 				CAE031B82A5C2F9D0089E839 /* Game.storyboard in Resources */,
 				CAE0318C2A5C21CB0089E839 /* LaunchScreen.storyboard in Resources */,
+				CAE031D22A5CA11F0089E839 /* AddPlayer.xib in Resources */,
 				CAE031892A5C21CB0089E839 /* Assets.xcassets in Resources */,
 				CAE031872A5C21CA0089E839 /* Main.storyboard in Resources */,
 				CAE031C82A5C65B70089E839 /* Settings.storyboard in Resources */,
@@ -397,10 +439,12 @@
 				CAE031C22A5C390A0089E839 /* Game.swift in Sources */,
 				CAE031CA2A5C65E00089E839 /* SettingsViewController.swift in Sources */,
 				CAE031842A5C21CA0089E839 /* ViewController.swift in Sources */,
+				CAE031D42A5CA1510089E839 /* AddPlayerView.swift in Sources */,
 				CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */,
 				CAE031C52A5C39220089E839 /* Player.swift in Sources */,
 				CAE031CD2A5C681B0089E839 /* UIViewExtension.swift in Sources */,
 				CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */,
+				CAE031D82A5D37680089E839 /* PlayerPropertyType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
