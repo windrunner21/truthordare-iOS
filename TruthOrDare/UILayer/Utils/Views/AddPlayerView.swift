@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Combine
 
 class AddPlayerView: UIView, UITextFieldDelegate {
+    let playerPublisher = PassthroughSubject<Player, Never>()
     private let overlayView: UIView = UIView()
 
     @IBOutlet var contentView: UIView!
@@ -15,6 +17,7 @@ class AddPlayerView: UIView, UITextFieldDelegate {
     @IBOutlet weak var playerNameTextField: UITextField!
     @IBOutlet weak var playerColorPopUp: UIButton!
     
+    @IBOutlet weak var test: UIButton!
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
@@ -58,6 +61,11 @@ class AddPlayerView: UIView, UITextFieldDelegate {
     }
     
     @IBAction func onAddPlayers(_ sender: Any) {
+        guard let playerName = playerNameTextField.text else { return }
+        let player = Player(name: playerName, color: .yellow)
+        
+        playerPublisher.send(player)
+        
         UIView.animate(withDuration: 0.3, animations: {
             self.overlayView.removeFromSuperview()
         }) { _ in

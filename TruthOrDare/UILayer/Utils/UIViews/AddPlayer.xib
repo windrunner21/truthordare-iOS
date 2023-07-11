@@ -14,6 +14,7 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="unY-YE-SFv"/>
                 <outlet property="playerColorPopUp" destination="p4k-zW-Bvl" id="Csh-Zp-nMJ"/>
                 <outlet property="playerNameTextField" destination="zem-Wk-HQt" id="2b9-6a-dMh"/>
+                <outlet property="test" destination="sLA-zt-JQp" id="dQD-hl-EfS"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -64,7 +65,7 @@
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zem-Wk-HQt">
                                             <rect key="frame" x="0.0" y="32" width="239" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="nickname"/>
                                         </textField>
                                     </subviews>
                                 </stackView>

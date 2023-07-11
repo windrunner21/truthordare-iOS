@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import Combine
 
 class GameViewController: UIViewController {
-
-    let game = Game()
-    let addPlayerView: AddPlayerView = AddPlayerView(
+    private var playerSubscriber: AnyCancellable?
+    private let game = Game()
+    private let addPlayerView: AddPlayerView = AddPlayerView(
         frame: CGRect(
             x: 30,
-            y: UIScreen.main.bounds.height / 2 - 150,
+            y: UIScreen.main.bounds.height / 2 - 100,
             width: UIScreen.main.bounds.width - 60,
             height: 250
         )
@@ -21,8 +22,8 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var numberOfPlayers: UILabel!
     
-    var playerNameView: UIView!
-    var playerNameLabel: UILabel!
+    private var playerNameView: UIView!
+    private var playerNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,14 @@ class GameViewController: UIViewController {
         self.playerNameView.isHidden = true
         self.showPlayerNameLabel(hasPlayers: false)
         self.playerNameLabel.text = "Add players to start playing..."
+
+        playerSubscriber = addPlayerView.playerPublisher.sink { [weak self] player in
+            self?.handlePlayer(player)
+        }
+    }
+    
+    @objc func getErr() {
+        
     }
     
     @IBAction func onBack(_ sender: Any) {
@@ -43,20 +52,6 @@ class GameViewController: UIViewController {
     @IBAction func onAdd(_ sender: Any) {
         self.view.addSubview(addPlayerView)
         self.addPlayerView.show()
-//        if self.game.getNumberOfPlayers() == 0 {
-//            self.playerNameView.isHidden = false
-//        }
-//
-//        self.removePlayerNameLabel(hasPlayers: false)
-//
-//        let player = Player(name: "Imran")
-//        self.game.addPlayer(player)
-//
-//        self.showPlayerNameLabel(hasPlayers: true)
-//
-//        self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
-//        self.playerNameLabel.text = game.getPlayer()?.name
-//        self.playerNameView.backgroundColor = player.color
     }
     
     @IBAction func onDare(_ sender: Any) {
@@ -123,5 +118,26 @@ class GameViewController: UIViewController {
         }
         
         self.playerNameLabel.removeFromSuperview()
+    }
+    
+    private func handlePlayer(_ player: Player?) {
+        guard let player = player else {
+            print("Could not get player.")
+            return
+        }
+        
+        self.game.addPlayer(player)
+        
+        if self.game.getNumberOfPlayers() > 0 {
+            self.playerNameView.isHidden = false
+        }
+
+        self.removePlayerNameLabel(hasPlayers: false)
+
+        self.showPlayerNameLabel(hasPlayers: true)
+
+        self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
+        self.playerNameLabel.text = game.getPlayer()?.name
+        self.playerNameView.backgroundColor = player.color
     }
 }
