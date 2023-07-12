@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 
+// TODO: inspect if can refactor major funcs into seperate UI classes.
 class GameViewController: UIViewController {
     // Combine related variable for listening to changes. Sub part.
     private var playerSubscriber: AnyCancellable?
@@ -92,7 +93,6 @@ class GameViewController: UIViewController {
     
     private func setupPlayerNameLabel() {
         self.playerNameLabel = UILabel()
-        self.playerNameLabel.textColor = .black
         self.playerNameLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -197,10 +197,17 @@ class GameViewController: UIViewController {
    
         self.game.addPlayer(player)
         
+        // TODO: REFACTOR INTO SEPARATE FUNCS
         self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
         
         self.playerNameLabel.text = game.getPlayer()?.getName()
         self.playerNameView.backgroundColor = player.getColor()
+        
+        if player.getColor() == .black {
+            self.playerNameLabel.textColor = .white
+        } else {
+            self.playerNameLabel.textColor = .black
+        }
         
         self.populateAllPlayersView()
     }
