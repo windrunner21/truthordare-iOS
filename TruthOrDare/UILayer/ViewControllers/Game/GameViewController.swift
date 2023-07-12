@@ -11,14 +11,6 @@ import Combine
 class GameViewController: UIViewController {
     private var playerSubscriber: AnyCancellable?
     private let game = Game()
-    private let addPlayerView: AddPlayerView = AddPlayerView(
-        frame: CGRect(
-            x: 30,
-            y: UIScreen.main.bounds.height / 2 - 100,
-            width: UIScreen.main.bounds.width - 60,
-            height: 250
-        )
-    )
     
     @IBOutlet weak var numberOfPlayers: UILabel!
     
@@ -32,17 +24,9 @@ class GameViewController: UIViewController {
         
         self.setupPlayerNameLabel()
         self.setupPlayerNameView()
-        self.playerNameView.isHidden = true
+        self.playerNameView.isHidden = !self.game.hasPlayers()
         self.showPlayerNameLabel(hasPlayers: false)
         self.playerNameLabel.text = "Add players to start playing..."
-
-        playerSubscriber = addPlayerView.playerPublisher.sink { [weak self] player in
-            self?.handlePlayer(player)
-        }
-    }
-    
-    @objc func getErr() {
-        
     }
     
     @IBAction func onBack(_ sender: Any) {
@@ -50,8 +34,21 @@ class GameViewController: UIViewController {
     }    
     
     @IBAction func onAdd(_ sender: Any) {
+        let addPlayerView: AddPlayerView = AddPlayerView(
+            frame: CGRect(
+                x: 30,
+                y: UIScreen.main.bounds.height / 2 - 100,
+                width: UIScreen.main.bounds.width - 60,
+                height: 250
+            )
+        )
+        
         self.view.addSubview(addPlayerView)
-        self.addPlayerView.show()
+        addPlayerView.show()
+        
+        playerSubscriber = addPlayerView.playerPublisher.sink { [weak self] player in
+            self?.handlePlayer(player)
+        }
     }
     
     @IBAction func onDare(_ sender: Any) {
@@ -88,6 +85,7 @@ class GameViewController: UIViewController {
     
     private func showPlayerNameLabel(hasPlayers: Bool) {
         if hasPlayers {
+            self.playerNameLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
             self.playerNameView.addSubview(self.playerNameLabel)
             
             NSLayoutConstraint.activate([
@@ -95,6 +93,7 @@ class GameViewController: UIViewController {
                 self.playerNameLabel.centerYAnchor.constraint(equalTo: self.playerNameView.centerYAnchor)
             ])
         } else {
+            self.playerNameLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
             self.view.addSubview(self.playerNameLabel)
             
             NSLayoutConstraint.activate([
@@ -126,18 +125,18 @@ class GameViewController: UIViewController {
             return
         }
         
+        // Do it only once.
+        if game.getNumberOfPlayers() == 0 {
+            self.playerNameView.isHidden = self.game.hasPlayers()
+            self.removePlayerNameLabel(hasPlayers: false)
+            self.showPlayerNameLabel(hasPlayers: true)
+        }
+        
         self.game.addPlayer(player)
         
-        if self.game.getNumberOfPlayers() > 0 {
-            self.playerNameView.isHidden = false
-        }
-
-        self.removePlayerNameLabel(hasPlayers: false)
-
-        self.showPlayerNameLabel(hasPlayers: true)
-
         self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
-        self.playerNameLabel.text = game.getPlayer()?.name
-        self.playerNameView.backgroundColor = player.color
+        
+        self.playerNameLabel.text = game.getPlayer()?.getName()
+        self.playerNameView.backgroundColor = player.getColor()
     }
 }

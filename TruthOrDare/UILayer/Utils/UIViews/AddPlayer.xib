@@ -14,7 +14,6 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="unY-YE-SFv"/>
                 <outlet property="playerColorPopUp" destination="p4k-zW-Bvl" id="Csh-Zp-nMJ"/>
                 <outlet property="playerNameTextField" destination="zem-Wk-HQt" id="2b9-6a-dMh"/>
-                <outlet property="test" destination="sLA-zt-JQp" id="dQD-hl-EfS"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -35,7 +34,7 @@
                         <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </buttonConfiguration>
                     <connections>
-                        <action selector="onAddPlayers:" destination="-1" eventType="touchUpInside" id="Lz8-LQ-xpb"/>
+                        <action selector="onAddPlayer:" destination="-1" eventType="touchUpInside" id="Lz8-LQ-xpb"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYA-Yk-7na">

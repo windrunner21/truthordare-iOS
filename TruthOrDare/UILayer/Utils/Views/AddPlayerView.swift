@@ -17,7 +17,8 @@ class AddPlayerView: UIView, UITextFieldDelegate {
     @IBOutlet weak var playerNameTextField: UITextField!
     @IBOutlet weak var playerColorPopUp: UIButton!
     
-    @IBOutlet weak var test: UIButton!
+    var player: Player = Player()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
@@ -60,11 +61,12 @@ class AddPlayerView: UIView, UITextFieldDelegate {
         }
     }
     
-    @IBAction func onAddPlayers(_ sender: Any) {
-        guard let playerName = playerNameTextField.text else { return }
-        let player = Player(name: playerName, color: .yellow)
+    @IBAction func onAddPlayer(_ sender: Any) {
+        if let playerName = playerNameTextField.text, !playerName.isEmpty {
+            self.player.setName(to: playerName)
+        }
         
-        playerPublisher.send(player)
+        playerPublisher.send(self.player)
         
         UIView.animate(withDuration: 0.3, animations: {
             self.overlayView.removeFromSuperview()
@@ -74,20 +76,14 @@ class AddPlayerView: UIView, UITextFieldDelegate {
     }
     
     private func setupPlayerColorPopUp() {
-        let optionClosure = { (action: UIAction) in
-            print(action.identifier)
+        var children: [UIAction] = []
+        for color in PlayerColor.allCases {
+            children.append( UIAction(title: color.label, handler: { _ in
+                self.player.setColor(to: color.color)
+            }))
         }
         
-        playerColorPopUp.menu = UIMenu(children: [
-            UIAction(title: "Black", handler: optionClosure),
-            UIAction(title: "Yellow", handler: optionClosure),
-            UIAction(title: "Red", handler: optionClosure),
-            UIAction(title: "Green", handler: optionClosure),
-            UIAction(title: "Purple", handler: optionClosure),
-            UIAction(title: "Orange", handler: optionClosure),
-            UIAction(title: "Blue", handler: optionClosure),
-            UIAction(title: "Brown", handler: optionClosure),
-        ])
+        playerColorPopUp.menu = UIMenu(children: children)
         
         playerColorPopUp.showsMenuAsPrimaryAction = true
     }
