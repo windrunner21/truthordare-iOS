@@ -26,6 +26,10 @@ class Game {
         self.players.randomElement()
     }
     
+    func getAllPlayers() -> [Player] {
+        self.players
+    }
+    
     func hasPlayers() -> Bool {
         !self.players.isEmpty
     }

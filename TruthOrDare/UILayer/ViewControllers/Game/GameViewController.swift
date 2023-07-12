@@ -9,13 +9,24 @@ import UIKit
 import Combine
 
 class GameViewController: UIViewController {
+    // Combine related variable for listening to changes. Sub part.
     private var playerSubscriber: AnyCancellable?
+    
+    // Initialize game object.
     private let game = Game()
     
+    // Adding and showing Players in the UI and Game class related variables.
+    private var shouldAddPlayer: Bool = true
+    private var currentRow: Int = 0
+    private var currentColumn: Int = 0
+    
+    // Storyboard related UI elements.
     @IBOutlet weak var numberOfPlayers: UILabel!
     
+    // Code initialized UI elements.
     private var playerNameView: UIView!
     private var playerNameLabel: UILabel!
+    private var allPlayersView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +35,8 @@ class GameViewController: UIViewController {
         
         self.setupPlayerNameLabel()
         self.setupPlayerNameView()
+        self.setupAllPlayersView()
+        
         self.playerNameView.isHidden = !self.game.hasPlayers()
         self.showPlayerNameLabel(hasPlayers: false)
         self.playerNameLabel.text = "Add players to start playing..."
@@ -83,6 +96,20 @@ class GameViewController: UIViewController {
         self.playerNameLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    private func setupAllPlayersView() {
+        self.allPlayersView = UIView()
+        
+        self.allPlayersView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(allPlayersView)
+        
+        NSLayoutConstraint.activate([
+            self.allPlayersView.topAnchor.constraint(equalTo:  self.numberOfPlayers.bottomAnchor, constant: 10),
+            self.allPlayersView.bottomAnchor.constraint(equalTo:  self.playerNameView.topAnchor, constant: -30),
+            self.allPlayersView.leadingAnchor.constraint(equalTo:  self.view.centerXAnchor, constant: 30),
+            self.allPlayersView.trailingAnchor.constraint(equalTo:  self.view.trailingAnchor, constant: -30)
+        ])
+    }
+    
     private func showPlayerNameLabel(hasPlayers: Bool) {
         if hasPlayers {
             self.playerNameLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
@@ -119,24 +146,62 @@ class GameViewController: UIViewController {
         self.playerNameLabel.removeFromSuperview()
     }
     
+    private func populateAllPlayersView() {
+        let circleSize: CGFloat = 20
+        let spacing: CGFloat = 10
+        let maxWidth = self.allPlayersView.bounds.width - circleSize
+        let maxHeight = self.allPlayersView.bounds.height - circleSize
+        
+        guard let player = self.game.getAllPlayers().last else { return }
+    
+        let playerView = UIView()
+        playerView.frame.size = CGSize(width: circleSize, height: circleSize)
+        playerView.layer.cornerRadius = circleSize / 2
+        playerView.backgroundColor = player.getColor()
+        
+        let x = maxWidth - (circleSize + spacing) * CGFloat(currentColumn)
+        let y = (circleSize + spacing) * CGFloat(currentRow)
+        playerView.frame.origin = CGPoint(x: x, y: y)
+        
+        allPlayersView.addSubview(playerView)
+        currentColumn += 1
+        
+        if CGFloat(currentColumn) > maxWidth / (circleSize + spacing) {
+            currentColumn = 0
+            currentRow += 1
+        }
+        
+        if CGFloat(currentRow) > maxHeight / (circleSize + spacing) {
+            self.shouldAddPlayer = false
+        }
+    }
+    
     private func handlePlayer(_ player: Player?) {
         guard let player = player else {
             print("Could not get player.")
             return
         }
         
+        guard shouldAddPlayer else {
+            print("Cannot add new player. Max capacity.")
+            return
+        }
+
         // Do it only once.
         if game.getNumberOfPlayers() == 0 {
             self.playerNameView.isHidden = self.game.hasPlayers()
             self.removePlayerNameLabel(hasPlayers: false)
             self.showPlayerNameLabel(hasPlayers: true)
         }
-        
+
+   
         self.game.addPlayer(player)
         
         self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
         
         self.playerNameLabel.text = game.getPlayer()?.getName()
         self.playerNameView.backgroundColor = player.getColor()
+        
+        self.populateAllPlayersView()
     }
 }
