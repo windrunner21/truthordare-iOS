@@ -27,16 +27,16 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var truthButton: UIButton!
     
     // Code initialized UI elements.
-    private var playerNameView: UIView!
-    private var playerNameLabel: UILabel!
-    private var allPlayersView: UIView!
-    
-    
-    private var backgroundView: UIView?
+    private var playerNameView: UIView!             // Player circle
+    private var playerNameLabel: UILabel!           // Player label - name or empty
+    private var allPlayersView: UIView!             // Circles of all players
+    private var backgroundColorView: UIView?        // Background color of the whole self.view
     
     // Constraints.
     var playerNameViewWidthAnchorConstraint: NSLayoutConstraint!
     var playerNameViewHeightAnchorConstraint: NSLayoutConstraint!
+    
+    var newX: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -236,27 +236,23 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // Objective-C (Selector) functions.
     @objc func swipePlayerNameView(_ gestureRecognizer: UIPanGestureRecognizer) {
+        guard let view = gestureRecognizer.view else { return }
+        
         switch gestureRecognizer.state {
         case .changed:
-            let translation = gestureRecognizer.translation(in: self.view)
-            print(gestureRecognizer.view!.center.x)
-            
-            if(gestureRecognizer.view!.center.x < 200) {
-                gestureRecognizer.view!.center = CGPointMake(gestureRecognizer.view!.center.x, gestureRecognizer.view!.center.x + translation.x)
-            }else {
-                gestureRecognizer.view!.center = CGPointMake(gestureRecognizer.view!.center.x, 0)
-            }
-
-            gestureRecognizer.setTranslation(CGPointMake(0,0), in: self.view)
-            
-//            self.playerNameView.center.x = translation.x
-//            if translation.x > 0 {
-//                gestureRecognizer.setTranslation(CGPoint(x: (UIScreen.main.bounds.width), y: (self.playerNameView.center.y)), in: self.view)
-//            } else {
-//
-//            }
+            let translation = gestureRecognizer.translation(in: view.superview)
+            newX = view.center.x + translation.x
+            view.center.x = newX
+            gestureRecognizer.setTranslation(.zero, in: view.superview)
         case .ended:
-            self.playerNameLabel.text = self.game.activateTruth()
+            if newX > UIScreen.main.bounds.width - view.frame.width / 3 {
+                print("truth")
+                self.playerNameLabel.text = self.game.activateTruth()
+            } else if newX < 0 + view.frame.width / 3 {
+                print("dare")
+                self.playerNameLabel.text = self.game.activateDare()
+            }
+   
 //            print(translation.x)
 //            if translation.x > 0 {
 //                self.playerNameLabel.text = self.game.activateTruth()
@@ -279,13 +275,13 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     @objc func tapPlayerNameView(_ gestureRecognizer: UILongPressGestureRecognizer) {
         switch gestureRecognizer.state {
         case .began:
-            self.playerNameViewWidthAnchorConstraint.constant += 10
+            self.playerNameViewWidthAnchorConstraint.constant += 20
             self.playerNameView.layer.cornerRadius = self.playerNameViewWidthAnchorConstraint.constant / 2
             UIView.animate(withDuration: 0.15) {
                 self.view.layoutIfNeeded()
             }
         case .ended, .cancelled, .failed:
-            self.playerNameViewWidthAnchorConstraint.constant -= 10
+            self.playerNameViewWidthAnchorConstraint.constant -= 20
             self.playerNameView.layer.cornerRadius = self.playerNameViewWidthAnchorConstraint.constant / 2
             UIView.animate(withDuration: 0.15) {
                 self.view.layoutIfNeeded()
