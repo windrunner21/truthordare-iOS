@@ -85,7 +85,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dareButton" destination="Skv-58-0tu" id="rHK-TV-9LJ"/>
                         <outlet property="numberOfPlayers" destination="Jdg-5P-Hrz" id="pcG-Zf-DWR"/>
+                        <outlet property="truthButton" destination="xzZ-e7-kPC" id="GEn-th-2M3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

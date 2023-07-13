@@ -23,11 +23,16 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // Storyboard related UI elements.
     @IBOutlet weak var numberOfPlayers: UILabel!
+    @IBOutlet weak var dareButton: UIButton!
+    @IBOutlet weak var truthButton: UIButton!
     
     // Code initialized UI elements.
     private var playerNameView: UIView!
     private var playerNameLabel: UILabel!
     private var allPlayersView: UIView!
+    
+    
+    private var backgroundView: UIView?
     
     // Constraints.
     var playerNameViewWidthAnchorConstraint: NSLayoutConstraint!
@@ -51,6 +56,8 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         self.playerNameView.isHidden = !self.game.hasPlayers()
         self.showPlayerNameLabel(hasPlayers: false)
         self.playerNameLabel.text = "Add players to start playing..."
+        
+        self.shouldDisableActionButtons()
     }
     
     // Implement UIGestureRecognizerDelegate for it to recognize long press together with pan gestures.
@@ -81,9 +88,11 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func onDare(_ sender: Any) {
+        self.playerNameLabel.text = self.game.activateDare()
     }
     
     @IBAction func onTruth(_ sender: Any) {
+        self.playerNameLabel.text = self.game.activateTruth()
     }
     
     private func setupPlayerNameView() {
@@ -210,6 +219,8 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
         self.setPlayerNameView(with: player)
         self.populateAllPlayersView()
+        self.shouldDisableActionButtons()
+
     }
     
     private func setPlayerNameView(with player: Player) {
@@ -218,16 +229,50 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         self.playerNameLabel.textColor = player.getColor() == .black ? .white : .black
     }
     
+    private func shouldDisableActionButtons() {
+        self.truthButton.isEnabled = self.game.hasPlayers()
+        self.dareButton.isEnabled = self.game.hasPlayers()
+    }
+    
     // Objective-C (Selector) functions.
     @objc func swipePlayerNameView(_ gestureRecognizer: UIPanGestureRecognizer) {
-        let translation = gestureRecognizer.translation(in: self.playerNameView)
-        
-        if gestureRecognizer.state == .changed {
-            if translation.x > 0 {
-                print("Swiped right")
-            } else {
-                print("Swiped left")
+        switch gestureRecognizer.state {
+        case .changed:
+            let translation = gestureRecognizer.translation(in: self.view)
+            print(gestureRecognizer.view!.center.x)
+            
+            if(gestureRecognizer.view!.center.x < 200) {
+                gestureRecognizer.view!.center = CGPointMake(gestureRecognizer.view!.center.x, gestureRecognizer.view!.center.x + translation.x)
+            }else {
+                gestureRecognizer.view!.center = CGPointMake(gestureRecognizer.view!.center.x, 0)
             }
+
+            gestureRecognizer.setTranslation(CGPointMake(0,0), in: self.view)
+            
+//            self.playerNameView.center.x = translation.x
+//            if translation.x > 0 {
+//                gestureRecognizer.setTranslation(CGPoint(x: (UIScreen.main.bounds.width), y: (self.playerNameView.center.y)), in: self.view)
+//            } else {
+//
+//            }
+        case .ended:
+            self.playerNameLabel.text = self.game.activateTruth()
+//            print(translation.x)
+//            if translation.x > 0 {
+//                self.playerNameLabel.text = self.game.activateTruth()
+//                // Swiped to the right
+//                UIView.animate(withDuration: 0.2) {
+//                    self.playerNameView.frame.origin.x = UIScreen.main.bounds.width
+//                }
+//            } else if translation.x < 0 {
+//                self.playerNameLabel.text = self.game.activateDare()
+//                // Swiped to the left
+//                UIView.animate(withDuration: 0.2) {
+//                    self.playerNameView.frame.origin.x = -self.playerNameView.frame.width
+//                }
+//            }
+        default:
+            break
         }
     }
     
