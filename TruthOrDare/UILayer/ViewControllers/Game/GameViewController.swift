@@ -23,8 +23,11 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // Storyboard related UI elements.
     @IBOutlet weak var numberOfPlayers: UILabel!
+    @IBOutlet weak var buttonsStackView: UIStackView!
     @IBOutlet weak var dareButton: UIButton!
     @IBOutlet weak var truthButton: UIButton!
+    @IBOutlet weak var finishDare: UIButton!
+    @IBOutlet weak var finishTruth: UIButton!
     
     // Code initialized UI elements.
     private var playerNameView: UIView!             // Player circle
@@ -42,6 +45,8 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
 
         // Initial number of players, set to 0.
         self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
+        self.finishDare.isHidden = true
+        self.finishTruth.isHidden = true
         
         // Setup label, circle and little player circles.
         self.setupPlayerNameLabel()
@@ -90,9 +95,32 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         self.playerNameLabel.text = self.game.activateDare()
     }
     
+    @IBAction func onFinishDare(_ sender: Any) {
+        self.finishDare.isHidden = true
+        self.dareButton.isHidden = false
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.backgroundColor = .white
+            self.playerNameView.addElevation()
+            self.truthButton.isHidden = false
+        })
+    }
+    
     @IBAction func onTruth(_ sender: Any) {
         self.playerNameLabel.text = self.game.activateTruth()
     }
+    
+    @IBAction func onFinishTruth(_ sender: Any) {
+        self.finishTruth.isHidden = true
+        self.truthButton.isHidden = false
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.backgroundColor = .white
+            self.playerNameView.addElevation()
+            self.dareButton.isHidden = false
+          
+        })
+    }
+    
     
     private func setupPlayerNameView() {
         let width = self.view.frame.width - 140
@@ -250,15 +278,25 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         case .ended:
             if playerNameViewXPosition > UIScreen.main.bounds.width - view.frame.width / 3 {
                 self.playerNameLabel.text = self.game.activateTruth()
-                self.playerNameView.removeElevation()
-                UIView.animate(withDuration: 0.3, animations: {
+                
+                self.dareButton.isHidden = true
+                UIView.animate(withDuration: 0.4, animations: {
+                    self.playerNameView.removeElevation()
                     self.view.backgroundColor = self.game.getPlayer()?.getColor()
+                    
+                    self.truthButton.isHidden = true
+                    self.finishTruth.isHidden = false
                 })
             } else if playerNameViewXPosition < 0 + view.frame.width / 3 {
                 self.playerNameLabel.text = self.game.activateDare()
-                self.playerNameView.removeElevation()
-                UIView.animate(withDuration: 0.3, animations: {
+                
+                self.truthButton.isHidden = true
+                UIView.animate(withDuration: 0.4, animations: {
+                    self.playerNameView.removeElevation()
                     self.view.backgroundColor = self.game.getPlayer()?.getColor()
+                    
+                    self.dareButton.isHidden = true
+                    self.finishDare.isHidden = false
                 })
             }
         default:
