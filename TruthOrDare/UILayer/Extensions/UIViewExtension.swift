@@ -15,4 +15,11 @@ extension UIView {
         self.layer.shadowOffset = .zero
         self.layer.shadowRadius = 10
     }
+    
+    func removeElevation() {
+        self.layer.shadowColor = .none
+        self.layer.shadowOpacity = 0
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = 0
+    }
 }

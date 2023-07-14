@@ -30,13 +30,12 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     private var playerNameView: UIView!             // Player circle
     private var playerNameLabel: UILabel!           // Player label - name or empty
     private var allPlayersView: UIView!             // Circles of all players
-    private var backgroundColorView: UIView?        // Background color of the whole self.view
     
     // Constraints.
-    var playerNameViewWidthAnchorConstraint: NSLayoutConstraint!
-    var playerNameViewHeightAnchorConstraint: NSLayoutConstraint!
+    private var playerNameViewWidthAnchorConstraint: NSLayoutConstraint!
+    private var playerNameViewHeightAnchorConstraint: NSLayoutConstraint!
     
-    var newX: CGFloat = 0
+    private var playerNameViewXPosition: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,10 +149,14 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     private func showPlayerNameLabel(hasPlayers: Bool) {
         self.playerNameLabel.font = hasPlayers ? UIFont.systemFont(ofSize: 30, weight: .heavy) : UIFont.systemFont(ofSize: 14, weight: .regular)
         self.view.addSubview(self.playerNameLabel)
+        self.playerNameLabel.textAlignment = .center
+        self.playerNameLabel.numberOfLines = .max
         
         NSLayoutConstraint.activate([
             self.playerNameLabel.centerXAnchor.constraint(equalTo: hasPlayers ? self.playerNameView.centerXAnchor : self.view.centerXAnchor),
-            self.playerNameLabel.centerYAnchor.constraint(equalTo: hasPlayers ? self.playerNameView.centerYAnchor : self.view.centerYAnchor)
+            self.playerNameLabel.centerYAnchor.constraint(equalTo: hasPlayers ? self.playerNameView.centerYAnchor : self.view.centerYAnchor),
+            self.playerNameLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
+            self.playerNameLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30)
         ])
     }
 
@@ -241,32 +244,23 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         switch gestureRecognizer.state {
         case .changed:
             let translation = gestureRecognizer.translation(in: view.superview)
-            newX = view.center.x + translation.x
-            view.center.x = newX
+            playerNameViewXPosition = view.center.x + translation.x
+            view.center.x = playerNameViewXPosition
             gestureRecognizer.setTranslation(.zero, in: view.superview)
         case .ended:
-            if newX > UIScreen.main.bounds.width - view.frame.width / 3 {
-                print("truth")
+            if playerNameViewXPosition > UIScreen.main.bounds.width - view.frame.width / 3 {
                 self.playerNameLabel.text = self.game.activateTruth()
-            } else if newX < 0 + view.frame.width / 3 {
-                print("dare")
+                self.playerNameView.removeElevation()
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.view.backgroundColor = self.game.getPlayer()?.getColor()
+                })
+            } else if playerNameViewXPosition < 0 + view.frame.width / 3 {
                 self.playerNameLabel.text = self.game.activateDare()
+                self.playerNameView.removeElevation()
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.view.backgroundColor = self.game.getPlayer()?.getColor()
+                })
             }
-   
-//            print(translation.x)
-//            if translation.x > 0 {
-//                self.playerNameLabel.text = self.game.activateTruth()
-//                // Swiped to the right
-//                UIView.animate(withDuration: 0.2) {
-//                    self.playerNameView.frame.origin.x = UIScreen.main.bounds.width
-//                }
-//            } else if translation.x < 0 {
-//                self.playerNameLabel.text = self.game.activateDare()
-//                // Swiped to the left
-//                UIView.animate(withDuration: 0.2) {
-//                    self.playerNameView.frame.origin.x = -self.playerNameView.frame.width
-//                }
-//            }
         default:
             break
         }
