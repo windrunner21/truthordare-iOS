@@ -27,6 +27,7 @@
 		CAE031D42A5CA1510089E839 /* AddPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031D32A5CA1510089E839 /* AddPlayerView.swift */; };
 		CAE031D82A5D37680089E839 /* PlayerPropertyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031D72A5D37680089E839 /* PlayerPropertyType.swift */; };
 		CAE031DA2A5E6FF80089E839 /* PlayerColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031D92A5E6FF80089E839 /* PlayerColor.swift */; };
+		CAE031E02A61847E0089E839 /* RoundType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031DF2A61847E0089E839 /* RoundType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		CAE031D32A5CA1510089E839 /* AddPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerView.swift; sourceTree = "<group>"; };
 		CAE031D72A5D37680089E839 /* PlayerPropertyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPropertyType.swift; sourceTree = "<group>"; };
 		CAE031D92A5E6FF80089E839 /* PlayerColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerColor.swift; sourceTree = "<group>"; };
+		CAE031DF2A61847E0089E839 /* RoundType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 			children = (
 				CAE031D72A5D37680089E839 /* PlayerPropertyType.swift */,
 				CAE031D92A5E6FF80089E839 /* PlayerColor.swift */,
+				CAE031DF2A61847E0089E839 /* RoundType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				CAE031D42A5CA1510089E839 /* AddPlayerView.swift in Sources */,
 				CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */,
 				CAE031C52A5C39220089E839 /* Player.swift in Sources */,
+				CAE031E02A61847E0089E839 /* RoundType.swift in Sources */,
 				CAE031CD2A5C681B0089E839 /* UIViewExtension.swift in Sources */,
 				CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */,
 				CAE031D82A5D37680089E839 /* PlayerPropertyType.swift in Sources */,

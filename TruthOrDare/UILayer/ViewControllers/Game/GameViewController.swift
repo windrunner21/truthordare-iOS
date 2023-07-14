@@ -93,20 +93,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func onDare(_ sender: Any) {
         if self.game.isRoundActive() {
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.backgroundColor = .white
-                self.playerNameView.addElevation()
-                self.truthButton.isHidden = false
-                self.dareButton.setTitle("Dare", for: .normal)
-                self.dareButton.setImage(UIImage(systemName: "arrow.left"), for: .normal)
-                self.playerNameView.isHidden = false
-                self.cleanupRoundDetails()
-            })
-            
-            self.game.finishRound()
-            if let player = self.game.getCurrentPlayer() {
-                self.setPlayerNameView(with: player)
-            }
+            cleanupUpdatedScreen(with: .dare)
         } else {
             self.playerNameLabel.text = self.game.activateDare()
         }
@@ -114,20 +101,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func onTruth(_ sender: Any) {
         if self.game.isRoundActive() {
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.backgroundColor = .white
-                self.playerNameView.addElevation()
-                self.dareButton.isHidden = false
-                self.truthButton.setTitle("Truth", for: .normal)
-                self.truthButton.setImage(UIImage(systemName: "arrow.right"), for: .normal)
-                self.playerNameView.isHidden = false
-                self.cleanupRoundDetails()
-            })
-            
-            self.game.finishRound()
-            if let player = self.game.getCurrentPlayer() {
-                self.setPlayerNameView(with: player)
-            }
+            cleanupUpdatedScreen(with: .truth)
         } else {
             self.playerNameLabel.text = self.game.activateTruth()
         }
@@ -262,15 +236,9 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func handlePlayer(_ player: Player?) {
-        guard let player = player else {
-            print("Could not get player.")
-            return
-        }
+        guard let player = player else { return }
         
-        guard shouldAddPlayer else {
-            print("Cannot add new player. Max capacity.")
-            return
-        }
+        guard shouldAddPlayer else { return }
 
         // Do it only once.
         if game.getNumberOfPlayers() == 0 {
@@ -278,7 +246,6 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
             self.removePlayerNameLabel(hasPlayers: false)
             self.showPlayerNameLabel(hasPlayers: true)
         }
-
    
         self.game.addPlayer(player)
         
@@ -286,7 +253,6 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         self.setPlayerNameView(with: player)
         self.populateAllPlayersView()
         self.shouldDisableActionButtons()
-
     }
     
     private func setPlayerNameView(with player: Player) {
@@ -314,38 +280,10 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         case .ended:
             if playerNameViewXPosition > UIScreen.main.bounds.width - view.frame.width / 3 {
                 self.playerNameLabel.text = self.game.activateTruth()
-    
-                UIView.animate(withDuration: 0.4, animations: {
-                    self.playerNameView.removeElevation()
-                    self.view.backgroundColor = self.game.getCurrentPlayer()?.getColor()
-                    
-                    self.dareButton.isHidden = true
-                    self.truthButton.setTitle("Next", for: .normal)
-                    self.truthButton.imageView?.image = nil
-                    self.truthButton.setImage(nil, for: .normal)
-                    
-                    self.playerNameView.isHidden = true
-                    
-                    self.roundTypeLabel.text = "Truth"
-                    self.roundNameLabel.text = self.game.getCurrentPlayer()?.getName()
-                })
+                self.updateScreen(with: .truth)
             } else if playerNameViewXPosition < 0 + view.frame.width / 3 {
                 self.playerNameLabel.text = self.game.activateDare()
-                
-                UIView.animate(withDuration: 0.4, animations: {
-                    self.playerNameView.removeElevation()
-                    self.view.backgroundColor = self.game.getCurrentPlayer()?.getColor()
-                    
-                    self.truthButton.isHidden = true
-                    self.dareButton.setTitle("Next", for: .normal)
-                    self.dareButton.imageView?.image = nil
-                    self.dareButton.setImage(nil, for: .normal)
-                    
-                    self.playerNameView.isHidden = true
-                    
-                    self.roundTypeLabel.text = "Dare"
-                    self.roundNameLabel.text = self.game.getCurrentPlayer()?.getName()
-                })
+                self.updateScreen(with: .dare)
             }
         default:
             break
@@ -369,6 +307,48 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         default:
             break
         }
+    }
+    
+    // Utilities. SSoT functions.
+    private func cleanupUpdatedScreen(with type: RoundType) {
+        let mainButton = type == .truth ? self.truthButton : self.dareButton
+        let hiddenButton = type == .truth ? self.dareButton : self.truthButton
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.backgroundColor = .white
+            self.playerNameView.addElevation()
+            
+            hiddenButton?.isHidden = false
+            mainButton?.setTitle(type == .truth ? "Truth" : "Dare", for: .normal)
+            mainButton?.setImage(UIImage(systemName: type == .truth ? "arrow.right" : "arrow.left"), for: .normal)
+            
+            self.playerNameView.isHidden = false
+            self.cleanupRoundDetails()
+        })
+        
+        self.game.finishRound()
+        if let player = self.game.getCurrentPlayer() {
+            self.setPlayerNameView(with: player)
+        }
+    }
+    
+    private func updateScreen(with type: RoundType) {
+        let mainButton = type == .truth ? self.truthButton : self.dareButton
+        let hideButton = type == .truth ? self.dareButton : self.truthButton
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.playerNameView.removeElevation()
+            self.view.backgroundColor = self.game.getCurrentPlayer()?.getColor()
+            
+            hideButton?.isHidden = true
+            mainButton?.setTitle("Next", for: .normal)
+            mainButton?.setImage(nil, for: .normal)
+            
+            self.playerNameView.isHidden = true
+            
+            self.roundTypeLabel.text = type == .truth ? "Truth" : "Dare"
+            self.roundNameLabel.text = self.game.getCurrentPlayer()?.getName()
+        })
     }
     
     private func cleanupRoundDetails() {
