@@ -21,8 +21,8 @@ class Game {
         self.players = []
         self.isActiveRound = false
         
-        self.truthPool = ["Merhaba Usame abi nasilsiniz?", "nurlan geldi mi", "sonuç?"]
-        self.darePool = ["bişeyler yapsın raşit", "bunu ekrem için açtım", "sen dikkate alma"]
+        self.truthPool = ["Truth #1", "Truth #2", "Truth #3", "Truth #4", "Truth #5", "Truth #6"]
+        self.darePool = ["Dare #1", "Dare #2", "Dare #3", "Dare #4", "Dare #5", "Dare #6", "Dare #7"]
     }
     
     func getNumberOfPlayers() -> Int {
