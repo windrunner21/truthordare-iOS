@@ -47,6 +47,10 @@ class AddPlayerView: UIView, UITextFieldDelegate {
         // Setting up UI elements.
         self.setupPlayerColorPopUp()
         self.setupPlayerNameTextField()
+        
+        if self.playerColorPopUp.menu?.selectedElements[0].title == "Gray" {
+            self.player.setColor(to: PlayerColor.gray.color)
+        }
     }
     
     func show() {
@@ -62,7 +66,7 @@ class AddPlayerView: UIView, UITextFieldDelegate {
     }
     
     @IBAction func onAddPlayer(_ sender: Any) {
-        if let playerName = playerNameTextField.text, !playerName.isEmpty {
+        if let playerName = self.playerNameTextField.text, !playerName.isEmpty {
             self.player.setName(to: playerName)
         }
         
@@ -78,9 +82,14 @@ class AddPlayerView: UIView, UITextFieldDelegate {
     private func setupPlayerColorPopUp() {
         var children: [UIAction] = []
         for color in PlayerColor.allCases {
-            children.append( UIAction(title: color.label, handler: { _ in
-                self.player.setColor(to: color.color)
-            }))
+            children.append(
+                UIAction(
+                    title: color.label,
+                    handler: { _ in
+                        self.player.setColor(to: color.color)
+                    }
+                )
+            )
         }
         
         playerColorPopUp.menu = UIMenu(children: children)

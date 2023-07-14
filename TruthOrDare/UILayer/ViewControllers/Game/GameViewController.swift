@@ -292,7 +292,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     private func setPlayerNameView(with player: Player) {
         self.playerNameLabel.text = player.getName()
         self.playerNameView.backgroundColor = player.getColor()
-        self.playerNameLabel.textColor = player.getColor() == .black ? .white : .black
+        self.playerNameLabel.textColor = .black
     }
     
     private func shouldDisableActionButtons() {

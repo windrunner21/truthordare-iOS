@@ -13,7 +13,7 @@ class Player {
     private var color: UIColor
     
     convenience init() {
-        self.init(name: Player.generateRandomPlayerName(), color: .black)
+        self.init(name: Player.generateRandomPlayerName(), color: .white)
     }
     
     init(name: String, color: UIColor) {
