@@ -19,16 +19,6 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LnS-Is-ZHK">
                                 <rect key="frame" x="30" y="503.5" width="260" height="34.5"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiD-F4-dNX">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Finish Dare">
-                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="onFinishDare:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AWn-Ea-0fN"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Skv-58-0tu">
                                         <rect key="frame" x="0.0" y="0.0" width="115" height="34.5"/>
                                         <state key="normal" title="Button"/>
@@ -47,16 +37,6 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="onTruth:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4Ac-dl-Ei5"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCN-ft-TJv">
-                                        <rect key="frame" x="260" y="0.0" width="0.0" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Finish Truth">
-                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="onFinishTruth:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="n9O-PR-u3f"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -107,8 +87,6 @@
                     <connections>
                         <outlet property="buttonsStackView" destination="LnS-Is-ZHK" id="NCA-Cp-EX6"/>
                         <outlet property="dareButton" destination="Skv-58-0tu" id="rHK-TV-9LJ"/>
-                        <outlet property="finishDare" destination="qiD-F4-dNX" id="RCa-Pf-M37"/>
-                        <outlet property="finishTruth" destination="nCN-ft-TJv" id="spO-UD-1Ph"/>
                         <outlet property="numberOfPlayers" destination="Jdg-5P-Hrz" id="pcG-Zf-DWR"/>
                         <outlet property="truthButton" destination="xzZ-e7-kPC" id="GEn-th-2M3"/>
                     </connections>

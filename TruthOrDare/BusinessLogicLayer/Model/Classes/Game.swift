@@ -15,8 +15,12 @@ class Game {
     private var darePool: [String]
     private var currentOption: String?
     
+    private var isActiveRound: Bool
+    
     init() {
         self.players = []
+        self.isActiveRound = false
+        
         self.truthPool = ["Merhaba Usame abi nasilsiniz?", "nurlan geldi mi", "sonuç?"]
         self.darePool = ["bişeyler yapsın raşit", "bunu ekrem için açtım", "sen dikkate alma"]
     }
@@ -42,16 +46,26 @@ class Game {
         !self.players.isEmpty
     }
     
+    func isRoundActive() -> Bool {
+        self.isActiveRound
+    }
+    
+    func finishRound() {
+        self.isActiveRound = false
+    }
+    
     func activateTruth() -> String {
-        guard let currentPlayer = currentPlayer else { return String() }
+        guard currentPlayer != nil else { return String() }
         self.currentOption = self.truthPool.randomElement()
+        self.isActiveRound = true
         
         return self.currentOption!
     }
     
     func activateDare() -> String {
-        guard let currentPlayer = currentPlayer else { return String() }
+        guard currentPlayer != nil else { return String() }
         self.currentOption = self.darePool.randomElement()
+        self.isActiveRound = true
         
         return self.currentOption!
     }
