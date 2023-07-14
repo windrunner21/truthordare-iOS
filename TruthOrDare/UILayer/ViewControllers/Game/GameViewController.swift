@@ -8,7 +8,6 @@
 import UIKit
 import Combine
 
-// TODO: inspect if can refactor major funcs into seperate UI classes.
 class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     // Combine related variable for listening to changes. Sub part.
     private var playerSubscriber: AnyCancellable?
@@ -22,8 +21,9 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     private var currentColumn: Int = 0
     
     // Storyboard related UI elements.
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var totalPlayersButton: UIButton!
     @IBOutlet weak var numberOfPlayers: UILabel!
-    @IBOutlet weak var buttonsStackView: UIStackView!
     @IBOutlet weak var dareButton: UIButton!
     @IBOutlet weak var truthButton: UIButton!
     
@@ -31,6 +31,8 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     private var playerNameView: UIView!             // Player circle
     private var playerNameLabel: UILabel!           // Player label - name or empty
     private var allPlayersView: UIView!             // Circles of all players
+    private var roundTypeLabel: UILabel!            // Truth or dare
+    private var roundNameLabel: UILabel!            // Player name
     
     // Constraints.
     private var playerNameViewWidthAnchorConstraint: NSLayoutConstraint!
@@ -48,6 +50,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         self.setupPlayerNameLabel()
         self.setupPlayerNameView()
         self.setupAllPlayersView()
+        self.setupRoundDetailsView()
         
         // Setup GestureRecognizers for player name view, circle.
         self.setupGestureRecognizersForPlayerNameView()
@@ -57,6 +60,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         self.showPlayerNameLabel(hasPlayers: false)
         self.playerNameLabel.text = "Add players to start playing..."
         
+        // Check if there are players in the game.
         self.shouldDisableActionButtons()
     }
     
@@ -88,28 +92,42 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func onDare(_ sender: Any) {
-        if game.isRoundActive() {
+        if self.game.isRoundActive() {
             UIView.animate(withDuration: 0.3, animations: {
                 self.view.backgroundColor = .white
                 self.playerNameView.addElevation()
                 self.truthButton.isHidden = false
+                self.dareButton.setTitle("Dare", for: .normal)
+                self.dareButton.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+                self.playerNameView.isHidden = false
+                self.cleanupRoundDetails()
             })
             
-            game.finishRound()
+            self.game.finishRound()
+            if let player = self.game.getCurrentPlayer() {
+                self.setPlayerNameView(with: player)
+            }
         } else {
             self.playerNameLabel.text = self.game.activateDare()
         }
     }
     
     @IBAction func onTruth(_ sender: Any) {
-        if game.isRoundActive() {
+        if self.game.isRoundActive() {
             UIView.animate(withDuration: 0.3, animations: {
                 self.view.backgroundColor = .white
                 self.playerNameView.addElevation()
                 self.dareButton.isHidden = false
+                self.truthButton.setTitle("Truth", for: .normal)
+                self.truthButton.setImage(UIImage(systemName: "arrow.right"), for: .normal)
+                self.playerNameView.isHidden = false
+                self.cleanupRoundDetails()
             })
             
-            game.finishRound()
+            self.game.finishRound()
+            if let player = self.game.getCurrentPlayer() {
+                self.setPlayerNameView(with: player)
+            }
         } else {
             self.playerNameLabel.text = self.game.activateTruth()
         }
@@ -157,6 +175,28 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         ])
     }
     
+    private func setupRoundDetailsView() {
+        self.roundNameLabel = UILabel()
+        self.roundTypeLabel = UILabel()
+        
+        self.roundTypeLabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+        self.roundNameLabel.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
+        
+        self.roundNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.roundTypeLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(roundNameLabel)
+        self.view.addSubview(roundTypeLabel)
+        
+        NSLayoutConstraint.activate([
+            self.roundNameLabel.topAnchor.constraint(equalTo: self.backButton.bottomAnchor, constant: 30),
+            self.roundNameLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
+            self.roundNameLabel.trailingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -30),
+            self.roundTypeLabel.topAnchor.constraint(equalTo: self.roundNameLabel.bottomAnchor, constant: 5),
+            self.roundTypeLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
+            self.roundTypeLabel.trailingAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -30)
+        ])
+    }
+    
     private func setupGestureRecognizersForPlayerNameView() {
         let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(tapPlayerNameView))
         tapGesture.minimumPressDuration = 0
@@ -201,6 +241,8 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         playerView.frame.size = CGSize(width: circleSize, height: circleSize)
         playerView.layer.cornerRadius = circleSize / 2
         playerView.backgroundColor = player.getColor()
+        playerView.layer.borderWidth = 2
+        playerView.layer.borderColor = UIColor.white.cgColor
         
         let x = maxWidth - (circleSize + spacing) * CGFloat(self.currentColumn)
         let y = (circleSize + spacing) * CGFloat(self.currentRow)
@@ -256,6 +298,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     private func shouldDisableActionButtons() {
         self.truthButton.isEnabled = self.game.hasPlayers()
         self.dareButton.isEnabled = self.game.hasPlayers()
+        self.totalPlayersButton.isEnabled = self.game.hasPlayers()
     }
     
     // Objective-C (Selector) functions.
@@ -274,18 +317,34 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
                 UIView.animate(withDuration: 0.4, animations: {
                     self.playerNameView.removeElevation()
-                    self.view.backgroundColor = self.game.getPlayer()?.getColor()
+                    self.view.backgroundColor = self.game.getCurrentPlayer()?.getColor()
                     
                     self.dareButton.isHidden = true
+                    self.truthButton.setTitle("Next", for: .normal)
+                    self.truthButton.imageView?.image = nil
+                    self.truthButton.setImage(nil, for: .normal)
+                    
+                    self.playerNameView.isHidden = true
+                    
+                    self.roundTypeLabel.text = "Truth"
+                    self.roundNameLabel.text = self.game.getCurrentPlayer()?.getName()
                 })
             } else if playerNameViewXPosition < 0 + view.frame.width / 3 {
                 self.playerNameLabel.text = self.game.activateDare()
                 
                 UIView.animate(withDuration: 0.4, animations: {
                     self.playerNameView.removeElevation()
-                    self.view.backgroundColor = self.game.getPlayer()?.getColor()
+                    self.view.backgroundColor = self.game.getCurrentPlayer()?.getColor()
                     
                     self.truthButton.isHidden = true
+                    self.dareButton.setTitle("Next", for: .normal)
+                    self.dareButton.imageView?.image = nil
+                    self.dareButton.setImage(nil, for: .normal)
+                    
+                    self.playerNameView.isHidden = true
+                    
+                    self.roundTypeLabel.text = "Dare"
+                    self.roundNameLabel.text = self.game.getCurrentPlayer()?.getName()
                 })
             }
         default:
@@ -310,5 +369,10 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         default:
             break
         }
+    }
+    
+    private func cleanupRoundDetails() {
+        self.roundTypeLabel.text = String()
+        self.roundNameLabel.text = String()
     }
 }

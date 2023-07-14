@@ -168,7 +168,7 @@
 		CAE031B12A5C23DA0089E839 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
-				CAE031CE2A5CA0810089E839 /* Utils */,
+				CAE031CE2A5CA0810089E839 /* Views */,
 				CAE031CB2A5C680B0089E839 /* Extensions */,
 				CAE031B42A5C25D80089E839 /* ViewControllers */,
 				CAE031B32A5C25D20089E839 /* Storyboards */,
@@ -270,13 +270,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		CAE031CE2A5CA0810089E839 /* Utils */ = {
+		CAE031CE2A5CA0810089E839 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				CAE031CF2A5CA0860089E839 /* Views */,
 				CAE031D02A5CA08B0089E839 /* UIViews */,
 			);
-			path = Utils;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CAE031CF2A5CA0860089E839 /* Views */ = {

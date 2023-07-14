@@ -34,8 +34,8 @@ class Game {
         self.currentPlayer = player
     }
     
-    func getPlayer() -> Player? {
-        self.players.randomElement()
+    func getCurrentPlayer() -> Player? {
+        self.currentPlayer
     }
     
     func getAllPlayers() -> [Player] {
@@ -52,6 +52,7 @@ class Game {
     
     func finishRound() {
         self.isActiveRound = false
+        self.currentPlayer = players.randomElement()
     }
     
     func activateTruth() -> String {

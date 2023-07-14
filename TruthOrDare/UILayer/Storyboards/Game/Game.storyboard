@@ -69,6 +69,14 @@
                                     <action selector="onBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="n0I-Yb-Fec"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdc-lf-TMf">
+                                <rect key="frame" x="235.5" y="50" width="25" height="24"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="square.grid.3x3.square" catalog="system">
+                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,7 +84,9 @@
                             <constraint firstItem="BNr-oj-6CT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="0ji-5r-Ga3"/>
                             <constraint firstItem="LnS-Is-ZHK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="43s-40-HAP"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LnS-Is-ZHK" secondAttribute="trailing" constant="30" id="4R4-6O-Qyf"/>
+                            <constraint firstItem="rdc-lf-TMf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="6P4-SG-Gtf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LnS-Is-ZHK" secondAttribute="bottom" constant="30" id="EJu-sE-0MG"/>
+                            <constraint firstItem="T9S-MT-iEr" firstAttribute="leading" secondItem="rdc-lf-TMf" secondAttribute="trailing" constant="5" id="Kt6-HY-osw"/>
                             <constraint firstItem="Jdg-5P-Hrz" firstAttribute="top" secondItem="T9S-MT-iEr" secondAttribute="bottom" constant="5" id="W2I-Nb-dFl"/>
                             <constraint firstItem="BNr-oj-6CT" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="cJd-WZ-Omc"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="T9S-MT-iEr" secondAttribute="trailing" constant="30" id="g9c-K9-Q4v"/>
@@ -85,9 +95,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buttonsStackView" destination="LnS-Is-ZHK" id="NCA-Cp-EX6"/>
+                        <outlet property="backButton" destination="BNr-oj-6CT" id="7v1-MP-w3W"/>
                         <outlet property="dareButton" destination="Skv-58-0tu" id="rHK-TV-9LJ"/>
                         <outlet property="numberOfPlayers" destination="Jdg-5P-Hrz" id="pcG-Zf-DWR"/>
+                        <outlet property="totalPlayersButton" destination="rdc-lf-TMf" id="vHi-GK-wxS"/>
                         <outlet property="truthButton" destination="xzZ-e7-kPC" id="GEn-th-2M3"/>
                     </connections>
                 </viewController>
@@ -101,5 +112,6 @@
         <image name="arrow.left" catalog="system" width="128" height="95"/>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
+        <image name="square.grid.3x3.square" catalog="system" width="128" height="114"/>
     </resources>
 </document>
