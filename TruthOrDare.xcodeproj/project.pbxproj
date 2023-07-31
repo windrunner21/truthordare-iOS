@@ -188,6 +188,7 @@
 		CAE031B32A5C25D20089E839 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				CAFFE0482A77B527008BA04B /* Settings */,
 				CAE031B92A5C35D90089E839 /* Menu */,
 				CAE031B62A5C2F960089E839 /* Game */,
 				CAE031B52A5C25E30089E839 /* Launch */,
@@ -198,6 +199,7 @@
 		CAE031B42A5C25D80089E839 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CAFFE0492A77B531008BA04B /* Settings */,
 				CAE031BB2A5C35E20089E839 /* Game */,
 				CAE031BA2A5C35E00089E839 /* Menu */,
 			);
@@ -216,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				CAE031B72A5C2F9D0089E839 /* Game.storyboard */,
-				CAE031C72A5C65B70089E839 /* Settings.storyboard */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -241,7 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				CAE031BC2A5C35F00089E839 /* GameViewController.swift */,
-				CAE031C92A5C65E00089E839 /* SettingsViewController.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -305,6 +305,22 @@
 				CAE031DF2A61847E0089E839 /* RoundType.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		CAFFE0482A77B527008BA04B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031C72A5C65B70089E839 /* Settings.storyboard */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		CAFFE0492A77B531008BA04B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CAE031C92A5C65E00089E839 /* SettingsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
