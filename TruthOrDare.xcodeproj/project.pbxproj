@@ -28,6 +28,9 @@
 		CAE031D82A5D37680089E839 /* PlayerPropertyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031D72A5D37680089E839 /* PlayerPropertyType.swift */; };
 		CAE031DA2A5E6FF80089E839 /* PlayerColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031D92A5E6FF80089E839 /* PlayerColor.swift */; };
 		CAE031E02A61847E0089E839 /* RoundType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031DF2A61847E0089E839 /* RoundType.swift */; };
+		CAFFE04B2A77F76C008BA04B /* GameSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFFE04A2A77F76C008BA04B /* GameSettings.storyboard */; };
+		CAFFE04D2A77F77C008BA04B /* GPTSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFFE04C2A77F77C008BA04B /* GPTSettings.storyboard */; };
+		CAFFE04F2A77F784008BA04B /* CustomSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFFE04E2A77F784008BA04B /* CustomSettings.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		CAE031D72A5D37680089E839 /* PlayerPropertyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPropertyType.swift; sourceTree = "<group>"; };
 		CAE031D92A5E6FF80089E839 /* PlayerColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerColor.swift; sourceTree = "<group>"; };
 		CAE031DF2A61847E0089E839 /* RoundType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundType.swift; sourceTree = "<group>"; };
+		CAFFE04A2A77F76C008BA04B /* GameSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameSettings.storyboard; sourceTree = "<group>"; };
+		CAFFE04C2A77F77C008BA04B /* GPTSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GPTSettings.storyboard; sourceTree = "<group>"; };
+		CAFFE04E2A77F784008BA04B /* CustomSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomSettings.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +317,9 @@
 			isa = PBXGroup;
 			children = (
 				CAE031C72A5C65B70089E839 /* Settings.storyboard */,
+				CAFFE04A2A77F76C008BA04B /* GameSettings.storyboard */,
+				CAFFE04C2A77F77C008BA04B /* GPTSettings.storyboard */,
+				CAFFE04E2A77F784008BA04B /* CustomSettings.storyboard */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -428,8 +437,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE031B82A5C2F9D0089E839 /* Game.storyboard in Resources */,
+				CAFFE04D2A77F77C008BA04B /* GPTSettings.storyboard in Resources */,
 				CAE0318C2A5C21CB0089E839 /* LaunchScreen.storyboard in Resources */,
+				CAFFE04B2A77F76C008BA04B /* GameSettings.storyboard in Resources */,
 				CAE031D22A5CA11F0089E839 /* AddPlayer.xib in Resources */,
+				CAFFE04F2A77F784008BA04B /* CustomSettings.storyboard in Resources */,
 				CAE031892A5C21CB0089E839 /* Assets.xcassets in Resources */,
 				CAE031872A5C21CA0089E839 /* Main.storyboard in Resources */,
 				CAE031C82A5C65B70089E839 /* Settings.storyboard in Resources */,
