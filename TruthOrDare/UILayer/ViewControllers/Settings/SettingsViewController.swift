@@ -9,6 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    // Storyboard related properties.
     @IBOutlet weak var gameModeStackView: UIStackView!
     @IBOutlet weak var chatGPTStackView: UIStackView!
     @IBOutlet weak var customStackView: UIStackView!
@@ -31,24 +32,33 @@ class SettingsViewController: UIViewController {
     }
     
     @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        var storyboard: UIStoryboard
+        var viewContoller: UIViewController
+        
         switch gestureRecognizer.view {
         case self.gameModeStackView:
-            self.handleViewChange(for: self.gameModeStackView, and: gestureRecognizer)
+            storyboard = UIStoryboard(name: "GameSettings", bundle: .main)
+            viewContoller = storyboard.instantiateViewController(identifier: "GameSettingsScreen")
+            self.handleViewChange(for: self.gameModeStackView, using: gestureRecognizer, changetTo: viewContoller)
         case self.chatGPTStackView:
-            self.handleViewChange(for: self.chatGPTStackView, and: gestureRecognizer)
+            storyboard = UIStoryboard(name: "GPTSettings", bundle: .main)
+            viewContoller = storyboard.instantiateViewController(identifier: "GPTSettingsScreen")
+            self.handleViewChange(for: self.chatGPTStackView, using: gestureRecognizer, changetTo: viewContoller)
         case self.customStackView:
-            self.handleViewChange(for: self.customStackView, and: gestureRecognizer)
+            storyboard = UIStoryboard(name: "CustomSettings", bundle: .main)
+            viewContoller = storyboard.instantiateViewController(identifier: "CustomSettingsScreen")
+            self.handleViewChange(for: self.customStackView, using: gestureRecognizer, changetTo: viewContoller)
         default:
             break
         }
     }
     
-    private func handleViewChange(for view: UIStackView, and recognizer: UIGestureRecognizer) {
+    private func handleViewChange(for view: UIStackView, using recognizer: UIGestureRecognizer, changetTo viewController: UIViewController) {
         switch recognizer.state {
         case .began, .changed:
             view.backgroundColor = .systemGray6
         case .ended:
-            print("tapped 5")
+            self.navigationController?.pushViewController(viewController, animated: true)
             view.backgroundColor = .white
         default:
             view.backgroundColor = .white

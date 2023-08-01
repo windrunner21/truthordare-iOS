@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="GPTSettingsScreen" id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GPTSettingsScreen" id="Y6W-OH-hqX" customClass="GPTSettingsViewController" customModule="TruthOrDare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,10 +24,19 @@
                                 <buttonConfiguration key="configuration" style="plain" image="arrow.left.square" catalog="system">
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="onBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CJf-VT-W5Z"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ChatGPT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwi-os-lRo">
                                 <rect key="frame" x="30" y="104" width="85" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xf0-09-EG3">
+                                <rect key="frame" x="70" y="50" width="73" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -38,7 +47,9 @@
                             <constraint firstItem="Pwi-os-lRo" firstAttribute="top" secondItem="StN-wq-Ucb" secondAttribute="bottom" constant="30" id="Oix-3Q-CU0"/>
                             <constraint firstItem="StN-wq-Ucb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Scs-ST-qyC"/>
                             <constraint firstItem="StN-wq-Ucb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="iHa-5B-hJs"/>
+                            <constraint firstItem="Xf0-09-EG3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="mhv-GQ-h5R"/>
                             <constraint firstItem="Pwi-os-lRo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="rVO-J6-dxO"/>
+                            <constraint firstItem="Xf0-09-EG3" firstAttribute="leading" secondItem="StN-wq-Ucb" secondAttribute="trailing" constant="15" id="uLm-rF-hEt"/>
                         </constraints>
                     </view>
                 </viewController>

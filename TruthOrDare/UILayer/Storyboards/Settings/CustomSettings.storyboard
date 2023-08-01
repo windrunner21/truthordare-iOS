@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Custom Settings View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="CustomSettingsScreen" id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomSettingsScreen" id="Y6W-OH-hqX" customClass="CustomSettingsViewController" customModule="TruthOrDare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,10 +24,19 @@
                                 <buttonConfiguration key="configuration" style="plain" image="arrow.left.square" catalog="system">
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="onBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YHy-8O-Mlq"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom pool" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fF-8h-lfv">
                                 <rect key="frame" x="30" y="104" width="119.5" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5x-fl-cHU">
+                                <rect key="frame" x="70" y="50" width="73" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -36,8 +45,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9jN-4P-74X" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="C5V-Fr-XEJ"/>
+                            <constraint firstItem="H5x-fl-cHU" firstAttribute="leading" secondItem="9jN-4P-74X" secondAttribute="trailing" constant="15" id="EoC-5S-F7B"/>
                             <constraint firstItem="8fF-8h-lfv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Gk8-Ua-Hzq"/>
                             <constraint firstItem="9jN-4P-74X" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="MCh-Nq-bv1"/>
+                            <constraint firstItem="H5x-fl-cHU" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="dlQ-bs-t44"/>
                             <constraint firstItem="8fF-8h-lfv" firstAttribute="top" secondItem="9jN-4P-74X" secondAttribute="bottom" constant="30" id="q5I-YF-9sf"/>
                         </constraints>
                     </view>
