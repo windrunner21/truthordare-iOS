@@ -9,13 +9,47 @@ import UIKit
 
 class GPTSettingsViewController: UIViewController {
 
+    @IBOutlet weak var truthStackView: UIStackView!
+    @IBOutlet weak var dareStackView: UIStackView!
+    
+    @IBOutlet weak var truthSwitch: UISwitch!
+    @IBOutlet weak var dareSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.addBorder(to: [truthStackView, dareStackView])
+        
+        self.truthSwitch.isOn = true
+        self.dareSwitch.isOn = true
     }
 
     @IBAction func onBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func addBorder(to stackViews: [UIStackView]) {
+        for stackView in stackViews {
+            stackView.layer.borderWidth = 1
+            stackView.layer.borderColor = UIColor.black.cgColor
+            stackView.layer.cornerRadius = 6
+        }
+    }
+    
+    
+    @IBAction func onTruthSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            print("im onn")
+        } else {
+            print("im offf")
+        }
+    }
+    
+    @IBAction func onDareSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            print("im onn 2")
+        } else {
+            print("im offf 2")
+        }
     }
 }

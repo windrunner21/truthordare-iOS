@@ -28,30 +28,101 @@
                                     <action selector="onBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YHy-8O-Mlq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom pool" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fF-8h-lfv">
-                                <rect key="frame" x="30" y="104" width="119.5" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fF-8h-lfv">
+                                <rect key="frame" x="30" y="104" width="157.5" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5x-fl-cHU">
-                                <rect key="frame" x="70" y="50" width="73" height="24"/>
+                                <rect key="frame" x="70" y="50" width="72.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="s3h-pG-z7N">
+                                <rect key="frame" x="30" y="158" width="260" height="51"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Truth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzx-yE-b0W">
+                                        <rect key="frame" x="15" y="10" width="103.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Naz-Tl-ZWL">
+                                        <rect key="frame" x="196" y="10" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="onCustomTruthSwitch:" destination="Y6W-OH-hqX" eventType="valueChanged" id="aJG-hJ-Kh0"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="3BS-33-TzL">
+                                <rect key="frame" x="30" y="224" width="260" height="51"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Dare" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y57-q4-xZP">
+                                        <rect key="frame" x="15" y="10" width="99.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="79K-xI-4Kl">
+                                        <rect key="frame" x="196" y="10" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="onCustomDareSwitch:" destination="Y6W-OH-hqX" eventType="valueChanged" id="lwe-uO-LmC"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="zvL-hX-txk">
+                                <rect key="frame" x="30" y="290" width="260" height="51"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8U-V3-Xo6">
+                                        <rect key="frame" x="15" y="10" width="84.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="clp-ve-apo">
+                                        <rect key="frame" x="196" y="10" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="onNoContentSwitch:" destination="Y6W-OH-hqX" eventType="valueChanged" id="5d5-G8-WC6"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9jN-4P-74X" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="C5V-Fr-XEJ"/>
+                            <constraint firstItem="zvL-hX-txk" firstAttribute="top" secondItem="3BS-33-TzL" secondAttribute="bottom" constant="15" id="DBj-cG-hM0"/>
                             <constraint firstItem="H5x-fl-cHU" firstAttribute="leading" secondItem="9jN-4P-74X" secondAttribute="trailing" constant="15" id="EoC-5S-F7B"/>
                             <constraint firstItem="8fF-8h-lfv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Gk8-Ua-Hzq"/>
                             <constraint firstItem="9jN-4P-74X" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="MCh-Nq-bv1"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zvL-hX-txk" secondAttribute="trailing" constant="30" id="UHP-SH-udP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3BS-33-TzL" secondAttribute="trailing" constant="30" id="VDO-S0-ltO"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="s3h-pG-z7N" secondAttribute="trailing" constant="30" id="Vhw-Hc-20Y"/>
+                            <constraint firstItem="s3h-pG-z7N" firstAttribute="top" secondItem="8fF-8h-lfv" secondAttribute="bottom" constant="30" id="Xoj-I3-TIY"/>
                             <constraint firstItem="H5x-fl-cHU" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="dlQ-bs-t44"/>
+                            <constraint firstItem="3BS-33-TzL" firstAttribute="top" secondItem="s3h-pG-z7N" secondAttribute="bottom" constant="15" id="hFp-aK-Juo"/>
+                            <constraint firstItem="s3h-pG-z7N" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="lj7-mj-pF9"/>
+                            <constraint firstItem="3BS-33-TzL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="mQH-MZ-aGR"/>
                             <constraint firstItem="8fF-8h-lfv" firstAttribute="top" secondItem="9jN-4P-74X" secondAttribute="bottom" constant="30" id="q5I-YF-9sf"/>
+                            <constraint firstItem="zvL-hX-txk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="rfA-fh-c7R"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="customDareSwitch" destination="79K-xI-4Kl" id="glo-rQ-wdV"/>
+                        <outlet property="customTruthSwitch" destination="Naz-Tl-ZWL" id="txO-gW-zdS"/>
+                        <outlet property="dareStackView" destination="3BS-33-TzL" id="0o0-XP-F8F"/>
+                        <outlet property="noContentStackView" destination="zvL-hX-txk" id="sDG-z6-ma4"/>
+                        <outlet property="noContentSwitch" destination="clp-ve-apo" id="dTS-ab-YwF"/>
+                        <outlet property="truthStackView" destination="s3h-pG-z7N" id="aPH-49-12C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

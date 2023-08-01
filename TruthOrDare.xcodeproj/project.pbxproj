@@ -10,6 +10,10 @@
 		CA2BC2602A79226C0085AC9F /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC25F2A79226C0085AC9F /* GameSettingsViewController.swift */; };
 		CA2BC2622A79227D0085AC9F /* GPTSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2612A79227D0085AC9F /* GPTSettingsViewController.swift */; };
 		CA2BC2642A7922860085AC9F /* CustomSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2632A7922860085AC9F /* CustomSettingsViewController.swift */; };
+		CA2BC2662A797A130085AC9F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2652A797A130085AC9F /* Settings.swift */; };
+		CA2BC2682A797A3A0085AC9F /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2672A797A3A0085AC9F /* GameMode.swift */; };
+		CA2BC26A2A797A980085AC9F /* ChatGPTType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2692A797A980085AC9F /* ChatGPTType.swift */; };
+		CA2BC26D2A797AC80085AC9F /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC26C2A797AC80085AC9F /* ContentType.swift */; };
 		CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */; };
 		CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031812A5C21CA0089E839 /* SceneDelegate.swift */; };
 		CAE031842A5C21CA0089E839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031832A5C21CA0089E839 /* ViewController.swift */; };
@@ -57,6 +61,10 @@
 		CA2BC25F2A79226C0085AC9F /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
 		CA2BC2612A79227D0085AC9F /* GPTSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTSettingsViewController.swift; sourceTree = "<group>"; };
 		CA2BC2632A7922860085AC9F /* CustomSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingsViewController.swift; sourceTree = "<group>"; };
+		CA2BC2652A797A130085AC9F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		CA2BC2672A797A3A0085AC9F /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
+		CA2BC2692A797A980085AC9F /* ChatGPTType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTType.swift; sourceTree = "<group>"; };
+		CA2BC26C2A797AC80085AC9F /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		CAE0317C2A5C21CA0089E839 /* TruthOrDare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruthOrDare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAE031812A5C21CA0089E839 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -272,6 +280,7 @@
 			children = (
 				CAE031C12A5C390A0089E839 /* Game.swift */,
 				CAE031C42A5C39220089E839 /* Player.swift */,
+				CA2BC2652A797A130085AC9F /* Settings.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -315,6 +324,9 @@
 				CAE031D72A5D37680089E839 /* PlayerPropertyType.swift */,
 				CAE031D92A5E6FF80089E839 /* PlayerColor.swift */,
 				CAE031DF2A61847E0089E839 /* RoundType.swift */,
+				CA2BC2672A797A3A0085AC9F /* GameMode.swift */,
+				CA2BC2692A797A980085AC9F /* ChatGPTType.swift */,
+				CA2BC26C2A797AC80085AC9F /* ContentType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -480,14 +492,18 @@
 			files = (
 				CAE031BD2A5C35F00089E839 /* GameViewController.swift in Sources */,
 				CAE031DA2A5E6FF80089E839 /* PlayerColor.swift in Sources */,
+				CA2BC26D2A797AC80085AC9F /* ContentType.swift in Sources */,
 				CAE031C22A5C390A0089E839 /* Game.swift in Sources */,
 				CA2BC2602A79226C0085AC9F /* GameSettingsViewController.swift in Sources */,
 				CAE031CA2A5C65E00089E839 /* SettingsViewController.swift in Sources */,
 				CAE031842A5C21CA0089E839 /* ViewController.swift in Sources */,
+				CA2BC26A2A797A980085AC9F /* ChatGPTType.swift in Sources */,
 				CAE031D42A5CA1510089E839 /* AddPlayerView.swift in Sources */,
 				CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */,
 				CAE031C52A5C39220089E839 /* Player.swift in Sources */,
+				CA2BC2682A797A3A0085AC9F /* GameMode.swift in Sources */,
 				CA2BC2622A79227D0085AC9F /* GPTSettingsViewController.swift in Sources */,
+				CA2BC2662A797A130085AC9F /* Settings.swift in Sources */,
 				CAE031E02A61847E0089E839 /* RoundType.swift in Sources */,
 				CA2BC2642A7922860085AC9F /* CustomSettingsViewController.swift in Sources */,
 				CAE031CD2A5C681B0089E839 /* UIViewExtension.swift in Sources */,

@@ -51,6 +51,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bxR-q8-fOU">
                                         <rect key="frame" x="196" y="10" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="onTruthSwitch:" destination="Y6W-OH-hqX" eventType="valueChanged" id="CDU-Eh-xys"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
@@ -66,6 +69,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dzf-gK-49q">
                                         <rect key="frame" x="196" y="10" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="onDareSwitch:" destination="Y6W-OH-hqX" eventType="valueChanged" id="vi0-te-0h7"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
@@ -81,6 +87,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNk-dI-N62">
                                         <rect key="frame" x="196" y="10" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="onRandomizePlayersSwitch:" destination="Y6W-OH-hqX" eventType="valueChanged" id="z9f-XE-ZxD"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
@@ -108,8 +117,11 @@
                     </view>
                     <connections>
                         <outlet property="dareStackView" destination="7vl-0X-dAi" id="IOp-Xt-d03"/>
+                        <outlet property="dareSwitch" destination="dzf-gK-49q" id="UIJ-l3-ucp"/>
+                        <outlet property="randomizePlayersSwitch" destination="DNk-dI-N62" id="QLf-a7-bxN"/>
                         <outlet property="randomizeStackView" destination="eNB-FU-UAc" id="JxN-tR-6QA"/>
                         <outlet property="truthStackView" destination="n2b-ni-hJB" id="Pio-8j-27H"/>
+                        <outlet property="truthSwitch" destination="bxR-q8-fOU" id="L5G-st-qLu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

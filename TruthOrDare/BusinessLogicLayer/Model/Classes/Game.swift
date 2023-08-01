@@ -8,6 +8,8 @@
 import Foundation
 
 class Game {
+    private var settings: Settings
+    
     private var currentPlayer: Player?
     private var players: [Player]
     
@@ -18,6 +20,8 @@ class Game {
     private var isActiveRound: Bool
     
     init() {
+        self.settings = Settings()
+        
         self.players = []
         self.isActiveRound = false
         

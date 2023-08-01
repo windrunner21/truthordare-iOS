@@ -12,12 +12,12 @@ class SettingsViewController: UIViewController {
     // Storyboard related properties.
     @IBOutlet weak var gameModeStackView: UIStackView!
     @IBOutlet weak var chatGPTStackView: UIStackView!
-    @IBOutlet weak var customStackView: UIStackView!
+    @IBOutlet weak var contentStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.addBorder(to: [gameModeStackView, chatGPTStackView, customStackView])
+        self.addBorder(to: [gameModeStackView, chatGPTStackView, contentStackView])
 
         let gameModeLongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
         gameModeLongPressGestureRecognizer.minimumPressDuration = 0
@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
 
         self.gameModeStackView.addGestureRecognizer(gameModeLongPressGestureRecognizer)
         self.chatGPTStackView.addGestureRecognizer(chatGPTLongPressGestureRecognizer)
-        self.customStackView.addGestureRecognizer(customLongPresspGestureRecognizer)
+        self.contentStackView.addGestureRecognizer(customLongPresspGestureRecognizer)
     }
     
     @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
@@ -44,10 +44,10 @@ class SettingsViewController: UIViewController {
             storyboard = UIStoryboard(name: "GPTSettings", bundle: .main)
             viewContoller = storyboard.instantiateViewController(identifier: "GPTSettingsScreen")
             self.handleViewChange(for: self.chatGPTStackView, using: gestureRecognizer, changetTo: viewContoller)
-        case self.customStackView:
+        case self.contentStackView:
             storyboard = UIStoryboard(name: "CustomSettings", bundle: .main)
             viewContoller = storyboard.instantiateViewController(identifier: "CustomSettingsScreen")
-            self.handleViewChange(for: self.customStackView, using: gestureRecognizer, changetTo: viewContoller)
+            self.handleViewChange(for: self.contentStackView, using: gestureRecognizer, changetTo: viewContoller)
         default:
             break
         }
