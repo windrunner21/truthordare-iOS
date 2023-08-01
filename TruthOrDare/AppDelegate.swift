@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.checkForSavedSettings()
         return true
     }
 
@@ -31,6 +32,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    private func checkForSavedSettings() {
+        if UserDefaults.standard.value(forKey: "settings") == nil {
+           
+            print("Trying to retrieve/set settings.")
+            
+            do {
+                let settings = Settings()
+                let encodedData = try NSKeyedArchiver.archivedData(withRootObject: settings, requiringSecureCoding: true)
+                UserDefaults.standard.set(encodedData, forKey: "settings")
+                print("Settings set successfully.")
+            } catch {
+                print(error)
+                NSLog("Cannot set initial settings. Archiving data failed.")
+                UserDefaults.standard.removeObject(forKey: "settings")
+            }
+        }
+    }
 }
 
