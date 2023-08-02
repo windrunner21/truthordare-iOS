@@ -27,25 +27,7 @@ class GameSettingsViewController: UIViewController {
         self.addBorder(to: [truthStackView, dareStackView, randomizeStackView])
         
         self.settings = Settings.retrieveSettings()
-        
-        if let settings = self.settings {
-            self.truthSwitch.isOn = settings.isTruthGameModeEnabled
-            self.dareSwitch.isOn = settings.isDareGameModeEnabled
-            self.randomizePlayersSwitch.isOn = settings.isRandomizePlayerEnabled
-        } else {
-            let alert = UIAlertController(title: "Error", message: "Could not retrieve settings", preferredStyle: .alert)
-            alert.addAction(
-                UIAlertAction(
-                    title: "OK",
-                    style: .default,
-                    handler: { _ in
-                        alert.dismiss(animated: true)
-                    }
-                )
-            )
-            
-            self.present(alert, animated: true)
-        }
+        self.setSettings()
     }
 
     @IBAction func onBack(_ sender: Any) {
@@ -75,6 +57,28 @@ class GameSettingsViewController: UIViewController {
             stackView.layer.borderWidth = 1
             stackView.layer.borderColor = UIColor.black.cgColor
             stackView.layer.cornerRadius = 6
+        }
+    }
+    
+    private func setSettings() {
+        if let settings = self.settings {
+            self.truthSwitch.isOn = settings.isTruthGameModeEnabled
+            self.dareSwitch.isOn = settings.isDareGameModeEnabled
+            self.randomizePlayersSwitch.isOn = settings.isRandomizePlayerEnabled
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Could not retrieve settings", preferredStyle: .alert)
+            alert.addAction(
+                UIAlertAction(
+                    title: "OK",
+                    style: .default,
+                    handler: { _ in
+                        UserDefaults.standard.removeObject(forKey: "settings")
+                        alert.dismiss(animated: true)
+                    }
+                )
+            )
+            
+            self.present(alert, animated: true)
         }
     }
 }

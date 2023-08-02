@@ -18,17 +18,17 @@ class CustomSettingsViewController: UIViewController {
     @IBOutlet weak var customDareSwitch: UISwitch!
     @IBOutlet weak var noContentSwitch: UISwitch!
     
+    // Other properties.
+    var settings: Settings?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.addBorder(to: [truthStackView, dareStackView, noContentStackView])
         
-        guard let settings = Settings.retrieveSettings() else { return }
-        
-        self.customTruthSwitch.isOn = settings.isCustomTruthEnabled
-        self.customDareSwitch.isOn = settings.isCustomDareEnabled
-        self.noContentSwitch.isOn = settings.isNoContentEnabled
+        self.settings = Settings.retrieveSettings()
+        self.setSettings()
     }
 
     @IBAction func onBack(_ sender: Any) {
@@ -45,28 +45,44 @@ class CustomSettingsViewController: UIViewController {
     
     
     @IBAction func onCustomTruthSwitch(_ sender: UISwitch) {
-        if sender.isOn {
-            print("im onnn")
-        } else {
-            print("im offff")
-        }
+        guard let settings = settings else { return }
+        settings.isCustomTruthEnabled = sender.isOn
+        Settings.updateSettings(using: settings)
     }
     
     
     @IBAction func onCustomDareSwitch(_ sender: UISwitch) {
-        if sender.isOn {
-            print("im onnn 2")
-        } else {
-            print("im offff 2")
-        }
+        guard let settings = settings else { return }
+        settings.isCustomDareEnabled = sender.isOn
+        Settings.updateSettings(using: settings)
     }
     
     
     @IBAction func onNoContentSwitch(_ sender: UISwitch) {
-        if sender.isOn {
-            print("im onnn 3")
+        guard let settings = settings else { return }
+        settings.isNoContentEnabled = sender.isOn
+        Settings.updateSettings(using: settings)
+    }
+    
+    private func setSettings() {
+        if let settings = self.settings {
+            self.customTruthSwitch.isOn = settings.isCustomTruthEnabled
+            self.customDareSwitch.isOn = settings.isCustomDareEnabled
+            self.noContentSwitch.isOn = settings.isNoContentEnabled
         } else {
-            print("im offff 3")
+            let alert = UIAlertController(title: "Error", message: "Could not retrieve settings", preferredStyle: .alert)
+            alert.addAction(
+                UIAlertAction(
+                    title: "OK",
+                    style: .default,
+                    handler: { _ in
+                        UserDefaults.standard.removeObject(forKey: "settings")
+                        alert.dismiss(animated: true)
+                    }
+                )
+            )
+            
+            self.present(alert, animated: true)
         }
     }
 }
