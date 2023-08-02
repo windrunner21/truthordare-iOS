@@ -24,9 +24,11 @@ class CustomSettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.addBorder(to: [truthStackView, dareStackView, noContentStackView])
         
-        self.customTruthSwitch.isOn = false
-        self.customDareSwitch.isOn = false
-        self.noContentSwitch.isOn = false
+        guard let settings = Settings.retrieveSettings() else { return }
+        
+        self.customTruthSwitch.isOn = settings.isCustomTruthEnabled
+        self.customDareSwitch.isOn = settings.isCustomDareEnabled
+        self.noContentSwitch.isOn = settings.isNoContentEnabled
     }
 
     @IBAction func onBack(_ sender: Any) {

@@ -20,8 +20,10 @@ class GPTSettingsViewController: UIViewController {
 
         self.addBorder(to: [truthStackView, dareStackView])
         
-        self.truthSwitch.isOn = true
-        self.dareSwitch.isOn = true
+        guard let settings = Settings.retrieveSettings() else { return }
+        
+        self.truthSwitch.isOn = settings.isChatGPTTruthEnabled
+        self.dareSwitch.isOn = settings.isChatGPTDareEnabled
     }
 
     @IBAction func onBack(_ sender: Any) {

@@ -18,18 +18,56 @@ class GameSettingsViewController: UIViewController {
     @IBOutlet weak var dareSwitch: UISwitch!
     @IBOutlet weak var randomizePlayersSwitch: UISwitch!
     
+    // Other properties.
+    var settings: Settings?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.addBorder(to: [truthStackView, dareStackView, randomizeStackView])
         
-        self.truthSwitch.isOn = true
-        self.dareSwitch.isOn = true
-        self.randomizePlayersSwitch.isOn = true
+        self.settings = Settings.retrieveSettings()
+        
+        if let settings = self.settings {
+            self.truthSwitch.isOn = settings.isTruthGameModeEnabled
+            self.dareSwitch.isOn = settings.isDareGameModeEnabled
+            self.randomizePlayersSwitch.isOn = settings.isRandomizePlayerEnabled
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Could not retrieve settings", preferredStyle: .alert)
+            alert.addAction(
+                UIAlertAction(
+                    title: "OK",
+                    style: .default,
+                    handler: { _ in
+                        alert.dismiss(animated: true)
+                    }
+                )
+            )
+            
+            self.present(alert, animated: true)
+        }
     }
 
     @IBAction func onBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func onTruthSwitch(_ sender: UISwitch) {
+        guard let settings = settings else { return }
+        settings.isTruthGameModeEnabled = sender.isOn
+        Settings.updateSettings(using: settings)
+    }
+    
+    @IBAction func onDareSwitch(_ sender: UISwitch) {
+        guard let settings = settings else { return }
+        settings.isDareGameModeEnabled = sender.isOn
+        Settings.updateSettings(using: settings)
+    }
+    
+    @IBAction func onRandomizePlayersSwitch(_ sender: UISwitch) {
+        guard let settings = settings else { return }
+        settings.isRandomizePlayerEnabled = sender.isOn
+        Settings.updateSettings(using: settings)
     }
     
     private func addBorder(to stackViews: [UIStackView]) {
@@ -37,32 +75,6 @@ class GameSettingsViewController: UIViewController {
             stackView.layer.borderWidth = 1
             stackView.layer.borderColor = UIColor.black.cgColor
             stackView.layer.cornerRadius = 6
-        }
-    }
-    
-    
-    @IBAction func onTruthSwitch(_ sender: UISwitch) {
-        if sender.isOn {
-            print("im on")
-        } else {
-            print("im off")
-        }
-    }
-    
-    @IBAction func onDareSwitch(_ sender: UISwitch) {
-        if sender.isOn {
-            print("im on 2")
-        } else {
-            print("im off 2")
-        }
-    }
-    
-    @IBAction func onRandomizePlayersSwitch(_ sender: UISwitch) {
-        
-        if sender.isOn {
-            print("im on 3")
-        } else {
-            print("im off 3")
         }
     }
 }

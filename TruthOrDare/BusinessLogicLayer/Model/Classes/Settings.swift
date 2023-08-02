@@ -12,6 +12,19 @@ class Settings: NSObject, NSSecureCoding {
         true
     }
     
+    override var description: String {
+        """
+        isTruthGameModeEnabled: \(isTruthGameModeEnabled)
+        isDareGameModeEnabled: \(isDareGameModeEnabled)
+        isRandomizePlayerEnabled: \(isRandomizePlayerEnabled)
+        isChatGPTTruthEnabled: \(isChatGPTTruthEnabled)
+        isChatGPTDareEnabled: \(isChatGPTDareEnabled)
+        isCustomTruthEnabled: \(isCustomTruthEnabled)
+        isCustomDareEnabled: \(isCustomDareEnabled)
+        isNoContentEnabled: \(isNoContentEnabled)
+        """
+    }
+    
     // Properties.
     var isTruthGameModeEnabled: Bool
     var isDareGameModeEnabled: Bool
@@ -40,7 +53,7 @@ class Settings: NSObject, NSSecureCoding {
         self.isChatGPTTruthEnabled = false
         self.isChatGPTDareEnabled = false
         
-        self.isCustomTruthEnabled = true
+        self.isCustomTruthEnabled = false
         self.isCustomDareEnabled = false
         
         self.isNoContentEnabled = false
@@ -70,5 +83,32 @@ class Settings: NSObject, NSSecureCoding {
         isNoContentEnabled = coder.decodeBool(forKey: noContentKey)
 
         super.init()
+    }
+    
+    static func updateSettings(using settings: Settings) {
+        do {
+            let encodedData = try NSKeyedArchiver.archivedData(withRootObject: settings, requiringSecureCoding: true)
+            UserDefaults.standard.set(encodedData, forKey: "settings")
+            print("Settings updated successfully.")
+        } catch {
+            print(error)
+            NSLog("Cannot update settings. Archiving data failed. Deleting settings.")
+            UserDefaults.standard.removeObject(forKey: "settings")
+        }
+    }
+    
+    static func retrieveSettings() -> Settings? {
+        if let settings = UserDefaults.standard.value(forKey: "settings") {
+            do {
+                guard let settings = settings as? Data else { return nil }
+                let decodedData = try NSKeyedUnarchiver.unarchivedObject(ofClass: Settings.self, from: settings)
+                
+                return decodedData
+            } catch {
+                print("Error decoding Settings object \(error)")
+            }
+        }
+        
+        return nil
     }
 }
