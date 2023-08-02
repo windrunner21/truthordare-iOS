@@ -39,6 +39,9 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     private var playerNameViewHeightAnchorConstraint: NSLayoutConstraint!
     
     private var playerNameViewXPosition: CGFloat = 0
+    private var playerNameLabelXPosition: CGFloat {
+        playerNameViewXPosition
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -274,8 +277,11 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         switch gestureRecognizer.state {
         case .changed:
             let translation = gestureRecognizer.translation(in: view.superview)
-            playerNameViewXPosition = view.center.x + translation.x
+            self.playerNameViewXPosition = view.center.x + translation.x
+            
             view.center.x = playerNameViewXPosition
+            // Move Player name together with Player view
+            self.playerNameLabel.center.x = playerNameLabelXPosition
             gestureRecognizer.setTranslation(.zero, in: view.superview)
         case .ended:
             if playerNameViewXPosition > UIScreen.main.bounds.width - view.frame.width / 3 {
