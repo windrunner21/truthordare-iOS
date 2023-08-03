@@ -77,21 +77,16 @@ class Game {
 
     }
     
-    func activateTruth() -> String {
+    func activateContent(type: RoundType) -> String {
+        let pool: [String] = type == .truth ? truthPool : darePool
+        
         guard currentPlayer != nil else { return String() }
-        self.currentOption = self.truthPool.randomElement()
+        self.currentOption = pool.randomElement()
         self.isActiveRound = true
         
         return self.currentOption!
     }
-    
-    func activateDare() -> String {
-        guard currentPlayer != nil else { return String() }
-        self.currentOption = self.darePool.randomElement()
-        self.isActiveRound = true
-        
-        return self.currentOption!
-    }
+
     
     func getSettings() -> Settings {
         self.settings

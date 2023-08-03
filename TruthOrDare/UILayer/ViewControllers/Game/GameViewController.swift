@@ -24,8 +24,9 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var totalPlayersButton: UIButton!
     @IBOutlet weak var numberOfPlayers: UILabel!
-    @IBOutlet weak var dareButton: UIButton!
-    @IBOutlet weak var truthButton: UIButton!
+    @IBOutlet weak var dareButton: UIButton?
+    @IBOutlet weak var truthButton: UIButton?
+    
     
     // Code initialized UI elements.
     private var playerNameView: UIView!             // Player circle
@@ -47,6 +48,14 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
 
         // Initial number of players, set to 0.
         self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
+        
+        if !self.game.getSettings().isTruthGameModeEnabled {
+            self.truthButton?.removeFromSuperview()
+        }
+        
+        if !self.game.getSettings().isDareGameModeEnabled {
+            self.dareButton?.removeFromSuperview()
+        }
         
         // Setup label, circle and little player circles.
         self.setupPlayerNameLabel()
@@ -328,8 +337,8 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func shouldDisableActionButtons() {
-        self.truthButton.isEnabled = self.game.hasPlayers()
-        self.dareButton.isEnabled = self.game.hasPlayers()
+        self.truthButton?.isEnabled = self.game.hasPlayers()
+        self.dareButton?.isEnabled = self.game.hasPlayers()
         self.totalPlayersButton.isEnabled = self.game.hasPlayers()
     }
     
@@ -345,7 +354,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
             // Call layoutIfNeeded to apply the updated position during animation.
             self.view.layoutIfNeeded()
         }) { _ in
-            self.contentLabel.text = type == . truth ? self.game.activateTruth() : self.game.activateDare()
+            self.contentLabel.text = self.game.activateContent(type: type)
             self.updateScreen(with: type)
         }
     }
@@ -363,11 +372,21 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
             gestureRecognizer.setTranslation(.zero, in: view.superview)
         case .ended:
             if playerNameViewXPosition > UIScreen.main.bounds.width - view.frame.width / 3 {
-                self.contentLabel.text = self.game.activateTruth()
-                self.updateScreen(with: .truth)
+                if !self.game.getSettings().isTruthGameModeEnabled {
+                    self.contentLabel.text = self.game.activateContent(type: .dare)
+                    self.updateScreen(with: .dare)
+                } else {
+                    self.contentLabel.text = self.game.activateContent(type: .truth)
+                    self.updateScreen(with: .truth)
+                }
             } else if playerNameViewXPosition < 0 + view.frame.width / 3 {
-                self.contentLabel.text = self.game.activateDare()
-                self.updateScreen(with: .dare)
+                if !self.game.getSettings().isDareGameModeEnabled {
+                    self.contentLabel.text = self.game.activateContent(type: .truth)
+                    self.updateScreen(with: .truth)
+                } else {
+                    self.contentLabel.text = self.game.activateContent(type: .dare)
+                    self.updateScreen(with: .dare)
+                }
             }
         default:
             break

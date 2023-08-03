@@ -37,12 +37,24 @@ class GameSettingsViewController: UIViewController {
     @IBAction func onTruthSwitch(_ sender: UISwitch) {
         guard let settings = settings else { return }
         settings.isTruthGameModeEnabled = sender.isOn
+        
+        if !settings.isTruthGameModeEnabled && !settings.isDareGameModeEnabled {
+            settings.isDareGameModeEnabled = true
+            self.dareSwitch.setOn(true, animated: true)
+        }
+
         Settings.updateSettings(using: settings)
     }
     
     @IBAction func onDareSwitch(_ sender: UISwitch) {
         guard let settings = settings else { return }
         settings.isDareGameModeEnabled = sender.isOn
+        
+        if !settings.isTruthGameModeEnabled && !settings.isDareGameModeEnabled {
+            settings.isTruthGameModeEnabled = true
+            self.truthSwitch.setOn(true, animated: true)
+        }
+        
         Settings.updateSettings(using: settings)
     }
     
