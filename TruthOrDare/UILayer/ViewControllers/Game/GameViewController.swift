@@ -38,6 +38,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     // Constraints.
     private var playerNameViewWidthAnchorConstraint: NSLayoutConstraint!
     private var playerNameViewHeightAnchorConstraint: NSLayoutConstraint!
+    private var playerNameViewCenterXAnchorConstraint: NSLayoutConstraint!
     
     private var playerNameViewXPosition: CGFloat = 0
     
@@ -124,11 +125,12 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         
         self.playerNameViewWidthAnchorConstraint = self.playerNameView.widthAnchor.constraint(equalToConstant: width)
         self.playerNameViewHeightAnchorConstraint = self.playerNameView.heightAnchor.constraint(equalTo: self.playerNameView.widthAnchor)
+        self.playerNameViewCenterXAnchorConstraint = self.playerNameView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         
         NSLayoutConstraint.activate([
             self.playerNameViewWidthAnchorConstraint,
             self.playerNameViewHeightAnchorConstraint,
-            self.playerNameView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.playerNameViewCenterXAnchorConstraint,
             self.playerNameView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         ])
         
@@ -219,7 +221,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
     private func removePlayerNameLabel(hasPlayers: Bool) {
-        
+
         if hasPlayers {
             NSLayoutConstraint.deactivate([
                 self.playerNameLabel.widthAnchor.constraint(equalToConstant: self.playerNameView.frame.width - 60),
@@ -330,15 +332,20 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func translatePlayerNameView(to type: RoundType) {
+        // Deactivate the centerXAnchor constraint temporarily to change its value.
+        self.playerNameViewCenterXAnchorConstraint.isActive = false
+        // Change constraints value.
+        self.playerNameViewCenterXAnchorConstraint = self.playerNameView.centerXAnchor.constraint(equalTo: type == .truth ? self.view.trailingAnchor : self.view.leadingAnchor)
+        // Activate the centerXAnchor constraint after changing its value.
+        self.playerNameViewCenterXAnchorConstraint.isActive = true
         
-        NSLayoutConstraint.deactivate([self.playerNameView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-                                       self.playerNameView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)])
-        
-        self.playerNameViewXPosition = type == .truth ? 0 : self.view.frame.width
-        
-        UIView.animate(withDuration: 1.5, animations: {
-            self.playerNameView.center.x = self.playerNameViewXPosition
-        })
+        UIView.animate(withDuration: 0.4, animations: {
+            // Call layoutIfNeeded to apply the updated position during animation.
+            self.view.layoutIfNeeded()
+        }) { _ in
+            self.contentLabel.text = type == . truth ? self.game.activateTruth() : self.game.activateDare()
+            self.updateScreen(with: type)
+        }
     }
     
     // Objective-C (Selector) functions.
@@ -408,6 +415,12 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func updateScreen(with type: RoundType) {
+        // Reset player view center x constaint.
+        self.playerNameViewCenterXAnchorConstraint.isActive = false
+        self.playerNameViewCenterXAnchorConstraint = self.playerNameView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        self.playerNameViewCenterXAnchorConstraint.isActive =  true
+        
+        // Follow up with direct visible changes
         let mainButton = type == .truth ? self.truthButton : self.dareButton
         let hideButton = type == .truth ? self.dareButton : self.truthButton
         
