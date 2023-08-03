@@ -47,6 +47,12 @@ class CustomSettingsViewController: UIViewController {
     @IBAction func onCustomTruthSwitch(_ sender: UISwitch) {
         guard let settings = settings else { return }
         settings.isCustomTruthEnabled = sender.isOn
+        
+        if settings.isCustomTruthEnabled || settings.isCustomDareEnabled {
+            settings.isNoContentEnabled = false
+            self.noContentSwitch.setOn(settings.isNoContentEnabled, animated: true)
+        }
+        
         Settings.updateSettings(using: settings)
     }
     
@@ -54,6 +60,12 @@ class CustomSettingsViewController: UIViewController {
     @IBAction func onCustomDareSwitch(_ sender: UISwitch) {
         guard let settings = settings else { return }
         settings.isCustomDareEnabled = sender.isOn
+        
+        if settings.isCustomTruthEnabled || settings.isCustomDareEnabled {
+            settings.isNoContentEnabled = false
+            self.noContentSwitch.setOn(settings.isNoContentEnabled, animated: true)
+        }
+        
         Settings.updateSettings(using: settings)
     }
     
@@ -61,6 +73,14 @@ class CustomSettingsViewController: UIViewController {
     @IBAction func onNoContentSwitch(_ sender: UISwitch) {
         guard let settings = settings else { return }
         settings.isNoContentEnabled = sender.isOn
+        
+        if settings.isNoContentEnabled {
+            settings.isCustomTruthEnabled = false
+            settings.isCustomDareEnabled = false
+            self.customTruthSwitch.setOn(settings.isCustomTruthEnabled, animated: true)
+            self.customDareSwitch.setOn(settings.isCustomDareEnabled, animated: true)
+        }
+        
         Settings.updateSettings(using: settings)
     }
     
