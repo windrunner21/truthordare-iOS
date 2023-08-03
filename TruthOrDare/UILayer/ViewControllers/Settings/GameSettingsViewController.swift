@@ -40,7 +40,7 @@ class GameSettingsViewController: UIViewController {
         
         if !settings.isTruthGameModeEnabled && !settings.isDareGameModeEnabled {
             settings.isDareGameModeEnabled = true
-            self.dareSwitch.setOn(true, animated: true)
+            self.dareSwitch.setOn(settings.isDareGameModeEnabled, animated: true)
         }
 
         Settings.updateSettings(using: settings)
@@ -52,7 +52,7 @@ class GameSettingsViewController: UIViewController {
         
         if !settings.isTruthGameModeEnabled && !settings.isDareGameModeEnabled {
             settings.isTruthGameModeEnabled = true
-            self.truthSwitch.setOn(true, animated: true)
+            self.truthSwitch.setOn(settings.isTruthGameModeEnabled, animated: true)
         }
         
         Settings.updateSettings(using: settings)
