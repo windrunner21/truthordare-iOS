@@ -8,21 +8,23 @@
 import UIKit
 
 enum PlayerColor: CaseIterable {
-    case gray
+    case blue
+    case pink
     case yellow
     case red
     case green
     case purple
     case orange
-    case blue
     case brown
 }
 
 extension PlayerColor {
     var label: String {
         switch self {
-        case .gray:
-            return "Gray"
+        case .blue:
+            return "Blue"
+        case .pink:
+            return "Pink"
         case .yellow:
             return "Yellow"
         case .red:
@@ -33,8 +35,6 @@ extension PlayerColor {
             return "Purple"
         case .orange:
             return "Orange"
-        case .blue:
-            return "Blue"
         case .brown:
             return "Brown"
         }
@@ -42,8 +42,10 @@ extension PlayerColor {
     
     var color: UIColor {
         switch self {
-        case .gray:
-            return UIColor.gray
+        case .blue:
+            return UIColor.systemBlue
+        case .pink:
+            return UIColor.systemPink
         case .yellow:
             return UIColor.systemYellow
         case .red:
@@ -54,8 +56,6 @@ extension PlayerColor {
             return UIColor.systemPurple
         case .orange:
             return UIColor.systemOrange
-        case .blue:
-            return UIColor.systemBlue
         case .brown:
             return UIColor.systemBrown
         }

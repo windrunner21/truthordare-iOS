@@ -48,8 +48,8 @@ class AddPlayerView: UIView, UITextFieldDelegate {
         self.setupPlayerColorPopUp()
         self.setupPlayerNameTextField()
         
-        if self.playerColorPopUp.menu?.selectedElements[0].title == "Gray" {
-            self.player.setColor(to: PlayerColor.gray.color)
+        if self.playerColorPopUp.menu?.selectedElements[0].title == "Blue" {
+            self.player.setColor(to: PlayerColor.blue.color)
         }
     }
     

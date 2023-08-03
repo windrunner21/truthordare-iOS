@@ -100,7 +100,6 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
             self.cleanupUpdatedScreen(with: .dare)
         } else {
             self.translatePlayerNameView(to: .dare)
-//            self.playerNameLabel.text = self.game.activateDare()
         }
     }
     
@@ -110,7 +109,6 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
             self.cleanupUpdatedScreen(with: .truth)
         } else {
             self.translatePlayerNameView(to: .truth)
-//            self.playerNameLabel.text = self.game.activateTruth()
         }
     }
     
@@ -276,11 +274,15 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         guard let player = self.game.getAllPlayers().last else { return }
     
         let playerView = UIView()
+        playerView.accessibilityIdentifier = String(player.id)
         playerView.frame.size = CGSize(width: circleSize, height: circleSize)
         playerView.layer.cornerRadius = circleSize / 2
         playerView.backgroundColor = player.getColor()
-        playerView.layer.borderWidth = 2
-        playerView.layer.borderColor = UIColor.white.cgColor
+        playerView.layer.borderWidth = 1.5
+
+        for view in self.allPlayersView.subviews {
+            view.layer.borderColor = view.accessibilityIdentifier == String(player.id) ? UIColor.black.cgColor : UIColor.white.cgColor
+        }
         
         let x = maxWidth - (circleSize + spacing) * CGFloat(self.currentColumn)
         let y = (circleSize + spacing) * CGFloat(self.currentRow)
@@ -411,6 +413,10 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         self.game.finishRound()
         if let player = self.game.getCurrentPlayer() {
             self.setPlayerNameView(with: player)
+            
+            for playerView in self.allPlayersView.subviews {
+                playerView.layer.borderColor = playerView.accessibilityIdentifier == String(player.id) ? UIColor.black.cgColor : UIColor.white.cgColor
+            }
         }
     }
     
