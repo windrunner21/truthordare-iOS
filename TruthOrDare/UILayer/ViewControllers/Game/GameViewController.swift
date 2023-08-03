@@ -420,7 +420,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         self.playerNameViewCenterXAnchorConstraint = self.playerNameView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         self.playerNameViewCenterXAnchorConstraint.isActive =  true
         
-        // Follow up with direct visible changes
+        // Follow up with direct visible changes.
         let mainButton = type == .truth ? self.truthButton : self.dareButton
         let hideButton = type == .truth ? self.dareButton : self.truthButton
         

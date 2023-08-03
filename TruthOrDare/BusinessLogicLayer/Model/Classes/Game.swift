@@ -20,8 +20,15 @@ class Game {
     private var isActiveRound: Bool
     
     init() {
-        self.settings = Settings()
-        
+        // Try to retrieve settings first.
+        if let encodedSettings = UserDefaults.standard.value(forKey: "settings"),
+           let encodedSettings = encodedSettings as? Data,
+           let decodedSettings = try? NSKeyedUnarchiver.unarchivedObject(ofClass: Settings.self, from: encodedSettings) {
+            self.settings = decodedSettings
+        } else {
+            self.settings = Settings()
+        }
+       
         self.players = []
         self.isActiveRound = false
         
@@ -56,7 +63,18 @@ class Game {
     
     func finishRound() {
         self.isActiveRound = false
-        self.currentPlayer = players.randomElement()
+        
+        if settings.isRandomizePlayerEnabled {
+            self.currentPlayer = players.randomElement()
+        } else {
+            guard let index = self.players.firstIndex(where: { $0.id == self.currentPlayer?.id}) else { return }
+            if index == self.getNumberOfPlayers() - 1 {
+                self.currentPlayer = players[0]
+            } else {
+                self.currentPlayer = players[index + 1]
+            }
+        }
+
     }
     
     func activateTruth() -> String {
@@ -73,5 +91,9 @@ class Game {
         self.isActiveRound = true
         
         return self.currentOption!
+    }
+    
+    func getSettings() -> Settings {
+        self.settings
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class Player {
+    var id: Int
     private var name: String
     private var color: UIColor
     
@@ -17,6 +18,7 @@ class Player {
     }
     
     init(name: String, color: UIColor) {
+        self.id = Int.random(in: Int.min..<Int.max)
         self.name = name
         self.color = color
     }
