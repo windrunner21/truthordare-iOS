@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA09BCD22A7CC1710026A8A5 /* CustomPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09BCD12A7CC1710026A8A5 /* CustomPool.swift */; };
 		CA2BC2602A79226C0085AC9F /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC25F2A79226C0085AC9F /* GameSettingsViewController.swift */; };
 		CA2BC2622A79227D0085AC9F /* GPTSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2612A79227D0085AC9F /* GPTSettingsViewController.swift */; };
 		CA2BC2642A7922860085AC9F /* CustomSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2632A7922860085AC9F /* CustomSettingsViewController.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA09BCD12A7CC1710026A8A5 /* CustomPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPool.swift; sourceTree = "<group>"; };
 		CA2BC25F2A79226C0085AC9F /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
 		CA2BC2612A79227D0085AC9F /* GPTSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTSettingsViewController.swift; sourceTree = "<group>"; };
 		CA2BC2632A7922860085AC9F /* CustomSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingsViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				CAE031C12A5C390A0089E839 /* Game.swift */,
 				CAE031C42A5C39220089E839 /* Player.swift */,
 				CA2BC2652A797A130085AC9F /* Settings.swift */,
+				CA09BCD12A7CC1710026A8A5 /* CustomPool.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */,
 				CAE031C52A5C39220089E839 /* Player.swift in Sources */,
 				CA2BC2622A79227D0085AC9F /* GPTSettingsViewController.swift in Sources */,
+				CA09BCD22A7CC1710026A8A5 /* CustomPool.swift in Sources */,
 				CA2BC2662A797A130085AC9F /* Settings.swift in Sources */,
 				CAE031E02A61847E0089E839 /* RoundType.swift in Sources */,
 				CA2BC2642A7922860085AC9F /* CustomSettingsViewController.swift in Sources */,

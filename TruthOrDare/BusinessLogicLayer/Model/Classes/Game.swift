@@ -15,6 +15,8 @@ class Game {
     
     private var truthPool: [String]
     private var darePool: [String]
+    private var customPool: CustomPool
+    
     private var currentOption: String?
     
     private var isActiveRound: Bool
@@ -31,9 +33,16 @@ class Game {
        
         self.players = []
         self.isActiveRound = false
+
+        // Initialize custom pool if it has been enabled in the settings.
+        self.customPool = CustomPool(
+            isTruthPoolEnabled: self.settings.isCustomTruthEnabled,
+            isDarePoolEnabled: self.settings.isCustomDareEnabled
+        )
         
-        self.truthPool = ["Truth #1", "Truth #2", "Truth #3", "Truth #4", "Truth #5", "Truth #6"]
-        self.darePool = ["Dare #1", "Dare #2", "Dare #3", "Dare #4", "Dare #5", "Dare #6", "Dare #7"]
+        // Will add empty pools if not initialized in self class.
+        self.truthPool = ["Truth #1", "Truth #2", "Truth #3"] + self.customPool.getTruthPool()
+        self.darePool = ["Dare #1", "Dare #2", "Dare #3"] + self.customPool.getTruthPool()
     }
     
     func getNumberOfPlayers() -> Int {

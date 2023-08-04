@@ -89,7 +89,6 @@ class Settings: NSObject, NSSecureCoding {
         do {
             let encodedData = try NSKeyedArchiver.archivedData(withRootObject: settings, requiringSecureCoding: true)
             UserDefaults.standard.set(encodedData, forKey: "settings")
-            print("Settings updated successfully.")
         } catch {
             print(error)
             NSLog("Cannot update settings. Archiving data failed. Deleting settings.")
