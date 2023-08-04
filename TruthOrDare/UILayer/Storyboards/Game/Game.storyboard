@@ -22,7 +22,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Skv-58-0tu">
                                         <rect key="frame" x="0.0" y="0.0" width="115" height="34.5"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="arrow.left" catalog="system" imagePlacement="leading" title="Dare" imagePadding="10">
+                                        <buttonConfiguration key="configuration" style="filled" title="Dare">
                                             <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -32,7 +32,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzZ-e7-kPC">
                                         <rect key="frame" x="145" y="0.0" width="115" height="34.5"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="arrow.right" catalog="system" imagePlacement="trailing" title="Truth" imagePadding="10">
+                                        <buttonConfiguration key="configuration" style="filled" title="Truth">
                                             <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -109,8 +109,6 @@
     </scenes>
     <resources>
         <image name="arrow.backward.square" catalog="system" width="128" height="114"/>
-        <image name="arrow.left" catalog="system" width="128" height="95"/>
-        <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <image name="square.grid.3x3.square" catalog="system" width="128" height="114"/>
     </resources>

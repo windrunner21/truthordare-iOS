@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Custom Truth View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="CustomTruthScreen" id="Y6W-OH-hqX" customClass="CustomTruthViewController" customModule="TruthOrDare" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DTN-SQ-5gY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02h-Dk-EyT">
+                                <rect key="frame" x="30" y="50" width="25" height="24"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.left.square" catalog="system">
+                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Rbz-Re-nTI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Truth settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ze-If-qDH">
+                                <rect key="frame" x="30" y="104" width="210.5" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFh-Hm-vCS">
+                                <rect key="frame" x="70" y="50" width="145.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Hu7-2E-mtK">
+                                <rect key="frame" x="30" y="158" width="260" height="51"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Truth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMx-Em-VOz">
+                                        <rect key="frame" x="15" y="10" width="103.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NeZ-sV-HeM">
+                                        <rect key="frame" x="196" y="10" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="onCustomTruthSwitch:" destination="Y6W-OH-hqX" eventType="valueChanged" id="G1r-ol-d6F"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OdN-Uy-fr8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8ze-If-qDH" firstAttribute="top" secondItem="02h-Dk-EyT" secondAttribute="bottom" constant="30" id="0jD-C4-HqY"/>
+                            <constraint firstItem="OdN-Uy-fr8" firstAttribute="trailing" secondItem="Hu7-2E-mtK" secondAttribute="trailing" constant="30" id="AMq-rZ-M41"/>
+                            <constraint firstItem="CFh-Hm-vCS" firstAttribute="top" secondItem="OdN-Uy-fr8" secondAttribute="top" constant="30" id="KiY-Cx-Vjm"/>
+                            <constraint firstItem="Hu7-2E-mtK" firstAttribute="leading" secondItem="OdN-Uy-fr8" secondAttribute="leading" constant="30" id="L41-jI-kbJ"/>
+                            <constraint firstItem="CFh-Hm-vCS" firstAttribute="leading" secondItem="02h-Dk-EyT" secondAttribute="trailing" constant="15" id="P3c-pJ-pZb"/>
+                            <constraint firstItem="Hu7-2E-mtK" firstAttribute="top" secondItem="8ze-If-qDH" secondAttribute="bottom" constant="30" id="d0V-9B-oGd"/>
+                            <constraint firstItem="02h-Dk-EyT" firstAttribute="leading" secondItem="OdN-Uy-fr8" secondAttribute="leading" constant="30" id="e9k-56-mK5"/>
+                            <constraint firstItem="8ze-If-qDH" firstAttribute="leading" secondItem="OdN-Uy-fr8" secondAttribute="leading" constant="30" id="tOp-Xx-4Zm"/>
+                            <constraint firstItem="02h-Dk-EyT" firstAttribute="top" secondItem="OdN-Uy-fr8" secondAttribute="top" constant="30" id="tYe-Cp-sUd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="customTruthStackView" destination="Hu7-2E-mtK" id="26M-QM-CoB"/>
+                        <outlet property="customTruthSwitch" destination="NeZ-sV-HeM" id="fub-gL-Xg5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="84" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.left.square" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

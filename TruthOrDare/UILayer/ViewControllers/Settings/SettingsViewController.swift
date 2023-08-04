@@ -45,8 +45,8 @@ class SettingsViewController: UIViewController {
             viewContoller = storyboard.instantiateViewController(identifier: "GPTSettingsScreen")
             self.handleViewChange(for: self.chatGPTStackView, using: gestureRecognizer, changetTo: viewContoller)
         case self.contentStackView:
-            storyboard = UIStoryboard(name: "CustomSettings", bundle: .main)
-            viewContoller = storyboard.instantiateViewController(identifier: "CustomSettingsScreen")
+            storyboard = UIStoryboard(name: "ContentSettings", bundle: .main)
+            viewContoller = storyboard.instantiateViewController(identifier: "ContentSettingsScreen")
             self.handleViewChange(for: self.contentStackView, using: gestureRecognizer, changetTo: viewContoller)
         default:
             break

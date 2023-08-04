@@ -423,7 +423,6 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
             
             hiddenButton?.isHidden = false
             mainButton?.setTitle(type == .truth ? "Truth" : "Dare", for: .normal)
-            mainButton?.setImage(UIImage(systemName: type == .truth ? "arrow.right" : "arrow.left"), for: .normal)
             
             self.playerNameView.isHidden = false
             self.cleanupRoundDetails()
@@ -456,7 +455,6 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
             
             hideButton?.isHidden = true
             mainButton?.setTitle("Next", for: .normal)
-            mainButton?.setImage(nil, for: .normal)
             
             self.playerNameView.isHidden = true
             
