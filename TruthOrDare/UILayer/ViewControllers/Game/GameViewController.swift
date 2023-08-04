@@ -89,7 +89,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         let addPlayerView: AddPlayerView = AddPlayerView(
             frame: CGRect(
                 x: 30,
-                y: UIScreen.main.bounds.height / 2 - 100,
+                y: UIScreen.main.bounds.height / 2 - 125,
                 width: UIScreen.main.bounds.width - 60,
                 height: 250
             )
