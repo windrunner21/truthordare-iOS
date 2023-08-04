@@ -137,16 +137,15 @@ class AddPlayerView: UIView, UITextFieldDelegate {
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
         if self.playerNameTextField.isEditing {
-            self.moveWithKeyboard(on: notification, to: 30, up: true)
+            self.moveWithKeyboard(on: notification, up: true)
         }
     }
     
     @objc func keyboardWillHide(_ notification: NSNotification) {
-        self.moveWithKeyboard(on: notification, to: UIScreen.main.bounds.height / 2 - 125, up: false)
+        self.moveWithKeyboard(on: notification, up: false)
     }
     
-    private func moveWithKeyboard(on notification: NSNotification, to yPosition: CGFloat, up: Bool) {
-        
+    private func moveWithKeyboard(on notification: NSNotification, up: Bool) {
         guard let userInfo = notification.userInfo else { return }
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         guard let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double else { return }
@@ -155,9 +154,9 @@ class AddPlayerView: UIView, UITextFieldDelegate {
         let keyboardHeight = keyboardSize.cgRectValue.height
         
         if up {
-            self.frame.origin.y = keyboardHeight + yPosition
+            self.frame.origin.y = UIScreen.main.bounds.height - keyboardHeight - 30 - self.frame.size.height
         } else {
-            self.frame.origin.y = yPosition
+            self.frame.origin.y = UIScreen.main.bounds.height / 2 - 125
         }
         
         let animation = UIViewPropertyAnimator(duration: duration, curve: curve) { [weak self] in
