@@ -94,31 +94,72 @@
                                 </subviews>
                                 <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VyE-dN-OwL">
+                                <rect key="frame" x="260.5" y="50" width="29.5" height="20.5"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Edit">
+                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                </buttonConfiguration>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="OHR-rL-cKc">
+                                <rect key="frame" x="30" y="503.5" width="260" height="34.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGT-iG-WUU">
+                                        <rect key="frame" x="0.0" y="0.0" width="122.5" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Add Dare">
+                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onAddDare:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Dtd-Ky-G4O"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6m-fh-YKt">
+                                        <rect key="frame" x="137.5" y="0.0" width="122.5" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Add Truth">
+                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onAddTruth:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="n3m-zL-KwR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="OHR-rL-cKc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Bge-vJ-gjT"/>
                             <constraint firstItem="9jN-4P-74X" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="C5V-Fr-XEJ"/>
                             <constraint firstItem="zvL-hX-txk" firstAttribute="top" secondItem="3BS-33-TzL" secondAttribute="bottom" constant="15" id="DBj-cG-hM0"/>
                             <constraint firstItem="H5x-fl-cHU" firstAttribute="leading" secondItem="9jN-4P-74X" secondAttribute="trailing" constant="15" id="EoC-5S-F7B"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VyE-dN-OwL" secondAttribute="trailing" constant="30" id="Eon-eX-SFs"/>
                             <constraint firstItem="8fF-8h-lfv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Gk8-Ua-Hzq"/>
                             <constraint firstItem="9jN-4P-74X" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="MCh-Nq-bv1"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zvL-hX-txk" secondAttribute="trailing" constant="30" id="UHP-SH-udP"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3BS-33-TzL" secondAttribute="trailing" constant="30" id="VDO-S0-ltO"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="s3h-pG-z7N" secondAttribute="trailing" constant="30" id="Vhw-Hc-20Y"/>
                             <constraint firstItem="s3h-pG-z7N" firstAttribute="top" secondItem="8fF-8h-lfv" secondAttribute="bottom" constant="30" id="Xoj-I3-TIY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="OHR-rL-cKc" secondAttribute="bottom" constant="30" id="bwI-Rd-7gJ"/>
                             <constraint firstItem="H5x-fl-cHU" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="dlQ-bs-t44"/>
                             <constraint firstItem="3BS-33-TzL" firstAttribute="top" secondItem="s3h-pG-z7N" secondAttribute="bottom" constant="15" id="hFp-aK-Juo"/>
+                            <constraint firstItem="VyE-dN-OwL" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="lMl-Rm-fdm"/>
                             <constraint firstItem="s3h-pG-z7N" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="lj7-mj-pF9"/>
                             <constraint firstItem="3BS-33-TzL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="mQH-MZ-aGR"/>
                             <constraint firstItem="8fF-8h-lfv" firstAttribute="top" secondItem="9jN-4P-74X" secondAttribute="bottom" constant="30" id="q5I-YF-9sf"/>
                             <constraint firstItem="zvL-hX-txk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="rfA-fh-c7R"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OHR-rL-cKc" secondAttribute="trailing" constant="30" id="xEI-zm-Zq1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addDareButton" destination="sGT-iG-WUU" id="xji-7r-7J0"/>
+                        <outlet property="addTruthButton" destination="J6m-fh-YKt" id="q1a-ik-OaS"/>
                         <outlet property="customDareSwitch" destination="79K-xI-4Kl" id="glo-rQ-wdV"/>
                         <outlet property="customTruthSwitch" destination="Naz-Tl-ZWL" id="txO-gW-zdS"/>
                         <outlet property="dareStackView" destination="3BS-33-TzL" id="0o0-XP-F8F"/>
+                        <outlet property="editButton" destination="VyE-dN-OwL" id="gY8-PL-Oeh"/>
                         <outlet property="noContentStackView" destination="zvL-hX-txk" id="sDG-z6-ma4"/>
                         <outlet property="noContentSwitch" destination="clp-ve-apo" id="dTS-ab-YwF"/>
                         <outlet property="truthStackView" destination="s3h-pG-z7N" id="aPH-49-12C"/>

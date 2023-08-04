@@ -36,14 +36,14 @@ class Settings: NSObject, NSSecureCoding {
     var isNoContentEnabled: Bool
     
     // Coding keys.
-    let truthGameModeKey: String = "isTruthGameModeEnabled"
-    let dareGameModeKey: String = "isDareGameModeEnabled"
-    let randomizePlayerKey: String = "isRandomizePlayerEnabled"
-    let chatGPTTruthKey: String = "isChatGPTTruthEnabled"
-    let chatGPTDareKey: String = "isChatGPTDareEnabled"
-    let customTruthKey: String = "isCustomTruthEnabled"
-    let customDareKey: String = "isCustomDareEnabled"
-    let noContentKey: String = "isNoContentEnabled"
+    private let truthGameModeKey: String = "isTruthGameModeEnabled"
+    private let dareGameModeKey: String = "isDareGameModeEnabled"
+    private let randomizePlayerKey: String = "isRandomizePlayerEnabled"
+    private let chatGPTTruthKey: String = "isChatGPTTruthEnabled"
+    private let chatGPTDareKey: String = "isChatGPTDareEnabled"
+    private let customTruthKey: String = "isCustomTruthEnabled"
+    private let customDareKey: String = "isCustomDareEnabled"
+    private let noContentKey: String = "isNoContentEnabled"
     
     override init() {
         self.isTruthGameModeEnabled = true
