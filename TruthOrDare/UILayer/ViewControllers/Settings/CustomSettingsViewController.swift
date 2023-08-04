@@ -21,8 +21,6 @@ class CustomSettingsViewController: UIViewController {
     @IBOutlet weak var customDareSwitch: UISwitch!
     @IBOutlet weak var noContentSwitch: UISwitch!
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    
     // Other properties.
     var settings: Settings?
     
@@ -66,7 +64,6 @@ class CustomSettingsViewController: UIViewController {
         self.editButton.isHidden = !settings.isCustomTruthEnabled && !settings.isCustomDareEnabled
         self.addTruthButton.isHidden = !settings.isCustomTruthEnabled
         self.addDareButton.isHidden = !settings.isCustomDareEnabled
-        self.scrollView.isHidden = !settings.isCustomTruthEnabled && !settings.isCustomDareEnabled
         
         Settings.updateSettings(using: settings)
     }
@@ -84,7 +81,6 @@ class CustomSettingsViewController: UIViewController {
         self.editButton.isHidden = !settings.isCustomTruthEnabled && !settings.isCustomDareEnabled
         self.addTruthButton.isHidden = !settings.isCustomTruthEnabled
         self.addDareButton.isHidden = !settings.isCustomDareEnabled
-        self.scrollView.isHidden = !settings.isCustomTruthEnabled && !settings.isCustomDareEnabled
         
         Settings.updateSettings(using: settings)
     }
@@ -105,7 +101,6 @@ class CustomSettingsViewController: UIViewController {
             self.editButton.isHidden = true
             self.addTruthButton.isHidden = true
             self.addDareButton.isHidden = true
-            self.scrollView.isHidden = true
         }
         
         Settings.updateSettings(using: settings)
@@ -121,7 +116,6 @@ class CustomSettingsViewController: UIViewController {
             self.editButton.isHidden = !(settings.isCustomTruthEnabled || settings.isCustomDareEnabled)
             self.addTruthButton.isHidden = !settings.isCustomTruthEnabled
             self.addDareButton.isHidden = !settings.isCustomDareEnabled
-            self.scrollView.isHidden = !(settings.isCustomTruthEnabled || settings.isCustomDareEnabled)
         } else {
             let alert = UIAlertController(title: "Error", message: "Could not retrieve settings", preferredStyle: .alert)
             alert.addAction(

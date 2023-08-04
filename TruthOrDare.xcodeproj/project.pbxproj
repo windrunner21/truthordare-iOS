@@ -12,6 +12,8 @@
 		CA2BC2622A79227D0085AC9F /* GPTSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2612A79227D0085AC9F /* GPTSettingsViewController.swift */; };
 		CA2BC2642A7922860085AC9F /* CustomSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2632A7922860085AC9F /* CustomSettingsViewController.swift */; };
 		CA2BC2662A797A130085AC9F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2652A797A130085AC9F /* Settings.swift */; };
+		CA8DCE8A2A7D39AD00CF6A16 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8DCE892A7D39AD00CF6A16 /* CustomTableViewCell.swift */; };
+		CAC458C22A7D3BC600508D11 /* CustomContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458C12A7D3BC600508D11 /* CustomContentTableViewController.swift */; };
 		CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */; };
 		CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031812A5C21CA0089E839 /* SceneDelegate.swift */; };
 		CAE031842A5C21CA0089E839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031832A5C21CA0089E839 /* ViewController.swift */; };
@@ -61,6 +63,8 @@
 		CA2BC2612A79227D0085AC9F /* GPTSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTSettingsViewController.swift; sourceTree = "<group>"; };
 		CA2BC2632A7922860085AC9F /* CustomSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingsViewController.swift; sourceTree = "<group>"; };
 		CA2BC2652A797A130085AC9F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		CA8DCE892A7D39AD00CF6A16 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		CAC458C12A7D3BC600508D11 /* CustomContentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomContentTableViewController.swift; sourceTree = "<group>"; };
 		CAE0317C2A5C21CA0089E839 /* TruthOrDare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruthOrDare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAE031812A5C21CA0089E839 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA8DCE872A7D399200CF6A16 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				CA8DCE892A7D39AD00CF6A16 /* CustomTableViewCell.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
 		CAE031732A5C21CA0089E839 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +198,7 @@
 		CAE031B12A5C23DA0089E839 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
+				CA8DCE872A7D399200CF6A16 /* Custom Views */,
 				CAE031CE2A5CA0810089E839 /* Views */,
 				CAE031CB2A5C680B0089E839 /* Extensions */,
 				CAE031B42A5C25D80089E839 /* ViewControllers */,
@@ -343,6 +356,7 @@
 				CA2BC25F2A79226C0085AC9F /* GameSettingsViewController.swift */,
 				CA2BC2612A79227D0085AC9F /* GPTSettingsViewController.swift */,
 				CA2BC2632A7922860085AC9F /* CustomSettingsViewController.swift */,
+				CAC458C12A7D3BC600508D11 /* CustomContentTableViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -484,6 +498,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA8DCE8A2A7D39AD00CF6A16 /* CustomTableViewCell.swift in Sources */,
 				CAE031BD2A5C35F00089E839 /* GameViewController.swift in Sources */,
 				CAE031DA2A5E6FF80089E839 /* PlayerColor.swift in Sources */,
 				CAE031C22A5C390A0089E839 /* Game.swift in Sources */,
@@ -501,6 +516,7 @@
 				CAE031CD2A5C681B0089E839 /* UIViewExtension.swift in Sources */,
 				CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */,
 				CAE031D82A5D37680089E839 /* PlayerPropertyType.swift in Sources */,
+				CAC458C22A7D3BC600508D11 /* CustomContentTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
