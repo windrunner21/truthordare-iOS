@@ -1,5 +1,5 @@
 //
-//  CustomTruthViewController.swift
+//  CustomDareViewController.swift
 //  TruthOrDare
 //
 //  Created by Imran Hajiyev on 05.08.23.
@@ -7,11 +7,14 @@
 
 import UIKit
 
-class CustomTruthViewController: UIViewController {
-
-    // Storyboard properties.
-    @IBOutlet weak var customTruthStackView: UIStackView!
-    @IBOutlet weak var customTruthSwitch: UISwitch!
+class CustomDareViewController: UIViewController {
+    
+    
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var addDareButton: UIButton!
+    
+    @IBOutlet weak var customDareStackView: UIStackView!
+    @IBOutlet weak var customDareSwitch: UISwitch!
     
     // Other properties.
     var settings: Settings?
@@ -20,8 +23,8 @@ class CustomTruthViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.addBorder(to: customTruthStackView)
-        
+        self.addBorder(to: customDareStackView)
+                
         self.settings = Settings.retrieveSettings()
         self.setSettings()
     }
@@ -36,27 +39,27 @@ class CustomTruthViewController: UIViewController {
         stackView.layer.cornerRadius = 6
     }
 
-    @IBAction func onCustomTruthSwitch(_ sender: UISwitch) {
+    @IBAction func onCustomDareSwitch(_ sender: UISwitch) {
         guard let settings = settings else { return }
-        settings.isCustomTruthEnabled = sender.isOn
+        settings.isCustomDareEnabled = sender.isOn
         
-        if settings.isCustomTruthEnabled {
+        if settings.isCustomDareEnabled {
             settings.isNoContentEnabled = false
         }
         
-//        self.editButton.isHidden = !settings.isCustomTruthEnabled
-//        self.addTruthButton.isHidden = !settings.isCustomTruthEnabled
+        self.editButton.isHidden = !settings.isCustomDareEnabled
+        self.addDareButton.isHidden = !settings.isCustomDareEnabled
         
         Settings.updateSettings(using: settings)
     }
-
+    
     private func setSettings() {
         if let settings = self.settings {
-            self.customTruthSwitch.isOn = settings.isCustomTruthEnabled
+            self.customDareSwitch.isOn = settings.isCustomDareEnabled
             
             // Regulate edit, and action buttons, and scroll view if custom truth or dare enabled.
-//            self.editButton.isHidden = !settings.isCustomTruthEnabled
-//            self.addTruthButton.isHidden = !settings.isCustomTruthEnabled
+            self.editButton.isHidden = !settings.isCustomDareEnabled
+            self.addDareButton.isHidden = !settings.isCustomDareEnabled
         } else {
             let alert = UIAlertController(title: "Error", message: "Could not retrieve settings", preferredStyle: .alert)
             alert.addAction(
@@ -73,4 +76,5 @@ class CustomTruthViewController: UIViewController {
             self.present(alert, animated: true)
         }
     }
+
 }

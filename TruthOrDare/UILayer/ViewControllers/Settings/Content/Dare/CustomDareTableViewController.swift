@@ -1,13 +1,13 @@
 //
-//  CustomContentTableViewController.swift
+//  CustomDareTableViewController.swift
 //  TruthOrDare
 //
-//  Created by Imran Hajiyev on 04.08.23.
+//  Created by Imran Hajiyev on 05.08.23.
 //
 
 import UIKit
 
-class CustomContentTableViewController: UITableViewController {
+class CustomDareTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
