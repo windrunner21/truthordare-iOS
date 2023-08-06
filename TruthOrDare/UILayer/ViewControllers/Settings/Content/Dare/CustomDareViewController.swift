@@ -33,6 +33,15 @@ class CustomDareViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func onCustomDareAdd(_ sender: Any) {
+        let addCustomContentStoryboard = UIStoryboard(name: "AddCustomContent", bundle: .main)
+        let addCustomContentViewController: AddCustomContentViewController = addCustomContentStoryboard.instantiateViewController(identifier: "AddCustomContentScreen")
+        
+        addCustomContentViewController.type = .dare
+        
+        self.present(addCustomContentViewController, animated: true)
+    }
+    
     private func addBorder(to stackView: UIStackView) {
         stackView.layer.borderWidth = 1
         stackView.layer.borderColor = UIColor.black.cgColor

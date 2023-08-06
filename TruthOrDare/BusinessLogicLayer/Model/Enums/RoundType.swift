@@ -9,3 +9,14 @@ enum RoundType {
     case truth
     case dare
 }
+
+extension RoundType {
+    var value: String {
+        switch self {
+        case .truth:
+            return "truth"
+        case .dare:
+             return "dare"
+        }
+    }
+}

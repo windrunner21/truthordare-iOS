@@ -12,14 +12,14 @@
 		CA2BC2622A79227D0085AC9F /* GPTSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2612A79227D0085AC9F /* GPTSettingsViewController.swift */; };
 		CA2BC2642A7922860085AC9F /* ContentSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2632A7922860085AC9F /* ContentSettingsViewController.swift */; };
 		CA2BC2662A797A130085AC9F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2652A797A130085AC9F /* Settings.swift */; };
-		CA8DCE8A2A7D39AD00CF6A16 /* CustomTruthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8DCE892A7D39AD00CF6A16 /* CustomTruthViewCell.swift */; };
 		CAC458C22A7D3BC600508D11 /* CustomTruthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458C12A7D3BC600508D11 /* CustomTruthTableViewController.swift */; };
 		CAC458C42A7D910500508D11 /* CustomTruth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458C32A7D910500508D11 /* CustomTruth.storyboard */; };
 		CAC458C62A7D910E00508D11 /* CustomDare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458C52A7D910E00508D11 /* CustomDare.storyboard */; };
 		CAC458C82A7D919C00508D11 /* CustomTruthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458C72A7D919C00508D11 /* CustomTruthViewController.swift */; };
 		CAC458CA2A7D91A400508D11 /* CustomDareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458C92A7D91A400508D11 /* CustomDareViewController.swift */; };
-		CAC458CE2A7E643A00508D11 /* CustomDareViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458CD2A7E643A00508D11 /* CustomDareViewCell.swift */; };
 		CAC458D02A7E647300508D11 /* CustomDareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458CF2A7E647300508D11 /* CustomDareTableViewController.swift */; };
+		CAC458D82A7FDC6B00508D11 /* AddCustomContent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458D72A7FDC6B00508D11 /* AddCustomContent.storyboard */; };
+		CAC458DA2A7FDF6A00508D11 /* AddCustomContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458D92A7FDF6A00508D11 /* AddCustomContentViewController.swift */; };
 		CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */; };
 		CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031812A5C21CA0089E839 /* SceneDelegate.swift */; };
 		CAE031842A5C21CA0089E839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031832A5C21CA0089E839 /* ViewController.swift */; };
@@ -69,14 +69,14 @@
 		CA2BC2612A79227D0085AC9F /* GPTSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTSettingsViewController.swift; sourceTree = "<group>"; };
 		CA2BC2632A7922860085AC9F /* ContentSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSettingsViewController.swift; sourceTree = "<group>"; };
 		CA2BC2652A797A130085AC9F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		CA8DCE892A7D39AD00CF6A16 /* CustomTruthViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTruthViewCell.swift; sourceTree = "<group>"; };
 		CAC458C12A7D3BC600508D11 /* CustomTruthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTruthTableViewController.swift; sourceTree = "<group>"; };
 		CAC458C32A7D910500508D11 /* CustomTruth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomTruth.storyboard; sourceTree = "<group>"; };
 		CAC458C52A7D910E00508D11 /* CustomDare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomDare.storyboard; sourceTree = "<group>"; };
 		CAC458C72A7D919C00508D11 /* CustomTruthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTruthViewController.swift; sourceTree = "<group>"; };
 		CAC458C92A7D91A400508D11 /* CustomDareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDareViewController.swift; sourceTree = "<group>"; };
-		CAC458CD2A7E643A00508D11 /* CustomDareViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDareViewCell.swift; sourceTree = "<group>"; };
 		CAC458CF2A7E647300508D11 /* CustomDareTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDareTableViewController.swift; sourceTree = "<group>"; };
+		CAC458D72A7FDC6B00508D11 /* AddCustomContent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddCustomContent.storyboard; sourceTree = "<group>"; };
+		CAC458D92A7FDF6A00508D11 /* AddCustomContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomContentViewController.swift; sourceTree = "<group>"; };
 		CAE0317C2A5C21CA0089E839 /* TruthOrDare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruthOrDare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAE031812A5C21CA0089E839 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,15 +132,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CA8DCE872A7D399200CF6A16 /* Custom Views */ = {
-			isa = PBXGroup;
-			children = (
-				CA8DCE892A7D39AD00CF6A16 /* CustomTruthViewCell.swift */,
-				CAC458CD2A7E643A00508D11 /* CustomDareViewCell.swift */,
-			);
-			path = "Custom Views";
-			sourceTree = "<group>";
-		};
 		CAC458D12A7E647800508D11 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +146,7 @@
 				CA2BC2632A7922860085AC9F /* ContentSettingsViewController.swift */,
 				CAC458D42A7E649000508D11 /* Truth */,
 				CAC458D52A7E649800508D11 /* Dare */,
+				CAC458D92A7FDF6A00508D11 /* AddCustomContentViewController.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -255,7 +247,6 @@
 		CAE031B12A5C23DA0089E839 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
-				CA8DCE872A7D399200CF6A16 /* Custom Views */,
 				CAE031CE2A5CA0810089E839 /* Views */,
 				CAE031CB2A5C680B0089E839 /* Extensions */,
 				CAE031B42A5C25D80089E839 /* ViewControllers */,
@@ -404,6 +395,7 @@
 				CAFFE04E2A77F784008BA04B /* ContentSettings.storyboard */,
 				CAC458C32A7D910500508D11 /* CustomTruth.storyboard */,
 				CAC458C52A7D910E00508D11 /* CustomDare.storyboard */,
+				CAC458D72A7FDC6B00508D11 /* AddCustomContent.storyboard */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -532,6 +524,7 @@
 				CAE031892A5C21CB0089E839 /* Assets.xcassets in Resources */,
 				CAE031872A5C21CA0089E839 /* Main.storyboard in Resources */,
 				CAE031C82A5C65B70089E839 /* Settings.storyboard in Resources */,
+				CAC458D82A7FDC6B00508D11 /* AddCustomContent.storyboard in Resources */,
 				CAC458C62A7D910E00508D11 /* CustomDare.storyboard in Resources */,
 				CAC458C42A7D910500508D11 /* CustomTruth.storyboard in Resources */,
 			);
@@ -558,7 +551,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA8DCE8A2A7D39AD00CF6A16 /* CustomTruthViewCell.swift in Sources */,
 				CAC458D02A7E647300508D11 /* CustomDareTableViewController.swift in Sources */,
 				CAE031BD2A5C35F00089E839 /* GameViewController.swift in Sources */,
 				CAE031DA2A5E6FF80089E839 /* PlayerColor.swift in Sources */,
@@ -573,10 +565,10 @@
 				CA09BCD22A7CC1710026A8A5 /* CustomPool.swift in Sources */,
 				CA2BC2662A797A130085AC9F /* Settings.swift in Sources */,
 				CAE031E02A61847E0089E839 /* RoundType.swift in Sources */,
+				CAC458DA2A7FDF6A00508D11 /* AddCustomContentViewController.swift in Sources */,
 				CA2BC2642A7922860085AC9F /* ContentSettingsViewController.swift in Sources */,
 				CAC458C82A7D919C00508D11 /* CustomTruthViewController.swift in Sources */,
 				CAE031CD2A5C681B0089E839 /* UIViewExtension.swift in Sources */,
-				CAC458CE2A7E643A00508D11 /* CustomDareViewCell.swift in Sources */,
 				CAC458CA2A7D91A400508D11 /* CustomDareViewController.swift in Sources */,
 				CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */,
 				CAE031D82A5D37680089E839 /* PlayerPropertyType.swift in Sources */,
