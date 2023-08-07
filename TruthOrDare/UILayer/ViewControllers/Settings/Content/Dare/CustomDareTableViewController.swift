@@ -9,6 +9,25 @@ import UIKit
 
 class CustomDareTableViewController: UITableViewController {
 
+    var tempData: [String] = [
+        "What is the most embarrassing thing that has ever happened to you?",
+        "Have you ever kept a secret from your best friend? If yes, what was it?",
+        "What is your biggest fear, and why?",
+        "What is the most embarrassing thing you've done while on a date?",
+        "Have you ever had a crush on someone in this room? If so, who?",
+        "Have you ever lied to get out of trouble? What was the situation?",
+        "If you could switch lives with someone for a day, who would it be and why?",
+        "What is your most unusual or quirky habit that you're willing to share?",
+        "What is the most embarrassing thing that has ever happened to you?",
+        "Have you ever kept a secret from your best friend? If yes, what was it?",
+        "What is your biggest fear, and why?",
+        "What is the most embarrassing thing you've done while on a date?",
+        "Have you ever had a crush on someone in this room? If so, who?",
+        "Have you ever lied to get out of trouble? What was the situation?",
+        "If you could switch lives with someone for a day, who would it be and why?",
+        "What is your most unusual or quirky habit that you're willing to share?",
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,27 +38,28 @@ class CustomDareTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return tempData.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customDareCell", for: indexPath)
 
-        // Configure the cell...
+        // Fetch data
+        let cellData = tempData[indexPath.row]
+        
+        var content = cell.defaultContentConfiguration()
+        content.text = cellData
+        
+        cell.contentConfiguration = content
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

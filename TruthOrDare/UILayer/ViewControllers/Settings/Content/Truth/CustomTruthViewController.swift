@@ -10,10 +10,12 @@ import CoreData
 
 class CustomTruthViewController: UIViewController {
     
+    // Storyboard properties.
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var addTruthButton: UIButton!
     
-    // Storyboard properties.
+    @IBOutlet weak var containerView: UIView!
+    
     @IBOutlet weak var customTruthStackView: UIStackView!
     @IBOutlet weak var customTruthSwitch: UISwitch!
     
@@ -59,6 +61,7 @@ class CustomTruthViewController: UIViewController {
         
         self.editButton.isHidden = !settings.isCustomTruthEnabled
         self.addTruthButton.isHidden = !settings.isCustomTruthEnabled
+        self.containerView.isHidden = !settings.isCustomTruthEnabled
         
         Settings.updateSettings(using: settings)
     }
@@ -70,6 +73,7 @@ class CustomTruthViewController: UIViewController {
             // Regulate edit, and action buttons, and scroll view if custom truth or dare enabled.
             self.editButton.isHidden = !settings.isCustomTruthEnabled
             self.addTruthButton.isHidden = !settings.isCustomTruthEnabled
+            self.containerView.isHidden = !settings.isCustomTruthEnabled
         } else {
             let alert = UIAlertController(title: "Error", message: "Could not retrieve settings", preferredStyle: .alert)
             alert.addAction(

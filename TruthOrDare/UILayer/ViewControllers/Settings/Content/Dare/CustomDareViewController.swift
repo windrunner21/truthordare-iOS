@@ -10,8 +10,11 @@ import CoreData
 
 class CustomDareViewController: UIViewController {
     
+    // Storyboard properties.
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var addDareButton: UIButton!
+    
+    @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var customDareStackView: UIStackView!
     @IBOutlet weak var customDareSwitch: UISwitch!
@@ -58,6 +61,7 @@ class CustomDareViewController: UIViewController {
         
         self.editButton.isHidden = !settings.isCustomDareEnabled
         self.addDareButton.isHidden = !settings.isCustomDareEnabled
+        self.containerView.isHidden = !settings.isCustomDareEnabled
         
         Settings.updateSettings(using: settings)
     }
@@ -69,6 +73,7 @@ class CustomDareViewController: UIViewController {
             // Regulate edit, and action buttons, and scroll view if custom truth or dare enabled.
             self.editButton.isHidden = !settings.isCustomDareEnabled
             self.addDareButton.isHidden = !settings.isCustomDareEnabled
+            self.containerView.isHidden = !settings.isCustomDareEnabled
         } else {
             let alert = UIAlertController(title: "Error", message: "Could not retrieve settings", preferredStyle: .alert)
             alert.addAction(
