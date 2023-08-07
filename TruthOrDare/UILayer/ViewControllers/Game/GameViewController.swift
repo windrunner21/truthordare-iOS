@@ -12,8 +12,8 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     // Combine related variable for listening to changes. Sub part.
     private var playerSubscriber: AnyCancellable?
     
-    // Initialize game object.
-    private let game = Game()
+    // Initialize game object with CoreData.
+    private let game = Game(managedObjectContext: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
     
     // Adding and showing Players in the UI and Game class related variables.
     private var shouldAddPlayer: Bool = true

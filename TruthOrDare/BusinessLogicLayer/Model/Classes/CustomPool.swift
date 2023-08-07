@@ -6,13 +6,25 @@
 //
 
 class CustomPool {
+    private var manager: DataManager
     private var truthPool: [String]?
     private var darePool: [String]?
     
-    init(isTruthPoolEnabled: Bool, isDarePoolEnabled: Bool) {
+    init(isTruthPoolEnabled: Bool, isDarePoolEnabled: Bool, manager: DataManager) {
+        self.manager = manager
+        
         if isTruthPoolEnabled && isDarePoolEnabled {
-            self.truthPool = []
-            self.darePool = []
+            
+            if let fetchedData = manager.fetchData(of: CustomContent.self) {
+               for entity in fetchedData {
+                   print(entity.type!)
+                   print(entity.data!)
+                   print(entity.created!)
+                   self.truthPool?.append(entity.data!)
+                   self.darePool?.append(entity.data!)
+               }
+           }
+          
         } else if isTruthPoolEnabled {
             self.truthPool = []
         } else if isDarePoolEnabled {

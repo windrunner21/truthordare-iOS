@@ -10,9 +10,6 @@ import CoreData
 
 class CustomDareViewController: UIViewController {
     
-    // Get reference to persitent container in app delegate.
-    let container: NSPersistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
-    
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var addDareButton: UIButton!
     

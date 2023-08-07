@@ -5,6 +5,7 @@
 //  Created by Imran Hajiyev on 10.07.23.
 //
 
+import CoreData
 import Foundation
 
 class Game {
@@ -21,7 +22,7 @@ class Game {
     
     private var isActiveRound: Bool
     
-    init() {
+    init(managedObjectContext: NSManagedObjectContext) {
         // Try to retrieve settings first.
         if let encodedSettings = UserDefaults.standard.value(forKey: "settings"),
            let encodedSettings = encodedSettings as? Data,
@@ -37,7 +38,8 @@ class Game {
         // Initialize custom pool if it has been enabled in the settings.
         self.customPool = CustomPool(
             isTruthPoolEnabled: self.settings.isCustomTruthEnabled,
-            isDarePoolEnabled: self.settings.isCustomDareEnabled
+            isDarePoolEnabled: self.settings.isCustomDareEnabled,
+            manager: DataManager(managedObjectContext: managedObjectContext)
         )
         
         // Will add empty pools if not initialized in self class. If no content selected use static no content.
