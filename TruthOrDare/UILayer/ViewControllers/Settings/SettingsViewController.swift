@@ -56,12 +56,12 @@ class SettingsViewController: UIViewController {
     private func handleViewChange(for view: UIStackView, using recognizer: UIGestureRecognizer, changetTo viewController: UIViewController) {
         switch recognizer.state {
         case .began, .changed:
-            view.backgroundColor = .systemGray6
+            view.backgroundColor = UIColor(named: "SoftGray")
         case .ended:
             self.navigationController?.pushViewController(viewController, animated: true)
-            view.backgroundColor = .white
+            view.backgroundColor = UIColor(named: "BackgroundColor")
         default:
-            view.backgroundColor = .white
+            view.backgroundColor = UIColor(named: "BackgroundColor")
         }
     }
     
@@ -72,7 +72,7 @@ class SettingsViewController: UIViewController {
     private func addBorder(to stackViews: [UIStackView]) {
         for stackView in stackViews {
             stackView.layer.borderWidth = 1
-            stackView.layer.borderColor = UIColor.black.cgColor
+            stackView.layer.borderColor = UIColor(named: "SoftBlack")?.cgColor
             stackView.layer.cornerRadius = 6
         }
     }

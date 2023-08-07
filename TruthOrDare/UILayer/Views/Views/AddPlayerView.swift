@@ -102,16 +102,19 @@ class AddPlayerView: UIView, UITextFieldDelegate {
     
     private func setupPlayerNameTextField() {
         self.playerNameTextField.delegate = self
-        self.playerNameTextField.layer.borderColor = UIColor.black.cgColor
+        self.playerNameTextField.layer.borderColor = UIColor(named: "SoftGray")?.cgColor
+        self.playerNameTextField.layer.borderWidth = 0.6
         self.playerNameTextField.layer.cornerRadius = 6
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.layer.borderWidth = 1
+        self.playerNameTextField.layer.borderColor = UIColor(named: "SoftBlack")?.cgColor
+        textField.layer.borderWidth = 1.2
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.layer.borderWidth = 0
+        textField.layer.borderWidth = 0.6
+        self.playerNameTextField.layer.borderColor = UIColor(named: "SoftGray")?.cgColor
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +24,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="115" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Dare">
-                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseForegroundColor" name="SoftWhite"/>
+                                            <color key="baseBackgroundColor" name="SoftBlack"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="onDare:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7SV-dr-okF"/>
@@ -33,7 +35,8 @@
                                         <rect key="frame" x="145" y="0.0" width="115" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Truth">
-                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseForegroundColor" name="SoftWhite"/>
+                                            <color key="baseBackgroundColor" name="SoftBlack"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="onTruth:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4Ac-dl-Ei5"/>
@@ -46,7 +49,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus.app" catalog="system">
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" name="SoftBlack"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="onAdd:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Nd9-hv-Mow"/>
@@ -55,12 +58,12 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 players" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdg-5P-Hrz">
                                 <rect key="frame" x="231" y="78.5" width="59" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="SoftBlack"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNr-oj-6CT">
                                 <rect key="frame" x="30" y="50" width="25" height="24"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="SoftBlack"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrow.backward.square" catalog="system">
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
@@ -71,7 +74,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdc-lf-TMf">
                                 <rect key="frame" x="235.5" y="50" width="25" height="24"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="SoftBlack"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="square.grid.3x3.square" catalog="system">
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
@@ -79,7 +82,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="BNr-oj-6CT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="0ji-5r-Ga3"/>
                             <constraint firstItem="LnS-Is-ZHK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="43s-40-HAP"/>
@@ -95,6 +98,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addPlayerButton" destination="T9S-MT-iEr" id="7zv-Sg-rNL"/>
                         <outlet property="backButton" destination="BNr-oj-6CT" id="7v1-MP-w3W"/>
                         <outlet property="dareButton" destination="Skv-58-0tu" id="rHK-TV-9LJ"/>
                         <outlet property="numberOfPlayers" destination="Jdg-5P-Hrz" id="pcG-Zf-DWR"/>
@@ -111,5 +115,14 @@
         <image name="arrow.backward.square" catalog="system" width="128" height="114"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <image name="square.grid.3x3.square" catalog="system" width="128" height="114"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.99215686274509807" green="0.99215686274509807" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SoftBlack">
+            <color red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SoftWhite">
+            <color red="0.99215686274509807" green="0.99215686274509807" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

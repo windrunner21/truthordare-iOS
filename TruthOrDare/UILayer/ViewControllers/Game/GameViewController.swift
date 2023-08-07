@@ -22,6 +22,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // Storyboard related UI elements.
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var addPlayerButton: UIButton!
     @IBOutlet weak var totalPlayersButton: UIButton!
     @IBOutlet weak var numberOfPlayers: UILabel!
     @IBOutlet weak var dareButton: UIButton?
@@ -147,11 +148,13 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func setupPlayerNameLabel() {
         self.playerNameLabel = UILabel()
+        self.playerNameLabel.textColor = UIColor(named: "SoftBlack")
         self.playerNameLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setupContentLabel() {
         self.contentLabel = UILabel()
+        self.contentLabel.textColor = UIColor(named: "SoftBlack")
         self.contentLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -290,7 +293,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         playerView.layer.borderWidth = 1.5
 
         for view in self.allPlayersView.subviews {
-            view.layer.borderColor = view.accessibilityIdentifier == String(player.id) ? UIColor.black.cgColor : UIColor.white.cgColor
+            view.layer.borderColor = view.accessibilityIdentifier == String(player.id) ? UIColor(named: "SoftBlack")?.cgColor : UIColor(named: "SoftGray")?.cgColor
         }
         
         let x = maxWidth - (circleSize + spacing) * CGFloat(self.currentColumn)
@@ -333,7 +336,6 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     private func setPlayerNameView(with player: Player) {
         self.playerNameLabel.text = player.getName()
         self.playerNameView.backgroundColor = player.getColor()
-        self.playerNameLabel.textColor = .black
     }
     
     private func shouldDisableActionButtons() {
@@ -414,6 +416,8 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // Utilities. SSoT functions.
     private func cleanupUpdatedScreen(with type: RoundType) {
+        self.addPlayerButton.isEnabled = true
+        
         let mainButton = type == .truth ? self.truthButton : self.dareButton
         let hiddenButton = type == .truth ? self.dareButton : self.truthButton
         
@@ -433,7 +437,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
             self.setPlayerNameView(with: player)
             
             for playerView in self.allPlayersView.subviews {
-                playerView.layer.borderColor = playerView.accessibilityIdentifier == String(player.id) ? UIColor.black.cgColor : UIColor.white.cgColor
+                playerView.layer.borderColor = playerView.accessibilityIdentifier == String(player.id) ? UIColor(named: "SoftBlack")?.cgColor : UIColor(named: "SoftGray")?.cgColor
             }
         }
     }
@@ -445,6 +449,8 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         self.playerNameViewCenterXAnchorConstraint.isActive =  true
         
         // Follow up with direct visible changes.
+        self.addPlayerButton.isEnabled = false
+        
         let mainButton = type == .truth ? self.truthButton : self.dareButton
         let hideButton = type == .truth ? self.dareButton : self.truthButton
         
