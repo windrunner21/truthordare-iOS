@@ -9,4 +9,5 @@ import UIKit
 
 class PlayerCellView: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var colorCircle: UIView!
 }

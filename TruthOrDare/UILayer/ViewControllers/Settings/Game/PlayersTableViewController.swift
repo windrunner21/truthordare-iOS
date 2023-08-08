@@ -34,6 +34,14 @@ class PlayersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as! PlayerCellView
 
         cell.nameLabel.text = data[indexPath.row].getName()
+        cell.nameLabel.textColor = UIColor(named: "SoftBlack")
+        
+        cell.colorCircle.backgroundColor = data[indexPath.row].getColor()
+        cell.colorCircle.addElevation()
+        cell.colorCircle.toCircle()
+        cell.colorCircle.layer.borderWidth = 1.5
+        cell.colorCircle.layer.borderColor = UIColor(named: "SoftGray")?.cgColor
+        
         cell.contentView.layoutMargins.left = 30
 
         return cell

@@ -146,6 +146,19 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
     
     func didRemovePlayer(_ player: Player) {
         print("removed player: \(player.getName())")
+        // MARK: to do remove player method
+        
+        if game.getNumberOfPlayers() == 0 {
+            self.playerNameView.isHidden = self.game.hasPlayers()
+            self.removePlayerNameLabel(hasPlayers: false)
+            self.showPlayerNameLabel(hasPlayers: true)
+        }
+   
+        self.game.removePlayer(player)
+        
+        self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
+        self.populateAllPlayersView()
+        self.shouldDisableActionButtons()
     }
     
     private func setupPlayerNameView() {
