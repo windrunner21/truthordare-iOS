@@ -175,8 +175,8 @@
 		CAC458D52A7E649800508D11 /* Dare */ = {
 			isa = PBXGroup;
 			children = (
-				CAC458CF2A7E647300508D11 /* CustomDareTableViewController.swift */,
 				CAC458C92A7D91A400508D11 /* CustomDareViewController.swift */,
+				CAC458CF2A7E647300508D11 /* CustomDareTableViewController.swift */,
 			);
 			path = Dare;
 			sourceTree = "<group>";

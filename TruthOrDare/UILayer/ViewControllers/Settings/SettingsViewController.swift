@@ -56,7 +56,7 @@ class SettingsViewController: UIViewController {
     private func handleViewChange(for view: UIStackView, using recognizer: UIGestureRecognizer, changetTo viewController: UIViewController) {
         switch recognizer.state {
         case .began, .changed:
-            view.backgroundColor = UIColor(named: "SoftGray")
+            view.backgroundColor = UIColor(named: "TapColor")
         case .ended:
             self.navigationController?.pushViewController(viewController, animated: true)
             view.backgroundColor = UIColor(named: "BackgroundColor")

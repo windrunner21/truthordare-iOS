@@ -47,7 +47,7 @@ class CustomTruthViewController: UIViewController {
     
     private func addBorder(to stackView: UIStackView) {
         stackView.layer.borderWidth = 1
-        stackView.layer.borderColor = UIColor.black.cgColor
+        stackView.layer.borderColor = UIColor(named: "SoftBlack")?.cgColor
         stackView.layer.cornerRadius = 6
     }
 

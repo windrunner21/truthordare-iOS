@@ -55,6 +55,7 @@ class CustomDareTableViewController: UITableViewController {
         
         var content = cell.defaultContentConfiguration()
         content.text = cellData
+        content.textProperties.color = UIColor(named: "SoftBlack") ?? .black
         
         cell.contentConfiguration = content
 

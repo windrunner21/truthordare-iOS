@@ -422,7 +422,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         let hiddenButton = type == .truth ? self.dareButton : self.truthButton
         
         UIView.animate(withDuration: 0.3, animations: {
-            self.view.backgroundColor = .white
+            self.view.backgroundColor = UIColor(named: "BackgroundColor")
             self.playerNameView.addElevation()
             
             hiddenButton?.isHidden = false

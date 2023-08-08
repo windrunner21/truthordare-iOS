@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,49 +17,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwG-bg-r9k">
-                                <rect key="frame" x="30" y="50" width="53" height="21"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cancel">
-                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="onCancel:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nLB-te-HJy"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5b-vk-Tie">
-                                <rect key="frame" x="30" y="101" width="146" height="29"/>
+                                <rect key="frame" x="30" y="104" width="146" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="SoftBlack"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvU-75-jb3">
-                                <rect key="frame" x="241" y="50" width="49" height="34"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="265" y="50" width="25" height="24"/>
+                                <color key="tintColor" name="SoftBlack"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="checkmark.square.fill" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="checkmark.square" catalog="system">
+                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                </buttonConfiguration>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ii-xy-NhL">
-                                <rect key="frame" x="30" y="160" width="260" height="378"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="30" y="163" width="260" height="375"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
+                                <color key="textColor" name="SoftBlack"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWp-A6-iRX">
+                                <rect key="frame" x="30" y="50" width="25" height="24"/>
+                                <color key="tintColor" name="SoftBlack"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark.app" catalog="system">
+                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onCancel:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3QK-Ol-dof"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cvU-75-jb3" secondAttribute="trailing" constant="30" id="8pS-qr-qGE"/>
                             <constraint firstItem="cvU-75-jb3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="EAY-HX-SSm"/>
-                            <constraint firstItem="HwG-bg-r9k" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="FwI-Fj-4s3"/>
                             <constraint firstItem="O5b-vk-Tie" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="MFy-GS-mlz"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="0Ii-xy-NhL" secondAttribute="bottom" constant="30" id="RvH-81-77n"/>
+                            <constraint firstItem="O5b-vk-Tie" firstAttribute="top" secondItem="hWp-A6-iRX" secondAttribute="bottom" constant="30" id="WdT-TZ-JQD"/>
                             <constraint firstItem="0Ii-xy-NhL" firstAttribute="top" secondItem="O5b-vk-Tie" secondAttribute="bottom" constant="30" id="XMO-9S-ni4"/>
-                            <constraint firstItem="O5b-vk-Tie" firstAttribute="top" secondItem="HwG-bg-r9k" secondAttribute="bottom" constant="30" id="bUg-2N-ucu"/>
-                            <constraint firstItem="HwG-bg-r9k" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="hFO-xk-Yhl"/>
+                            <constraint firstItem="hWp-A6-iRX" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="qMF-Lc-zQM"/>
+                            <constraint firstItem="hWp-A6-iRX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="qgY-Lj-qmQ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0Ii-xy-NhL" secondAttribute="trailing" constant="30" id="z85-0u-dN6"/>
                             <constraint firstItem="0Ii-xy-NhL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="zJL-kb-7zb"/>
                         </constraints>
@@ -74,12 +75,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="xmark.app" catalog="system" width="128" height="114"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.99215686274509807" green="0.99215686274509807" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SoftBlack">
+            <color red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

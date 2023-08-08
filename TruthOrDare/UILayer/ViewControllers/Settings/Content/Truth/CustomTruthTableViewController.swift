@@ -10,22 +10,22 @@ import UIKit
 class CustomTruthTableViewController: UITableViewController {
     
     var tempData: [String] = [
-        "x",
-        "1",
-        "23",
-        "asdasd",
-        "x",
-        "1",
-        "23",
-        "asdasd",
-        "x",
-        "1",
-        "23",
-        "asdasd",
-        "x",
-        "1",
-        "23",
-        "asdasd",
+        "What is the most embarrassing thing that has ever happened to you?",
+        "Have you ever kept a secret from your best friend? If yes, what was it?",
+        "What is your biggest fear, and why?",
+        "What is the most embarrassing thing you've done while on a date?",
+        "Have you ever had a crush on someone in this room? If so, who?",
+        "Have you ever lied to get out of trouble? What was the situation?",
+        "If you could switch lives with someone for a day, who would it be and why?",
+        "What is your most unusual or quirky habit that you're willing to share?",
+        "What is the most embarrassing thing that has ever happened to you?",
+        "Have you ever kept a secret from your best friend? If yes, what was it?",
+        "What is your biggest fear, and why?",
+        "What is the most embarrassing thing you've done while on a date?",
+        "Have you ever had a crush on someone in this room? If so, who?",
+        "Have you ever lied to get out of trouble? What was the situation?",
+        "If you could switch lives with someone for a day, who would it be and why?",
+        "What is your most unusual or quirky habit that you're willing to share?",
     ]
 
     override func viewDidLoad() {
@@ -54,6 +54,7 @@ class CustomTruthTableViewController: UITableViewController {
         
         var content = cell.defaultContentConfiguration()
         content.text = cellData
+        content.textProperties.color = UIColor(named: "SoftBlack") ?? .black
         
         cell.contentConfiguration = content
 
