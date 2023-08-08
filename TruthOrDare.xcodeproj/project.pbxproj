@@ -24,6 +24,7 @@
 		CAC458EC2A80D7C700508D11 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458EB2A80D7C700508D11 /* DataManager.swift */; };
 		CAC458F42A82522E00508D11 /* Players.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458F32A82522E00508D11 /* Players.storyboard */; };
 		CAC458F62A82524300508D11 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458F52A82524300508D11 /* PlayersViewController.swift */; };
+		CAC458F82A8273BD00508D11 /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458F72A8273BD00508D11 /* PlayersTableViewController.swift */; };
 		CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */; };
 		CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031812A5C21CA0089E839 /* SceneDelegate.swift */; };
 		CAE031842A5C21CA0089E839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031832A5C21CA0089E839 /* ViewController.swift */; };
@@ -85,6 +86,7 @@
 		CAC458EB2A80D7C700508D11 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CAC458F32A82522E00508D11 /* Players.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Players.storyboard; sourceTree = "<group>"; };
 		CAC458F52A82524300508D11 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
+		CAC458F72A8273BD00508D11 /* PlayersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
 		CAE0317C2A5C21CA0089E839 /* TruthOrDare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruthOrDare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAE031812A5C21CA0089E839 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				CA2BC25F2A79226C0085AC9F /* GameSettingsViewController.swift */,
 				CAC458F52A82524300508D11 /* PlayersViewController.swift */,
+				CAC458F72A8273BD00508D11 /* PlayersTableViewController.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				CAC458DA2A7FDF6A00508D11 /* AddCustomContentViewController.swift in Sources */,
 				CA2BC2642A7922860085AC9F /* ContentSettingsViewController.swift in Sources */,
 				CAC458C82A7D919C00508D11 /* CustomTruthViewController.swift in Sources */,
+				CAC458F82A8273BD00508D11 /* PlayersTableViewController.swift in Sources */,
 				CAE031CD2A5C681B0089E839 /* UIViewExtension.swift in Sources */,
 				CAC458CA2A7D91A400508D11 /* CustomDareViewController.swift in Sources */,
 				CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */,

@@ -88,7 +88,9 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func onTotalPlayers(_ sender: Any) {
         let playersStoryboard: UIStoryboard = UIStoryboard(name: "Players", bundle: .main)
-        let playersViewController: UIViewController = playersStoryboard.instantiateViewController(withIdentifier: "PlayersScreen")
+        let playersViewController: PlayersViewController = playersStoryboard.instantiateViewController(identifier: "PlayersScreen")
+        
+        playersViewController.players = self.game.getAllPlayers()
         
         self.present(playersViewController, animated: true)
     }
