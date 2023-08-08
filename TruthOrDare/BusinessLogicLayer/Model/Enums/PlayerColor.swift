@@ -43,21 +43,21 @@ extension PlayerColor {
     var color: UIColor {
         switch self {
         case .blue:
-            return UIColor.systemBlue
+            return UIColor(named: "BlueCircle") ?? .systemBlue
         case .pink:
-            return UIColor.systemPink
+            return UIColor(named: "PinkCircle") ?? .systemPink
         case .yellow:
-            return UIColor.systemYellow
+            return UIColor(named: "YellowCircle") ?? .systemYellow
         case .red:
-            return UIColor.systemRed
+            return UIColor(named: "RedCircle") ?? .systemRed
         case .green:
-            return UIColor.systemGreen
+            return UIColor(named: "GreenCircle") ?? .systemGreen
         case .purple:
-            return UIColor.systemPurple
+            return UIColor(named: "PurpleCircle") ?? .systemPurple
         case .orange:
-            return UIColor.systemOrange
+            return UIColor(named: "OrangeCircle") ?? .systemOrange
         case .brown:
-            return UIColor.systemBrown
+            return UIColor(named: "BrownCircle") ?? .systemBrown
         }
     }
 }

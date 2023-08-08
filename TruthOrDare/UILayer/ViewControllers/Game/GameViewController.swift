@@ -176,6 +176,9 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         self.roundNameLabel = UILabel()
         self.roundTypeLabel = UILabel()
         
+        self.roundNameLabel.textColor = UIColor(named: "SoftBlack")
+        self.roundTypeLabel.textColor = UIColor(named: "SoftBlack")
+        
         self.roundTypeLabel.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
         self.roundNameLabel.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
         
