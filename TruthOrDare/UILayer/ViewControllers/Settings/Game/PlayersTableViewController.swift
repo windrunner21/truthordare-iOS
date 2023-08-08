@@ -30,13 +30,10 @@ class PlayersTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as! PlayerCellView
 
-        var content = cell.defaultContentConfiguration()
-        content.text = data[indexPath.row].getName()
-        content.textProperties.color = UIColor(named: "SoftBlack") ?? .black
-        
-        cell.contentConfiguration = content
+        cell.nameLabel.text = data[indexPath.row].getName()
+        cell.contentView.layoutMargins.left = 30
 
         return cell
     }
