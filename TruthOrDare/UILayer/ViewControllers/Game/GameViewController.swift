@@ -420,6 +420,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     // Utilities. SSoT functions.
     private func cleanupUpdatedScreen(with type: RoundType) {
         self.addPlayerButton.isEnabled = true
+        self.totalPlayersButton.isEnabled = true
         
         let mainButton = type == .truth ? self.truthButton : self.dareButton
         let hiddenButton = type == .truth ? self.dareButton : self.truthButton
@@ -453,6 +454,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         
         // Follow up with direct visible changes.
         self.addPlayerButton.isEnabled = false
+        self.totalPlayersButton.isEnabled = false
         
         let mainButton = type == .truth ? self.truthButton : self.dareButton
         let hideButton = type == .truth ? self.dareButton : self.truthButton
