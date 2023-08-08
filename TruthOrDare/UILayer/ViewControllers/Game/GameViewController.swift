@@ -84,7 +84,14 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func onBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-    }    
+    }
+    
+    @IBAction func onTotalPlayers(_ sender: Any) {
+        let playersStoryboard: UIStoryboard = UIStoryboard(name: "Players", bundle: .main)
+        let playersViewController: UIViewController = playersStoryboard.instantiateViewController(withIdentifier: "PlayersScreen")
+        
+        self.present(playersViewController, animated: true)
+    }
     
     @IBAction func onAdd(_ sender: Any) {
         guard shouldAddPlayer else { return }

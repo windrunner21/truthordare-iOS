@@ -22,8 +22,8 @@
 		CAC458DA2A7FDF6A00508D11 /* AddCustomContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458D92A7FDF6A00508D11 /* AddCustomContentViewController.swift */; };
 		CAC458EA2A80D34A00508D11 /* TruthOrDare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAC458E82A80D34A00508D11 /* TruthOrDare.xcdatamodeld */; };
 		CAC458EC2A80D7C700508D11 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458EB2A80D7C700508D11 /* DataManager.swift */; };
-		CAC458EE2A82299700508D11 /* TotalPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458ED2A82299700508D11 /* TotalPlayersView.swift */; };
-		CAC458F02A8229A100508D11 /* TotalPlayers.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAC458EF2A8229A100508D11 /* TotalPlayers.xib */; };
+		CAC458F42A82522E00508D11 /* Players.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458F32A82522E00508D11 /* Players.storyboard */; };
+		CAC458F62A82524300508D11 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458F52A82524300508D11 /* PlayersViewController.swift */; };
 		CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */; };
 		CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031812A5C21CA0089E839 /* SceneDelegate.swift */; };
 		CAE031842A5C21CA0089E839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE031832A5C21CA0089E839 /* ViewController.swift */; };
@@ -83,8 +83,8 @@
 		CAC458D92A7FDF6A00508D11 /* AddCustomContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomContentViewController.swift; sourceTree = "<group>"; };
 		CAC458E92A80D34A00508D11 /* TruthOrDare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TruthOrDare.xcdatamodel; sourceTree = "<group>"; };
 		CAC458EB2A80D7C700508D11 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		CAC458ED2A82299700508D11 /* TotalPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPlayersView.swift; sourceTree = "<group>"; };
-		CAC458EF2A8229A100508D11 /* TotalPlayers.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotalPlayers.xib; sourceTree = "<group>"; };
+		CAC458F32A82522E00508D11 /* Players.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Players.storyboard; sourceTree = "<group>"; };
+		CAC458F52A82524300508D11 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		CAE0317C2A5C21CA0089E839 /* TruthOrDare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruthOrDare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAE031812A5C21CA0089E839 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				CA2BC25F2A79226C0085AC9F /* GameSettingsViewController.swift */,
+				CAC458F52A82524300508D11 /* PlayersViewController.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -305,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				CAE031B72A5C2F9D0089E839 /* Game.storyboard */,
+				CAC458F32A82522E00508D11 /* Players.storyboard */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -374,7 +376,6 @@
 			isa = PBXGroup;
 			children = (
 				CAE031D32A5CA1510089E839 /* AddPlayerView.swift */,
-				CAC458ED2A82299700508D11 /* TotalPlayersView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -383,7 +384,6 @@
 			isa = PBXGroup;
 			children = (
 				CAE031D12A5CA11F0089E839 /* AddPlayer.xib */,
-				CAC458EF2A8229A100508D11 /* TotalPlayers.xib */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -537,8 +537,8 @@
 				CAE031872A5C21CA0089E839 /* Main.storyboard in Resources */,
 				CAE031C82A5C65B70089E839 /* Settings.storyboard in Resources */,
 				CAC458D82A7FDC6B00508D11 /* AddCustomContent.storyboard in Resources */,
+				CAC458F42A82522E00508D11 /* Players.storyboard in Resources */,
 				CAC458C62A7D910E00508D11 /* CustomDare.storyboard in Resources */,
-				CAC458F02A8229A100508D11 /* TotalPlayers.xib in Resources */,
 				CAC458C42A7D910500508D11 /* CustomTruth.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -573,11 +573,11 @@
 				CAE031CA2A5C65E00089E839 /* SettingsViewController.swift in Sources */,
 				CAE031842A5C21CA0089E839 /* ViewController.swift in Sources */,
 				CAE031D42A5CA1510089E839 /* AddPlayerView.swift in Sources */,
-				CAC458EE2A82299700508D11 /* TotalPlayersView.swift in Sources */,
 				CAC458EA2A80D34A00508D11 /* TruthOrDare.xcdatamodeld in Sources */,
 				CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */,
 				CAE031C52A5C39220089E839 /* Player.swift in Sources */,
 				CA2BC2622A79227D0085AC9F /* GPTSettingsViewController.swift in Sources */,
+				CAC458F62A82524300508D11 /* PlayersViewController.swift in Sources */,
 				CA09BCD22A7CC1710026A8A5 /* CustomPool.swift in Sources */,
 				CA2BC2662A797A130085AC9F /* Settings.swift in Sources */,
 				CAE031E02A61847E0089E839 /* RoundType.swift in Sources */,
