@@ -87,6 +87,8 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     }    
     
     @IBAction func onAdd(_ sender: Any) {
+        guard shouldAddPlayer else { return }
+        
         let addPlayerView: AddPlayerView = AddPlayerView(
             frame: CGRect(
                 x: 30,
@@ -312,14 +314,13 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         
         if CGFloat(self.currentRow) > maxHeight / (circleSize + spacing) {
+            self.addPlayerButton.isEnabled = false
             self.shouldAddPlayer = false
         }
     }
     
     private func handlePlayer(_ player: Player?) {
         guard let player = player else { return }
-        
-        guard shouldAddPlayer else { return }
 
         // Do it only once.
         if game.getNumberOfPlayers() == 0 {
