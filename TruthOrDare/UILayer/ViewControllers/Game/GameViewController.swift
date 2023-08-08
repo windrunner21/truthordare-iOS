@@ -150,14 +150,14 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
         
         if game.getNumberOfPlayers() == 0 {
             self.playerNameView.isHidden = self.game.hasPlayers()
-            self.removePlayerNameLabel(hasPlayers: false)
-            self.showPlayerNameLabel(hasPlayers: true)
+            self.removePlayerNameLabel(hasPlayers: true)
+            self.showPlayerNameLabel(hasPlayers: false)
         }
    
         self.game.removePlayer(player)
         
         self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
-        self.populateAllPlayersView()
+        self.removeFromAllPlayersView(player)
         self.shouldDisableActionButtons()
     }
     
@@ -353,6 +353,16 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
         if CGFloat(self.currentRow) > maxHeight / (circleSize + spacing) {
             self.addPlayerButton.isEnabled = false
             self.shouldAddPlayer = false
+        }
+    }
+    
+    private func removeFromAllPlayersView(_ player: Player) {
+        for view in self.allPlayersView.subviews {
+            if view.accessibilityIdentifier == String(player.id) {
+                view.removeFromSuperview()
+                self.currentColumn -= 1
+                break
+            }
         }
     }
     
