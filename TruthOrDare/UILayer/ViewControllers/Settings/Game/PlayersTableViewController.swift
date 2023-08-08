@@ -60,6 +60,11 @@ class PlayersTableViewController: UITableViewController {
             delegate?.didRemovePlayer(data[indexPath.row])
             data.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            if data.isEmpty {
+                self.dismiss(animated: true)
+            }
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    

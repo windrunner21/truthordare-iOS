@@ -66,7 +66,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
         
         // Configure setup moves.
         self.playerNameView.isHidden = !self.game.hasPlayers()
-        self.showPlayerNameLabel(hasPlayers: false)
+        self.showEmptyPlayerNameLabel()
         self.playerNameLabel.text = "Add players to start playing..."
         
         // Check if there are players in the game.
@@ -129,29 +129,30 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
     }
     
     func didAddPlayer(_ player: Player) {
-        // Do it only once.
+          
         if game.getNumberOfPlayers() == 0 {
-            self.playerNameView.isHidden = self.game.hasPlayers()
-            self.removePlayerNameLabel(hasPlayers: false)
-            self.showPlayerNameLabel(hasPlayers: true)
+            self.playerNameView.isHidden = false
+            self.removePlayerNameLabel()
+            self.showPlayerNameLabel()
         }
    
         self.game.addPlayer(player)
         
         self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
         self.setPlayerNameView(with: player)
-        self.populateAllPlayersView()
+        self.addToAllPlayersView()
         self.shouldDisableActionButtons()
     }
     
+    // MARK: to do remove player method
     func didRemovePlayer(_ player: Player) {
         print("removed player: \(player.getName())")
-        // MARK: to do remove player method
         
-        if game.getNumberOfPlayers() == 0 {
+        if game.getNumberOfPlayers() == 1 {
             self.playerNameView.isHidden = self.game.hasPlayers()
-            self.removePlayerNameLabel(hasPlayers: true)
-            self.showPlayerNameLabel(hasPlayers: false)
+            self.removePlayerNameLabel()
+            self.showEmptyPlayerNameLabel()
+            self.playerNameLabel.text = "Add players to start playing..."
         }
    
         self.game.removePlayer(player)
@@ -189,6 +190,8 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
         self.playerNameLabel = UILabel()
         self.playerNameLabel.textColor = UIColor(named: "SoftBlack")
         self.playerNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.playerNameLabel.textAlignment = .center
+        self.playerNameLabel.numberOfLines = .max
     }
     
     private func setupContentLabel() {
@@ -246,49 +249,32 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
         self.playerNameView.addGestureRecognizer(panGesture)
     }
     
-    private func showPlayerNameLabel(hasPlayers: Bool) {
-        self.playerNameLabel.font = hasPlayers ? UIFont.systemFont(ofSize: 30, weight: .heavy) : UIFont.systemFont(ofSize: 14, weight: .regular)
-               
-        self.playerNameLabel.textAlignment = .center
-        self.playerNameLabel.numberOfLines = .max
+    private func showPlayerNameLabel() {
+        self.playerNameLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
         
-        if hasPlayers {
-            self.playerNameView.addSubview(self.playerNameLabel)
-            
-            NSLayoutConstraint.activate([
-                self.playerNameLabel.widthAnchor.constraint(equalToConstant: self.playerNameView.frame.width - 60),
-                self.playerNameLabel.centerXAnchor.constraint(equalTo: self.playerNameView.centerXAnchor),
-                self.playerNameLabel.centerYAnchor.constraint(equalTo: self.playerNameView.centerYAnchor),
-            ])
-        } else {
-            self.view.addSubview(self.playerNameLabel)
-            
-            NSLayoutConstraint.activate([
-                self.playerNameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-                self.playerNameLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-                self.playerNameLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
-                self.playerNameLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30)
-            ])
-        }
+        self.playerNameView.addSubview(self.playerNameLabel)
+        
+        NSLayoutConstraint.activate([
+            self.playerNameLabel.widthAnchor.constraint(equalToConstant: self.playerNameView.frame.width - 60),
+            self.playerNameLabel.centerXAnchor.constraint(equalTo: self.playerNameView.centerXAnchor),
+            self.playerNameLabel.centerYAnchor.constraint(equalTo: self.playerNameView.centerYAnchor),
+        ])
+    }
+    
+    private func showEmptyPlayerNameLabel() {
+        self.playerNameLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        
+        self.view.addSubview(self.playerNameLabel)
+        
+        NSLayoutConstraint.activate([
+            self.playerNameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.playerNameLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            self.playerNameLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
+            self.playerNameLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30)
+        ])
     }
 
-    private func removePlayerNameLabel(hasPlayers: Bool) {
-
-        if hasPlayers {
-            NSLayoutConstraint.deactivate([
-                self.playerNameLabel.widthAnchor.constraint(equalToConstant: self.playerNameView.frame.width - 60),
-                self.playerNameLabel.centerXAnchor.constraint(equalTo: self.playerNameView.centerXAnchor),
-                self.playerNameLabel.centerYAnchor.constraint(equalTo: self.playerNameView.centerYAnchor),
-            ])
-        } else {
-            NSLayoutConstraint.deactivate([
-                self.playerNameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-                self.playerNameLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-                self.playerNameLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
-                self.playerNameLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30)
-            ])
-        }
-       
+    private func removePlayerNameLabel() {
         self.playerNameLabel.removeFromSuperview()
     }
     
@@ -319,7 +305,8 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
         self.contentLabel.removeFromSuperview()
     }
     
-    private func populateAllPlayersView() {
+    // MARK: ADD
+    private func addToAllPlayersView() {
         let circleSize: CGFloat = 20
         let spacing: CGFloat = 10
         let maxWidth = self.allPlayersView.bounds.width - circleSize
@@ -356,6 +343,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
         }
     }
     
+    // MARK: REMOVE
     private func removeFromAllPlayersView(_ player: Player) {
         for view in self.allPlayersView.subviews {
             if view.accessibilityIdentifier == String(player.id) {
