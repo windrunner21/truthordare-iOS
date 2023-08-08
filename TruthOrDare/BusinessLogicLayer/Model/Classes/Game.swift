@@ -56,6 +56,10 @@ class Game {
         self.currentPlayer = player
     }
     
+    func removePlayer(_ player: Player) {
+        self.players.removeAll(where: { $0.id == player.id })
+    }
+    
     func getCurrentPlayer() -> Player? {
         self.currentPlayer
     }

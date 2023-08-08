@@ -8,6 +8,7 @@
 import UIKit
 
 class PlayersViewController: UIViewController {
+    var delegate: PlayerManagementDelegate?
     
     var players: [Player] = []
 
@@ -24,7 +25,8 @@ class PlayersViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "playersViewToPlayersTable",
             let embeddedTableViewController = segue.destination as? PlayersTableViewController {
-            embeddedTableViewController.data = players
+            embeddedTableViewController.data = self.players
+            embeddedTableViewController.delegate = self.delegate
         }
     }
 }

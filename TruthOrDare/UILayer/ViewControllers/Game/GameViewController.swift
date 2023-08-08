@@ -6,11 +6,8 @@
 //
 
 import UIKit
-import Combine
 
-class GameViewController: UIViewController, UIGestureRecognizerDelegate {
-    // Combine related variable for listening to changes. Sub part.
-    private var playerSubscriber: AnyCancellable?
+class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerManagementDelegate {
     
     // Initialize game object with CoreData.
     private let game = Game(managedObjectContext: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
@@ -27,7 +24,6 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var numberOfPlayers: UILabel!
     @IBOutlet weak var dareButton: UIButton?
     @IBOutlet weak var truthButton: UIButton?
-    
     
     // Code initialized UI elements.
     private var playerNameView: UIView!             // Player circle
@@ -90,6 +86,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         let playersStoryboard: UIStoryboard = UIStoryboard(name: "Players", bundle: .main)
         let playersViewController: PlayersViewController = playersStoryboard.instantiateViewController(identifier: "PlayersScreen")
         
+        playersViewController.delegate = self
         playersViewController.players = self.game.getAllPlayers()
         
         self.present(playersViewController, animated: true)
@@ -107,12 +104,10 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
             )
         )
         
+        addPlayerView.delegate = self
+        
         self.view.addSubview(addPlayerView)
         addPlayerView.show()
-        
-        playerSubscriber = addPlayerView.playerPublisher.sink { [weak self] player in
-            self?.handlePlayer(player)
-        }
     }
     
     @IBAction func onDare(_ sender: Any) {
@@ -131,6 +126,26 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
         } else {
             self.translatePlayerNameView(to: .truth)
         }
+    }
+    
+    func didAddPlayer(_ player: Player) {
+        // Do it only once.
+        if game.getNumberOfPlayers() == 0 {
+            self.playerNameView.isHidden = self.game.hasPlayers()
+            self.removePlayerNameLabel(hasPlayers: false)
+            self.showPlayerNameLabel(hasPlayers: true)
+        }
+   
+        self.game.addPlayer(player)
+        
+        self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
+        self.setPlayerNameView(with: player)
+        self.populateAllPlayersView()
+        self.shouldDisableActionButtons()
+    }
+    
+    func didRemovePlayer(_ player: Player) {
+        print("removed player: \(player.getName())")
     }
     
     private func setupPlayerNameView() {
@@ -326,24 +341,6 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate {
             self.addPlayerButton.isEnabled = false
             self.shouldAddPlayer = false
         }
-    }
-    
-    private func handlePlayer(_ player: Player?) {
-        guard let player = player else { return }
-
-        // Do it only once.
-        if game.getNumberOfPlayers() == 0 {
-            self.playerNameView.isHidden = self.game.hasPlayers()
-            self.removePlayerNameLabel(hasPlayers: false)
-            self.showPlayerNameLabel(hasPlayers: true)
-        }
-   
-        self.game.addPlayer(player)
-        
-        self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
-        self.setPlayerNameView(with: player)
-        self.populateAllPlayersView()
-        self.shouldDisableActionButtons()
     }
     
     private func setPlayerNameView(with player: Player) {

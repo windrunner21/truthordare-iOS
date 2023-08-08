@@ -8,6 +8,7 @@
 import UIKit
 
 class PlayersTableViewController: UITableViewController {
+    var delegate: PlayerManagementDelegate?
     
     var data: [Player] = []
 
@@ -48,6 +49,7 @@ class PlayersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            delegate?.didRemovePlayer(data[indexPath.row])
             data.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {

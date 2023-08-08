@@ -6,10 +6,11 @@
 //
 
 import UIKit
-import Combine
 
 class AddPlayerView: UIView, UITextFieldDelegate {
-    let playerPublisher = PassthroughSubject<Player, Never>()
+    var delegate: PlayerManagementDelegate?
+    
+    // UI Properties - storyboard and code.
     private let overlayView: UIView = UIView()
 
     @IBOutlet var contentView: UIView!
@@ -73,7 +74,7 @@ class AddPlayerView: UIView, UITextFieldDelegate {
             self.player.setName(to: playerName)
         }
         
-        playerPublisher.send(self.player)
+        delegate?.didAddPlayer(self.player)
         
         UIView.animate(withDuration: 0.3, animations: {
             self.overlayView.removeFromSuperview()
