@@ -10,22 +10,7 @@ import UIKit
 class CustomTruthTableViewController: UITableViewController {
     
     var tempData: [String] = [
-        "What is the most embarrassing thing that has ever happened to you?",
-        "Have you ever kept a secret from your best friend? If yes, what was it?",
-        "What is your biggest fear, and why?",
-        "What is the most embarrassing thing you've done while on a date?",
-        "Have you ever had a crush on someone in this room? If so, who?",
-        "Have you ever lied to get out of trouble? What was the situation?",
-        "If you could switch lives with someone for a day, who would it be and why?",
-        "What is your most unusual or quirky habit that you're willing to share?",
-        "What is the most embarrassing thing that has ever happened to you?",
-        "Have you ever kept a secret from your best friend? If yes, what was it?",
-        "What is your biggest fear, and why?",
-        "What is the most embarrassing thing you've done while on a date?",
-        "Have you ever had a crush on someone in this room? If so, who?",
-        "Have you ever lied to get out of trouble? What was the situation?",
-        "If you could switch lives with someone for a day, who would it be and why?",
-        "What is your most unusual or quirky habit that you're willing to share?",
+        "What is the most embarrassing thing that has ever happened to you?"
     ]
 
     override func viewDidLoad() {
