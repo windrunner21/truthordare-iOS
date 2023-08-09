@@ -68,4 +68,15 @@ class CustomTruthTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let addCustomContentStoryboard = UIStoryboard(name: "AddCustomContent", bundle: .main)
+        let addCustomContentViewController: AddCustomContentViewController = addCustomContentStoryboard.instantiateViewController(identifier: "AddCustomContentScreen")
+        
+        addCustomContentViewController.type = .truth
+        addCustomContentViewController.content = data[indexPath.row]
+//        addCustomContentViewController.delegate = self
+        
+        self.present(addCustomContentViewController, animated: true)
+    }
 }

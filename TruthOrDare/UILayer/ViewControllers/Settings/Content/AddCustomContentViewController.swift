@@ -12,8 +12,9 @@ class AddCustomContentViewController: UIViewController, UITextViewDelegate {
     let persistentContainer: PersistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     
     var delegate: ContentDelegate?
-    
+    var content: CustomContent?
     var type: RoundType!
+    
     var placeholder: String = String()
     
     @IBOutlet weak var doneButton: UIButton!
@@ -23,16 +24,22 @@ class AddCustomContentViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.doneButton.isEnabled = false
         
         self.placeholder = "Type in your custom \(type.rawValue)..."
         
-        self.titleLabel.text = "New \(type.rawValue)"
+        if let content = content {
+            self.titleLabel.text = "Editing \(type.rawValue)"
+            self.contentTextView.text = content.data
+            self.contentTextView.textColor = UIColor(named: "SoftBlack")
+        } else {
+            self.titleLabel.text = "New \(type.rawValue)"
+            self.contentTextView.text = self.placeholder
+            self.contentTextView.textColor = UIColor(named: "SoftBlack")?.withAlphaComponent(0.75)
+        }
         
         self.contentTextView.delegate = self
-        self.contentTextView.textColor = UIColor(named: "SoftBlack")?.withAlphaComponent(0.75)
-        self.contentTextView.text = self.placeholder
         
         // Add tap gesture recognizer to listen to external taps.
         let keyboardOutsideTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -46,17 +53,26 @@ class AddCustomContentViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func onAdd(_ sender: Any) {
-        let newContent = CustomContent(context: persistentContainer.viewContext)
-        
-        newContent.id = UUID()
-        newContent.created = Date.now
-        newContent.data = contentTextView.text
-        newContent.type = type.rawValue
-        
-        persistentContainer.saveContext()
-        
-        self.delegate?.didUpdateContent(newContent)
-        
+        if let content = content {
+            // Editing existing content.
+            content.modified = Date.now
+            content.data = contentTextView.text
+ 
+            persistentContainer.saveContext()
+        } else {
+            // Adding new content.
+            let newContent = CustomContent(context: persistentContainer.viewContext)
+            
+            newContent.id = UUID()
+            newContent.created = Date.now
+            newContent.data = contentTextView.text
+            newContent.type = type.rawValue
+            
+            persistentContainer.saveContext()
+            
+            self.delegate?.didUpdateContent(newContent)
+        }
+    
         self.dismiss(animated: true)
     }
     
