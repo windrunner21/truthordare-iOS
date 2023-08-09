@@ -15,6 +15,8 @@
 		CAB47E762A827A85004A4FA1 /* PlayerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB47E752A827A85004A4FA1 /* PlayerCellView.swift */; };
 		CAB47E782A828924004A4FA1 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB47E772A828924004A4FA1 /* EventType.swift */; };
 		CAB47E7B2A828FD4004A4FA1 /* PlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB47E7A2A828FD4004A4FA1 /* PlayerDelegate.swift */; };
+		CAB47E7D2A83D54E004A4FA1 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB47E7C2A83D54E004A4FA1 /* PersistentContainer.swift */; };
+		CAB47E832A83EF61004A4FA1 /* ContentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB47E822A83EF61004A4FA1 /* ContentDelegate.swift */; };
 		CAC458C22A7D3BC600508D11 /* CustomTruthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458C12A7D3BC600508D11 /* CustomTruthTableViewController.swift */; };
 		CAC458C42A7D910500508D11 /* CustomTruth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458C32A7D910500508D11 /* CustomTruth.storyboard */; };
 		CAC458C62A7D910E00508D11 /* CustomDare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458C52A7D910E00508D11 /* CustomDare.storyboard */; };
@@ -80,6 +82,8 @@
 		CAB47E752A827A85004A4FA1 /* PlayerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCellView.swift; sourceTree = "<group>"; };
 		CAB47E772A828924004A4FA1 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
 		CAB47E7A2A828FD4004A4FA1 /* PlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDelegate.swift; sourceTree = "<group>"; };
+		CAB47E7C2A83D54E004A4FA1 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
+		CAB47E822A83EF61004A4FA1 /* ContentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDelegate.swift; sourceTree = "<group>"; };
 		CAC458C12A7D3BC600508D11 /* CustomTruthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTruthTableViewController.swift; sourceTree = "<group>"; };
 		CAC458C32A7D910500508D11 /* CustomTruth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomTruth.storyboard; sourceTree = "<group>"; };
 		CAC458C52A7D910E00508D11 /* CustomDare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomDare.storyboard; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				CAB47E7A2A828FD4004A4FA1 /* PlayerDelegate.swift */,
+				CAB47E822A83EF61004A4FA1 /* ContentDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 			children = (
 				CAC458E82A80D34A00508D11 /* TruthOrDare.xcdatamodeld */,
 				CAC458EB2A80D7C700508D11 /* DataManager.swift */,
+				CAB47E7C2A83D54E004A4FA1 /* PersistentContainer.swift */,
 			);
 			path = StorageLayer;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 			files = (
 				CAC458D02A7E647300508D11 /* CustomDareTableViewController.swift in Sources */,
 				CAB47E7B2A828FD4004A4FA1 /* PlayerDelegate.swift in Sources */,
+				CAB47E7D2A83D54E004A4FA1 /* PersistentContainer.swift in Sources */,
 				CAC458EC2A80D7C700508D11 /* DataManager.swift in Sources */,
 				CAE031BD2A5C35F00089E839 /* GameViewController.swift in Sources */,
 				CAE031DA2A5E6FF80089E839 /* PlayerColor.swift in Sources */,
@@ -601,6 +608,7 @@
 				CA2BC2602A79226C0085AC9F /* GameSettingsViewController.swift in Sources */,
 				CAE031CA2A5C65E00089E839 /* SettingsViewController.swift in Sources */,
 				CAB47E762A827A85004A4FA1 /* PlayerCellView.swift in Sources */,
+				CAB47E832A83EF61004A4FA1 /* ContentDelegate.swift in Sources */,
 				CAE031842A5C21CA0089E839 /* ViewController.swift in Sources */,
 				CAE031D42A5CA1510089E839 /* AddPlayerView.swift in Sources */,
 				CAC458EA2A80D34A00508D11 /* TruthOrDare.xcdatamodeld in Sources */,

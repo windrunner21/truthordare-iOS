@@ -30,6 +30,9 @@
                                 <buttonConfiguration key="configuration" style="plain" image="checkmark.square" catalog="system">
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="onAdd:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="OhH-eb-QCH"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ii-xy-NhL">
                                 <rect key="frame" x="30" y="163" width="260" height="375"/>
@@ -68,12 +71,13 @@
                     <connections>
                         <outlet property="contentTextView" destination="0Ii-xy-NhL" id="c2d-w1-wzi"/>
                         <outlet property="contentTextViewBottomConstraint" destination="RvH-81-77n" id="RWr-Pb-EPt"/>
+                        <outlet property="doneButton" destination="cvU-75-jb3" id="rqB-tj-8oK"/>
                         <outlet property="titleLabel" destination="O5b-vk-Tie" id="JyN-8m-Ztb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="111" y="4"/>
+            <point key="canvasLocation" x="110.625" y="3.1690140845070425"/>
         </scene>
     </scenes>
     <resources>

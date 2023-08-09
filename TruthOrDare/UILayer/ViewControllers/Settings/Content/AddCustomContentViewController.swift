@@ -9,9 +9,14 @@ import UIKit
 
 class AddCustomContentViewController: UIViewController, UITextViewDelegate {
     
+    let persistentContainer: PersistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+    
+    var delegate: ContentDelegate?
+    
     var type: RoundType!
     var placeholder: String = String()
     
+    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var contentTextViewBottomConstraint: NSLayoutConstraint!
@@ -19,12 +24,14 @@ class AddCustomContentViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.placeholder = "Type in your custom \(type.value)"
+        self.doneButton.isEnabled = false
         
-        self.titleLabel.text = "New \(type.value)"
+        self.placeholder = "Type in your custom \(type.rawValue)..."
+        
+        self.titleLabel.text = "New \(type.rawValue)"
         
         self.contentTextView.delegate = self
-        self.contentTextView.textColor = .lightGray
+        self.contentTextView.textColor = UIColor(named: "SoftBlack")?.withAlphaComponent(0.75)
         self.contentTextView.text = self.placeholder
         
         // Add tap gesture recognizer to listen to external taps.
@@ -38,6 +45,21 @@ class AddCustomContentViewController: UIViewController, UITextViewDelegate {
         self.dismiss(animated: true)
     }
     
+    @IBAction func onAdd(_ sender: Any) {
+        let newContent = CustomContent(context: persistentContainer.viewContext)
+        
+        newContent.id = UUID()
+        newContent.created = Date.now
+        newContent.data = contentTextView.text
+        newContent.type = type.rawValue
+        
+        persistentContainer.saveContext()
+        
+        self.delegate?.didUpdateContent(newContent)
+        
+        self.dismiss(animated: true)
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == self.placeholder {
             textView.textColor = UIColor(named: "SoftBlack")
@@ -47,7 +69,7 @@ class AddCustomContentViewController: UIViewController, UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.textColor = .lightGray
+            textView.textColor = UIColor(named: "SoftBlack")?.withAlphaComponent(0.75)
             textView.text = self.placeholder
         }
     }
@@ -58,6 +80,10 @@ class AddCustomContentViewController: UIViewController, UITextViewDelegate {
         }
         
         return true
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        self.doneButton.isEnabled = !textView.text.isEmpty
     }
     
     @objc func dismissKeyboard() {

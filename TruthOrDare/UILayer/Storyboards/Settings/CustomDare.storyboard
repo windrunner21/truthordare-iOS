@@ -59,55 +59,42 @@
                                 </subviews>
                                 <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0WM-i4-lle">
-                                <rect key="frame" x="235.5" y="239" width="54.5" height="24"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngl-UT-6Jg">
-                                        <rect key="frame" x="0.0" y="0.0" width="25" height="24"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="e.square" catalog="system">
-                                            <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
-                                            <color key="baseForegroundColor" name="SoftBlack"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyO-5f-9Pc">
-                                        <rect key="frame" x="30" y="0.0" width="24.5" height="24"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="plus.app" catalog="system">
-                                            <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
-                                            <color key="baseForegroundColor" name="SoftBlack"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="onCustomDareAdd:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="L2r-7R-5qA"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epP-vp-nEC">
-                                <rect key="frame" x="0.0" y="293" width="320" height="245"/>
+                                <rect key="frame" x="0.0" y="292.5" width="320" height="245.5"/>
                                 <connections>
                                     <segue destination="vqu-3G-dZm" kind="embed" id="4d1-vk-FfU"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyO-5f-9Pc">
+                                <rect key="frame" x="265.5" y="239" width="24.5" height="23.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus.app" catalog="system">
+                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                    <color key="baseForegroundColor" name="SoftBlack"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onCustomDareAdd:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="L2r-7R-5qA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="48L-VV-DsX"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jfX-eS-nPQ" firstAttribute="leading" secondItem="4XG-VY-3n5" secondAttribute="trailing" constant="15" id="3qM-k9-1D9"/>
                             <constraint firstItem="48L-VV-DsX" firstAttribute="bottom" secondItem="epP-vp-nEC" secondAttribute="bottom" constant="30" id="4cX-1T-whN"/>
+                            <constraint firstItem="epP-vp-nEC" firstAttribute="top" secondItem="kyO-5f-9Pc" secondAttribute="bottom" constant="30" id="DGa-Wy-I2D"/>
                             <constraint firstItem="jfX-eS-nPQ" firstAttribute="top" secondItem="48L-VV-DsX" secondAttribute="top" constant="30" id="I41-JK-rD8"/>
                             <constraint firstItem="48L-VV-DsX" firstAttribute="trailing" secondItem="epP-vp-nEC" secondAttribute="trailing" id="L4e-v5-j60"/>
                             <constraint firstItem="4XG-VY-3n5" firstAttribute="leading" secondItem="48L-VV-DsX" secondAttribute="leading" constant="30" id="LAi-kz-OKx"/>
                             <constraint firstItem="4XG-VY-3n5" firstAttribute="top" secondItem="48L-VV-DsX" secondAttribute="top" constant="30" id="PPW-Dv-WtS"/>
-                            <constraint firstItem="0WM-i4-lle" firstAttribute="top" secondItem="Jh5-zH-itJ" secondAttribute="bottom" constant="30" id="RrP-sY-8I4"/>
                             <constraint firstItem="y9F-W7-XI3" firstAttribute="leading" secondItem="48L-VV-DsX" secondAttribute="leading" constant="30" id="TQB-lv-ifL"/>
                             <constraint firstItem="48L-VV-DsX" firstAttribute="trailing" secondItem="Jh5-zH-itJ" secondAttribute="trailing" constant="30" id="Waz-r7-xh5"/>
+                            <constraint firstItem="kyO-5f-9Pc" firstAttribute="top" secondItem="Jh5-zH-itJ" secondAttribute="bottom" constant="30" id="Yzl-jt-KgL"/>
                             <constraint firstItem="epP-vp-nEC" firstAttribute="leading" secondItem="48L-VV-DsX" secondAttribute="leading" id="bMy-fK-zYb"/>
-                            <constraint firstItem="48L-VV-DsX" firstAttribute="trailing" secondItem="0WM-i4-lle" secondAttribute="trailing" constant="30" id="gYr-r5-ChI"/>
-                            <constraint firstItem="epP-vp-nEC" firstAttribute="top" secondItem="0WM-i4-lle" secondAttribute="bottom" constant="30" id="gd9-kc-qT9"/>
                             <constraint firstItem="y9F-W7-XI3" firstAttribute="top" secondItem="4XG-VY-3n5" secondAttribute="bottom" constant="30" id="lga-3T-2Iu"/>
                             <constraint firstItem="Jh5-zH-itJ" firstAttribute="leading" secondItem="48L-VV-DsX" secondAttribute="leading" constant="30" id="pfg-9F-41s"/>
                             <constraint firstItem="Jh5-zH-itJ" firstAttribute="top" secondItem="y9F-W7-XI3" secondAttribute="bottom" constant="30" id="qRW-mG-j9b"/>
+                            <constraint firstItem="48L-VV-DsX" firstAttribute="trailing" secondItem="kyO-5f-9Pc" secondAttribute="trailing" constant="30" id="xbG-z0-YsG"/>
                         </constraints>
                     </view>
                     <connections>
@@ -115,7 +102,6 @@
                         <outlet property="containerView" destination="epP-vp-nEC" id="MwI-qG-GLZ"/>
                         <outlet property="customDareStackView" destination="Jh5-zH-itJ" id="oOo-xt-KYe"/>
                         <outlet property="customDareSwitch" destination="Twc-Cx-efj" id="bLK-yJ-K4S"/>
-                        <outlet property="editButton" destination="ngl-UT-6Jg" id="reb-P9-N3O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -127,7 +113,7 @@
             <objects>
                 <tableViewController id="vqu-3G-dZm" customClass="CustomDareTableViewController" customModule="TruthOrDare" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="u4b-bo-hZk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="245"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="245.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <prototypes>
@@ -163,7 +149,6 @@
     </scenes>
     <resources>
         <image name="arrow.left.square" catalog="system" width="128" height="114"/>
-        <image name="e.square" catalog="system" width="128" height="114"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <namedColor name="BackgroundColor">
             <color red="0.99215686274509807" green="0.99215686274509807" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

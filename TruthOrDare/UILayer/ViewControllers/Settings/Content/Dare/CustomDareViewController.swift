@@ -8,10 +8,9 @@
 import UIKit
 import CoreData
 
-class CustomDareViewController: UIViewController {
+class CustomDareViewController: UIViewController, ContentDelegate {
     
     // Storyboard properties.
-    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var addDareButton: UIButton!
     
     @IBOutlet weak var containerView: UIView!
@@ -41,8 +40,15 @@ class CustomDareViewController: UIViewController {
         let addCustomContentViewController: AddCustomContentViewController = addCustomContentStoryboard.instantiateViewController(identifier: "AddCustomContentScreen")
         
         addCustomContentViewController.type = .dare
+        addCustomContentViewController.delegate = self
         
         self.present(addCustomContentViewController, animated: true)
+    }
+    
+    func didUpdateContent(_ content: CustomContent) {
+        if let embeddedTableViewController = children.first(where: {$0 is CustomDareTableViewController}) as? CustomDareTableViewController {
+            embeddedTableViewController.updateTable(with: content)
+        }
     }
     
     private func addBorder(to stackView: UIStackView) {
@@ -59,7 +65,6 @@ class CustomDareViewController: UIViewController {
             settings.isNoContentEnabled = false
         }
         
-        self.editButton.isHidden = !settings.isCustomDareEnabled
         self.addDareButton.isHidden = !settings.isCustomDareEnabled
         self.containerView.isHidden = !settings.isCustomDareEnabled
         
@@ -70,8 +75,7 @@ class CustomDareViewController: UIViewController {
         if let settings = self.settings {
             self.customDareSwitch.isOn = settings.isCustomDareEnabled
             
-            // Regulate edit, and action buttons, and scroll view if custom truth or dare enabled.
-            self.editButton.isHidden = !settings.isCustomDareEnabled
+            // Regulate action buttons, and scroll view if custom truth or dare enabled.
             self.addDareButton.isHidden = !settings.isCustomDareEnabled
             self.containerView.isHidden = !settings.isCustomDareEnabled
         } else {

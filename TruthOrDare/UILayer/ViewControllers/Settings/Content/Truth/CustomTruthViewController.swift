@@ -8,10 +8,9 @@
 import UIKit
 import CoreData
 
-class CustomTruthViewController: UIViewController {
+class CustomTruthViewController: UIViewController, ContentDelegate {
     
     // Storyboard properties.
-    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var addTruthButton: UIButton!
     
     @IBOutlet weak var containerView: UIView!
@@ -41,8 +40,15 @@ class CustomTruthViewController: UIViewController {
         let addCustomContentViewController: AddCustomContentViewController = addCustomContentStoryboard.instantiateViewController(identifier: "AddCustomContentScreen")
         
         addCustomContentViewController.type = .truth
+        addCustomContentViewController.delegate = self
         
         self.present(addCustomContentViewController, animated: true)
+    }
+    
+    func didUpdateContent(_ content: CustomContent) {
+        if let embeddedTableViewController = children.first(where: {$0 is CustomTruthTableViewController}) as? CustomTruthTableViewController {
+            embeddedTableViewController.updateTable(with: content)
+        }
     }
     
     private func addBorder(to stackView: UIStackView) {
@@ -58,8 +64,7 @@ class CustomTruthViewController: UIViewController {
         if settings.isCustomTruthEnabled {
             settings.isNoContentEnabled = false
         }
-        
-        self.editButton.isHidden = !settings.isCustomTruthEnabled
+    
         self.addTruthButton.isHidden = !settings.isCustomTruthEnabled
         self.containerView.isHidden = !settings.isCustomTruthEnabled
         
@@ -70,8 +75,7 @@ class CustomTruthViewController: UIViewController {
         if let settings = self.settings {
             self.customTruthSwitch.isOn = settings.isCustomTruthEnabled
             
-            // Regulate edit, and action buttons, and scroll view if custom truth or dare enabled.
-            self.editButton.isHidden = !settings.isCustomTruthEnabled
+            // Regulate action buttons, and scroll view if custom truth or dare enabled.
             self.addTruthButton.isHidden = !settings.isCustomTruthEnabled
             self.containerView.isHidden = !settings.isCustomTruthEnabled
         } else {

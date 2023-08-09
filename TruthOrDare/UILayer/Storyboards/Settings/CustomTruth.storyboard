@@ -60,52 +60,39 @@
                                 <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qbs-e5-CDY">
-                                <rect key="frame" x="0.0" y="293" width="320" height="245"/>
+                                <rect key="frame" x="0.0" y="292.5" width="320" height="245.5"/>
                                 <connections>
                                     <segue destination="u0k-sP-wRl" kind="embed" id="kpV-9z-kUP"/>
                                 </connections>
                             </containerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ppi-50-iFs">
-                                <rect key="frame" x="235.5" y="239" width="54.5" height="24"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdU-zE-PJd">
-                                        <rect key="frame" x="0.0" y="0.0" width="25" height="24"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="e.square" catalog="system">
-                                            <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
-                                            <color key="baseForegroundColor" name="SoftBlack"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qJ-Uf-Yfz">
-                                        <rect key="frame" x="30" y="0.0" width="24.5" height="24"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="plus.app" catalog="system">
-                                            <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
-                                            <color key="baseForegroundColor" name="SoftBlack"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="onCustomTruthAdd:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="uy2-fw-5Vp"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qJ-Uf-Yfz">
+                                <rect key="frame" x="265.5" y="239" width="24.5" height="23.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus.app" catalog="system">
+                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                    <color key="baseForegroundColor" name="SoftBlack"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onCustomTruthAdd:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="uy2-fw-5Vp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OdN-Uy-fr8"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8ze-If-qDH" firstAttribute="top" secondItem="02h-Dk-EyT" secondAttribute="bottom" constant="30" id="0jD-C4-HqY"/>
-                            <constraint firstItem="ppi-50-iFs" firstAttribute="top" secondItem="Hu7-2E-mtK" secondAttribute="bottom" constant="30" id="6Xt-md-oli"/>
                             <constraint firstItem="OdN-Uy-fr8" firstAttribute="trailing" secondItem="Qbs-e5-CDY" secondAttribute="trailing" id="7XI-pc-Q7I"/>
                             <constraint firstItem="OdN-Uy-fr8" firstAttribute="trailing" secondItem="Hu7-2E-mtK" secondAttribute="trailing" constant="30" id="AMq-rZ-M41"/>
-                            <constraint firstItem="OdN-Uy-fr8" firstAttribute="trailing" secondItem="ppi-50-iFs" secondAttribute="trailing" constant="30" id="FLY-8X-03g"/>
                             <constraint firstItem="CFh-Hm-vCS" firstAttribute="top" secondItem="OdN-Uy-fr8" secondAttribute="top" constant="30" id="KiY-Cx-Vjm"/>
                             <constraint firstItem="Hu7-2E-mtK" firstAttribute="leading" secondItem="OdN-Uy-fr8" secondAttribute="leading" constant="30" id="L41-jI-kbJ"/>
                             <constraint firstItem="CFh-Hm-vCS" firstAttribute="leading" secondItem="02h-Dk-EyT" secondAttribute="trailing" constant="15" id="P3c-pJ-pZb"/>
+                            <constraint firstItem="2qJ-Uf-Yfz" firstAttribute="top" secondItem="Hu7-2E-mtK" secondAttribute="bottom" constant="30" id="Rpe-Tr-CbU"/>
+                            <constraint firstItem="Qbs-e5-CDY" firstAttribute="top" secondItem="2qJ-Uf-Yfz" secondAttribute="bottom" constant="30" id="VBs-iS-1qc"/>
                             <constraint firstItem="OdN-Uy-fr8" firstAttribute="bottom" secondItem="Qbs-e5-CDY" secondAttribute="bottom" constant="30" id="XbM-uU-nxe"/>
                             <constraint firstItem="Qbs-e5-CDY" firstAttribute="leading" secondItem="OdN-Uy-fr8" secondAttribute="leading" id="XrM-Bk-8ic"/>
                             <constraint firstItem="Hu7-2E-mtK" firstAttribute="top" secondItem="8ze-If-qDH" secondAttribute="bottom" constant="30" id="d0V-9B-oGd"/>
                             <constraint firstItem="02h-Dk-EyT" firstAttribute="leading" secondItem="OdN-Uy-fr8" secondAttribute="leading" constant="30" id="e9k-56-mK5"/>
-                            <constraint firstItem="Qbs-e5-CDY" firstAttribute="top" secondItem="ppi-50-iFs" secondAttribute="bottom" constant="30" id="q16-I0-REm"/>
+                            <constraint firstItem="OdN-Uy-fr8" firstAttribute="trailing" secondItem="2qJ-Uf-Yfz" secondAttribute="trailing" constant="30" id="o7k-h6-APL"/>
                             <constraint firstItem="8ze-If-qDH" firstAttribute="leading" secondItem="OdN-Uy-fr8" secondAttribute="leading" constant="30" id="tOp-Xx-4Zm"/>
                             <constraint firstItem="02h-Dk-EyT" firstAttribute="top" secondItem="OdN-Uy-fr8" secondAttribute="top" constant="30" id="tYe-Cp-sUd"/>
                         </constraints>
@@ -115,7 +102,6 @@
                         <outlet property="containerView" destination="Qbs-e5-CDY" id="WDn-GP-5Ee"/>
                         <outlet property="customTruthStackView" destination="Hu7-2E-mtK" id="26M-QM-CoB"/>
                         <outlet property="customTruthSwitch" destination="NeZ-sV-HeM" id="fub-gL-Xg5"/>
-                        <outlet property="editButton" destination="qdU-zE-PJd" id="HfP-JS-NE5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -163,7 +149,6 @@
     </scenes>
     <resources>
         <image name="arrow.left.square" catalog="system" width="128" height="114"/>
-        <image name="e.square" catalog="system" width="128" height="114"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <namedColor name="BackgroundColor">
             <color red="0.99215686274509807" green="0.99215686274509807" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

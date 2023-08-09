@@ -25,16 +25,38 @@ class DataManager {
         }
     }
     
-    func saveDataCustomContent() {
+    func saveDataCustomContent(_ data: String, type: RoundType) {
         let newCustomContent = CustomContent(context: managedObjectContext)
         
+        newCustomContent.id = UUID()
         newCustomContent.created = Date.now
-        newCustomContent.data = ""
+        newCustomContent.data = data
+        newCustomContent.type = type.rawValue
         
         do {
             try managedObjectContext.save()
         } catch {
             print("Error saving data: \(error)")
+        }
+    }
+    
+    func updateDataCustomContent(_ data: String) {
+        let fetchRequest: NSFetchRequest<CustomContent> = CustomContent.fetchRequest()
+        do {
+            let results = try managedObjectContext.fetch(fetchRequest)
+            
+            if let content = results.first {
+                content.modified = Date.now
+                content.data = data
+                
+                do {
+                    try managedObjectContext.save()
+                } catch {
+                    print("Error updating data: \(error)")
+                }
+            }
+        } catch {
+            print("Error fetching data: \(error)")
         }
     }
 }
