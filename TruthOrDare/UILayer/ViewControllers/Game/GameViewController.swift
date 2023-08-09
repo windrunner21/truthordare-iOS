@@ -275,6 +275,11 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
     }
 
     private func removePlayerNameLabel() {
+        // Check whether label has width constraint and remove it as it won't be removed automatically.
+        if let existingWidthConstraint = playerNameLabel.constraints.first(where: { $0.firstAttribute == .width }) {
+            playerNameLabel.removeConstraint(existingWidthConstraint)
+        }
+        
         self.playerNameLabel.removeFromSuperview()
     }
     
