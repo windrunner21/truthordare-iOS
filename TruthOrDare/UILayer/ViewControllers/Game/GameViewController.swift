@@ -312,13 +312,14 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
     
     // MARK: ADD
     private func addToAllPlayersView() {
+        guard let player = self.game.getAllPlayers().last else { return }
+        
         let circleSize: CGFloat = 20
         let spacing: CGFloat = 10
         let maxWidth = self.allPlayersView.bounds.width - circleSize
         let maxHeight = self.allPlayersView.bounds.height - circleSize
-        
-        guard let player = self.game.getAllPlayers().last else { return }
     
+        // Create small player circle view.
         let playerView = UIView()
         playerView.accessibilityIdentifier = String(player.id)
         playerView.frame.size = CGSize(width: circleSize, height: circleSize)
