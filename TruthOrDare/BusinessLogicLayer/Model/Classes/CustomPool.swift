@@ -5,57 +5,31 @@
 //  Created by Imran Hajiyev on 04.08.23.
 //
 
+import Foundation
+
 class CustomPool {
-    private var manager: DataManager
-    private var truthPool: [String]?
-    private var darePool: [String]?
+    private var persistentContainer: PersistentContainer
+    private var truthPool: [CustomContent]?
+    private var darePool: [CustomContent]?
     
-    init(isTruthPoolEnabled: Bool, isDarePoolEnabled: Bool, manager: DataManager) {
-        self.manager = manager
+    init(isTruthPoolEnabled: Bool, isDarePoolEnabled: Bool, persistentContainer: PersistentContainer) {
+        self.persistentContainer = persistentContainer
         
         if isTruthPoolEnabled && isDarePoolEnabled {
-            
-            if let fetchedData = manager.fetchData(of: CustomContent.self) {
-               for entity in fetchedData {
-                   print(entity.type!)
-                   print(entity.data!)
-                   print(entity.created!)
-                   self.truthPool?.append(entity.data!)
-                   self.darePool?.append(entity.data!)
-               }
-           }
-          
+            self.truthPool = persistentContainer.fetch(of: CustomContent.self, with: NSPredicate(format: "type == %@", "truth"))
+            self.darePool = persistentContainer.fetch(of: CustomContent.self, with: NSPredicate(format: "type == %@", "dare"))
         } else if isTruthPoolEnabled {
-            self.truthPool = []
+            self.truthPool = persistentContainer.fetch(of: CustomContent.self, with: NSPredicate(format: "type == %@", "truth"))
         } else if isDarePoolEnabled {
-            self.darePool = []
-        } else {
-            self.truthPool = nil
-            self.darePool = nil
+            self.darePool = persistentContainer.fetch(of: CustomContent.self, with: NSPredicate(format: "type == %@", "dare"))
         }
     }
     
     func getTruthPool() -> [String] {
-        self.truthPool ?? []
+        truthPool?.compactMap { $0.data } ?? []
     }
     
     func getDarePool() -> [String] {
-        self.darePool ?? []
-    }
-    
-    func setPool(to pool: [String], of type: RoundType) {
-        if type == .truth {
-            self.truthPool = pool
-        } else {
-            self.darePool = pool
-        }
-    }
-    
-    func addToPool(of type: RoundType, _ content: String) {
-        if type == .truth {
-            self.truthPool?.append(content)
-        } else {
-            self.darePool?.append(content)
-        }
+        darePool?.compactMap { $0.data } ?? []
     }
 }

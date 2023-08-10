@@ -10,7 +10,7 @@ import UIKit
 class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerManagementDelegate {
     
     // Initialize game object with CoreData.
-    private let game = Game(managedObjectContext: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+    private let game = Game(with: (UIApplication.shared.delegate as! AppDelegate).persistentContainer)
     
     // Adding and showing Players in the UI and Game class related variables.
     private var shouldAddPlayer: Bool = true
