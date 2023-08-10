@@ -11,6 +11,8 @@ class CustomTruthTableViewController: UITableViewController {
     
     let persistentContainer: PersistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     
+    var delegate: ContentDelegate?
+    
     var data: [CustomContent] = []
 
     override func viewDidLoad() {
@@ -19,8 +21,15 @@ class CustomTruthTableViewController: UITableViewController {
         self.data = self.persistentContainer.fetch(of: CustomContent.self, with: NSPredicate(format: "type == %@", "truth"))
     }
     
-    func updateTable(with content: CustomContent) {
-        self.data.append(content)
+    func updateTable(with content: CustomContent, edit: Bool) {
+        if edit {
+            if let indexToUpdate = self.data.firstIndex(where: {$0.id == content.id}) {
+                self.data[indexToUpdate] = content
+            }
+        } else {
+            self.data.append(content)
+        }
+        
         self.tableView.reloadData()
     }
 
@@ -75,7 +84,7 @@ class CustomTruthTableViewController: UITableViewController {
         
         addCustomContentViewController.type = .truth
         addCustomContentViewController.content = data[indexPath.row]
-//        addCustomContentViewController.delegate = self
+        addCustomContentViewController.delegate = self.delegate
         
         self.present(addCustomContentViewController, animated: true)
     }

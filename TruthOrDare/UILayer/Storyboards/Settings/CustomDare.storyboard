@@ -62,7 +62,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epP-vp-nEC">
                                 <rect key="frame" x="0.0" y="292.5" width="320" height="245.5"/>
                                 <connections>
-                                    <segue destination="vqu-3G-dZm" kind="embed" id="4d1-vk-FfU"/>
+                                    <segue destination="vqu-3G-dZm" kind="embed" identifier="dareViewToDareTable" id="4d1-vk-FfU"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyO-5f-9Pc">

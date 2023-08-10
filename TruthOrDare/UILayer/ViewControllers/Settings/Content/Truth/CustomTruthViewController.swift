@@ -45,9 +45,9 @@ class CustomTruthViewController: UIViewController, ContentDelegate {
         self.present(addCustomContentViewController, animated: true)
     }
     
-    func didUpdateContent(_ content: CustomContent) {
+    func didUpdateContent(_ content: CustomContent, isEditing: Bool) {
         if let embeddedTableViewController = children.first(where: {$0 is CustomTruthTableViewController}) as? CustomTruthTableViewController {
-            embeddedTableViewController.updateTable(with: content)
+            embeddedTableViewController.updateTable(with: content, edit: isEditing)
         }
     }
     
@@ -92,6 +92,13 @@ class CustomTruthViewController: UIViewController, ContentDelegate {
             )
             
             self.present(alert, animated: true)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "truthViewToTruthTable",
+            let embeddedTableViewController = segue.destination as? CustomTruthTableViewController {
+            embeddedTableViewController.delegate = self
         }
     }
 }

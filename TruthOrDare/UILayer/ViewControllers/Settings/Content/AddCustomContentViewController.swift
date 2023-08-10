@@ -59,6 +59,8 @@ class AddCustomContentViewController: UIViewController, UITextViewDelegate {
             content.data = contentTextView.text
  
             persistentContainer.saveContext()
+            
+            self.delegate?.didUpdateContent(content, isEditing: true)
         } else {
             // Adding new content.
             let newContent = CustomContent(context: persistentContainer.viewContext)
@@ -70,7 +72,7 @@ class AddCustomContentViewController: UIViewController, UITextViewDelegate {
             
             persistentContainer.saveContext()
             
-            self.delegate?.didUpdateContent(newContent)
+            self.delegate?.didUpdateContent(newContent, isEditing: false)
         }
     
         self.dismiss(animated: true)

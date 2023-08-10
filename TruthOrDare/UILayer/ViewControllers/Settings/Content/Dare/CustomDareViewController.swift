@@ -45,9 +45,9 @@ class CustomDareViewController: UIViewController, ContentDelegate {
         self.present(addCustomContentViewController, animated: true)
     }
     
-    func didUpdateContent(_ content: CustomContent) {
+    func didUpdateContent(_ content: CustomContent, isEditing: Bool) {
         if let embeddedTableViewController = children.first(where: {$0 is CustomDareTableViewController}) as? CustomDareTableViewController {
-            embeddedTableViewController.updateTable(with: content)
+            embeddedTableViewController.updateTable(with: content, edit: isEditing)
         }
     }
     
@@ -92,6 +92,13 @@ class CustomDareViewController: UIViewController, ContentDelegate {
             )
             
             self.present(alert, animated: true)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "dareViewToDareTable",
+            let embeddedTableViewController = segue.destination as? CustomDareTableViewController {
+            embeddedTableViewController.delegate = self
         }
     }
 

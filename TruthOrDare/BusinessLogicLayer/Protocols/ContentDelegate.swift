@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ContentDelegate {
-    func didUpdateContent(_ content: CustomContent) 
+    func didUpdateContent(_ content: CustomContent, isEditing: Bool) 
 }
