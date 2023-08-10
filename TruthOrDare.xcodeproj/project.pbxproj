@@ -17,6 +17,7 @@
 		CAB47E7B2A828FD4004A4FA1 /* PlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB47E7A2A828FD4004A4FA1 /* PlayerDelegate.swift */; };
 		CAB47E7D2A83D54E004A4FA1 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB47E7C2A83D54E004A4FA1 /* PersistentContainer.swift */; };
 		CAB47E832A83EF61004A4FA1 /* ContentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB47E822A83EF61004A4FA1 /* ContentDelegate.swift */; };
+		CAB47E872A84F725004A4FA1 /* DefaultContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB47E862A84F725004A4FA1 /* DefaultContent.swift */; };
 		CAC458C22A7D3BC600508D11 /* CustomTruthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458C12A7D3BC600508D11 /* CustomTruthTableViewController.swift */; };
 		CAC458C42A7D910500508D11 /* CustomTruth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458C32A7D910500508D11 /* CustomTruth.storyboard */; };
 		CAC458C62A7D910E00508D11 /* CustomDare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458C52A7D910E00508D11 /* CustomDare.storyboard */; };
@@ -26,7 +27,6 @@
 		CAC458D82A7FDC6B00508D11 /* AddCustomContent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458D72A7FDC6B00508D11 /* AddCustomContent.storyboard */; };
 		CAC458DA2A7FDF6A00508D11 /* AddCustomContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458D92A7FDF6A00508D11 /* AddCustomContentViewController.swift */; };
 		CAC458EA2A80D34A00508D11 /* TruthOrDare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAC458E82A80D34A00508D11 /* TruthOrDare.xcdatamodeld */; };
-		CAC458EC2A80D7C700508D11 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458EB2A80D7C700508D11 /* DataManager.swift */; };
 		CAC458F42A82522E00508D11 /* Players.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458F32A82522E00508D11 /* Players.storyboard */; };
 		CAC458F62A82524300508D11 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458F52A82524300508D11 /* PlayersViewController.swift */; };
 		CAC458F82A8273BD00508D11 /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458F72A8273BD00508D11 /* PlayersTableViewController.swift */; };
@@ -84,6 +84,7 @@
 		CAB47E7A2A828FD4004A4FA1 /* PlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDelegate.swift; sourceTree = "<group>"; };
 		CAB47E7C2A83D54E004A4FA1 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		CAB47E822A83EF61004A4FA1 /* ContentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDelegate.swift; sourceTree = "<group>"; };
+		CAB47E862A84F725004A4FA1 /* DefaultContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultContent.swift; sourceTree = "<group>"; };
 		CAC458C12A7D3BC600508D11 /* CustomTruthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTruthTableViewController.swift; sourceTree = "<group>"; };
 		CAC458C32A7D910500508D11 /* CustomTruth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomTruth.storyboard; sourceTree = "<group>"; };
 		CAC458C52A7D910E00508D11 /* CustomDare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomDare.storyboard; sourceTree = "<group>"; };
@@ -93,7 +94,6 @@
 		CAC458D72A7FDC6B00508D11 /* AddCustomContent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddCustomContent.storyboard; sourceTree = "<group>"; };
 		CAC458D92A7FDF6A00508D11 /* AddCustomContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomContentViewController.swift; sourceTree = "<group>"; };
 		CAC458E92A80D34A00508D11 /* TruthOrDare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TruthOrDare.xcdatamodel; sourceTree = "<group>"; };
-		CAC458EB2A80D7C700508D11 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CAC458F32A82522E00508D11 /* Players.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Players.storyboard; sourceTree = "<group>"; };
 		CAC458F52A82524300508D11 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		CAC458F72A8273BD00508D11 /* PlayersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +167,23 @@
 				CAB47E822A83EF61004A4FA1 /* ContentDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CAB47E842A84F6D6004A4FA1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CAC458E82A80D34A00508D11 /* TruthOrDare.xcdatamodeld */,
+				CAB47E7C2A83D54E004A4FA1 /* PersistentContainer.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		CAB47E852A84F6DE004A4FA1 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				CAB47E862A84F725004A4FA1 /* DefaultContent.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		CAC458D12A7E647800508D11 /* Game */ = {
@@ -297,9 +314,8 @@
 		CAE031B22A5C23E00089E839 /* StorageLayer */ = {
 			isa = PBXGroup;
 			children = (
-				CAC458E82A80D34A00508D11 /* TruthOrDare.xcdatamodeld */,
-				CAC458EB2A80D7C700508D11 /* DataManager.swift */,
-				CAB47E7C2A83D54E004A4FA1 /* PersistentContainer.swift */,
+				CAB47E852A84F6DE004A4FA1 /* Other */,
+				CAB47E842A84F6D6004A4FA1 /* CoreData */,
 			);
 			path = StorageLayer;
 			sourceTree = "<group>";
@@ -599,9 +615,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAC458D02A7E647300508D11 /* CustomDareTableViewController.swift in Sources */,
+				CAB47E872A84F725004A4FA1 /* DefaultContent.swift in Sources */,
 				CAB47E7B2A828FD4004A4FA1 /* PlayerDelegate.swift in Sources */,
 				CAB47E7D2A83D54E004A4FA1 /* PersistentContainer.swift in Sources */,
-				CAC458EC2A80D7C700508D11 /* DataManager.swift in Sources */,
 				CAE031BD2A5C35F00089E839 /* GameViewController.swift in Sources */,
 				CAE031DA2A5E6FF80089E839 /* PlayerColor.swift in Sources */,
 				CAE031C22A5C390A0089E839 /* Game.swift in Sources */,

@@ -43,8 +43,11 @@ class Game {
         )
         
         // Will add empty pools if not initialized in self class. If no content selected use static no content.
-        self.truthPool = self.settings.isNoContentEnabled ? ["Your own Truth"] : ["Truth #1", "Truth #2", "Truth #3"] + self.customPool.getTruthPool()
-        self.darePool = self.settings.isNoContentEnabled ? ["Your own Dare"] : ["Dare #1", "Dare #2", "Dare #3"] + self.customPool.getDarePool()
+        
+        var defaultContent = DefaultContent()
+        
+        self.truthPool = self.settings.isNoContentEnabled ? ["Your own Truth."] : defaultContent.truthPool + self.customPool.getTruthPool()
+        self.darePool = self.settings.isNoContentEnabled ? ["Your own Dare."] : defaultContent.darePool + self.customPool.getDarePool()
     }
     
     func getNumberOfPlayers() -> Int {
