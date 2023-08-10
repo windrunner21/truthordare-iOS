@@ -112,8 +112,6 @@ class Game {
                 self.currentPlayer = players[index + 1]
             }
         }
-
-        self.players.forEach({ print("player: \($0.getName()) and count: \($0.skippedCount)")})
     }
     
     func activateContent(type: RoundType) -> String {
