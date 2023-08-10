@@ -10,6 +10,7 @@ import UIKit
 
 class Player {
     var id: Int
+    var skippedCount: Int
     private var name: String
     private var color: UIColor
     
@@ -19,6 +20,7 @@ class Player {
     
     init(name: String, color: UIColor) {
         self.id = Int.random(in: Int.min..<Int.max)
+        self.skippedCount = 0
         self.name = name
         self.color = color
     }

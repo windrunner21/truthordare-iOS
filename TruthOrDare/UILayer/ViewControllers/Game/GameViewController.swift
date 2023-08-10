@@ -310,7 +310,6 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
         self.contentLabel.removeFromSuperview()
     }
     
-    // MARK: ADD
     private func addToAllPlayersView(_ player: Player? = nil) {
         // Dimensions.
         let circleSize: CGFloat = 20
@@ -384,7 +383,6 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
         }
     }
     
-    // MARK: REMOVE
     private func removeFromAllPlayersView(_ player: Player) {
         // NOTE: May need update in the future.
         // Clean whole view and rebuild again

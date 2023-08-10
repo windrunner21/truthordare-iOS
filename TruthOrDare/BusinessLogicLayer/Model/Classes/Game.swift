@@ -62,7 +62,7 @@ class Game {
                 
         if !self.players.isEmpty && self.currentPlayer?.id == player.id {
             if self.settings.isRandomizePlayerEnabled {
-                self.currentPlayer = self.players.randomElement()
+                self.currentPlayer = self.players.first(where: {$0.skippedCount >= 4}) ?? self.players.randomElement()
             } else {
                 self.currentPlayer = players[indexToRemove == self.getNumberOfPlayers() ? 0 : indexToRemove]
             }
@@ -93,7 +93,10 @@ class Game {
         self.isActiveRound = false
         
         if settings.isRandomizePlayerEnabled {
-            self.currentPlayer = self.players.randomElement()
+            self.currentPlayer = self.players.first(where: {$0.skippedCount >= 4}) ?? self.players.filter({$0.id != currentPlayer?.id}).randomElement()
+            
+            self.currentPlayer?.skippedCount = 0
+            for player in self.players where player.id != currentPlayer?.id { player.skippedCount += 1 }
         } else {
             guard let index = self.players.firstIndex(where: { $0.id == self.currentPlayer?.id}) else { return }
             if index == self.getNumberOfPlayers() - 1 {
@@ -103,13 +106,14 @@ class Game {
             }
         }
 
+        self.players.forEach({ print("player: \($0.getName()) and count: \($0.skippedCount)")})
     }
     
     func activateContent(type: RoundType) -> String {
         let pool: [String] = type == .truth ? truthPool : darePool
         
         guard currentPlayer != nil else { return String() }
-        self.currentOption = pool.randomElement()
+        self.currentOption = pool.filter({$0 != self.currentOption}).randomElement()
         self.isActiveRound = true
         
         return self.currentOption!
