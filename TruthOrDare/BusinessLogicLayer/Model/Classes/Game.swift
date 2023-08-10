@@ -96,10 +96,14 @@ class Game {
         self.isActiveRound = false
         
         if settings.isRandomizePlayerEnabled {
-            self.currentPlayer = self.players.first(where: {$0.skippedCount >= 4}) ?? self.players.filter({$0.id != currentPlayer?.id}).randomElement()
-            
-            self.currentPlayer?.skippedCount = 0
-            for player in self.players where player.id != currentPlayer?.id { player.skippedCount += 1 }
+            if self.getNumberOfPlayers() == 1 {
+                self.currentPlayer = self.players[0]
+            } else {
+                self.currentPlayer = self.players.first(where: {$0.skippedCount >= 4}) ?? self.players.filter({$0.id != currentPlayer?.id}).randomElement()
+                
+                self.currentPlayer?.skippedCount = 0
+                for player in self.players where player.id != currentPlayer?.id { player.skippedCount += 1 }
+            }
         } else {
             guard let index = self.players.firstIndex(where: { $0.id == self.currentPlayer?.id}) else { return }
             if index == self.getNumberOfPlayers() - 1 {
