@@ -11,6 +11,7 @@ class PlayersTableViewController: UITableViewController {
     var delegate: PlayerManagementDelegate?
     
     var data: [Player] = []
+    var currentPlayer: Player?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class PlayersTableViewController: UITableViewController {
         cell.colorCircle.addElevation()
         cell.colorCircle.toCircle()
         cell.colorCircle.layer.borderWidth = 1.5
-        cell.colorCircle.layer.borderColor = UIColor(named: "SoftGray")?.cgColor
+        cell.colorCircle.layer.borderColor = self.currentPlayer?.id == data[indexPath.row].id ? UIColor(named: "SoftBlack")?.cgColor : UIColor(named: "SoftGray")?.cgColor
         
         cell.contentView.layoutMargins.left = 30
 

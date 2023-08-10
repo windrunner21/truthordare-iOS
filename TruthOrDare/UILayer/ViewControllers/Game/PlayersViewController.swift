@@ -11,6 +11,7 @@ class PlayersViewController: UIViewController {
     var delegate: PlayerManagementDelegate?
     
     var players: [Player] = []
+    var currentPlayer: Player?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class PlayersViewController: UIViewController {
             let embeddedTableViewController = segue.destination as? PlayersTableViewController {
             embeddedTableViewController.data = self.players
             embeddedTableViewController.delegate = self.delegate
+            embeddedTableViewController.currentPlayer = self.currentPlayer
         }
     }
 }

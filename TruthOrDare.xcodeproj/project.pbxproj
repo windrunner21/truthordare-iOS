@@ -173,8 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				CA2BC25F2A79226C0085AC9F /* GameSettingsViewController.swift */,
-				CAC458F52A82524300508D11 /* PlayersViewController.swift */,
-				CAC458F72A8273BD00508D11 /* PlayersTableViewController.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -364,6 +362,8 @@
 			isa = PBXGroup;
 			children = (
 				CAE031BC2A5C35F00089E839 /* GameViewController.swift */,
+				CAC458F52A82524300508D11 /* PlayersViewController.swift */,
+				CAC458F72A8273BD00508D11 /* PlayersTableViewController.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";

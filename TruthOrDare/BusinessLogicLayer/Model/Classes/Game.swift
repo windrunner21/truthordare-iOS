@@ -57,7 +57,20 @@ class Game {
     }
     
     func removePlayer(_ player: Player) {
-        self.players.removeAll(where: { $0.id == player.id })
+        guard let indexToRemove = self.players.firstIndex(where: { $0.id == player.id }) else { return }
+        self.players.remove(at: indexToRemove)
+                
+        if !self.players.isEmpty && self.currentPlayer?.id == player.id {
+            if self.settings.isRandomizePlayerEnabled {
+                self.currentPlayer = self.players.randomElement()
+            } else {
+                self.currentPlayer = players[indexToRemove == self.getNumberOfPlayers() ? 0 : indexToRemove]
+            }
+        }
+        
+        if self.players.isEmpty {
+            self.currentPlayer = nil
+        }
     }
     
     func getCurrentPlayer() -> Player? {
@@ -80,7 +93,7 @@ class Game {
         self.isActiveRound = false
         
         if settings.isRandomizePlayerEnabled {
-            self.currentPlayer = players.randomElement()
+            self.currentPlayer = self.players.randomElement()
         } else {
             guard let index = self.players.firstIndex(where: { $0.id == self.currentPlayer?.id}) else { return }
             if index == self.getNumberOfPlayers() - 1 {

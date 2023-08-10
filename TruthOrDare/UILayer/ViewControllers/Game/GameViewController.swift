@@ -88,6 +88,7 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
         
         playersViewController.delegate = self
         playersViewController.players = self.game.getAllPlayers()
+        playersViewController.currentPlayer = self.game.getCurrentPlayer()
         
         self.present(playersViewController, animated: true)
     }
@@ -129,7 +130,6 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
     }
     
     func didAddPlayer(_ player: Player) {
-          
         if game.getNumberOfPlayers() == 0 {
             self.playerNameView.isHidden = false
             self.removePlayerNameLabel()
@@ -140,14 +140,11 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
         
         self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
         self.setPlayerNameView(with: player)
-        self.addToAllPlayersView()
+        self.addToAllPlayersView(player)
         self.shouldDisableActionButtons()
     }
     
-    // MARK: to do remove player method
     func didRemovePlayer(_ player: Player) {
-        print("removed player: \(player.getName())")
-        
         if game.getNumberOfPlayers() == 1 {
             self.playerNameView.isHidden = self.game.hasPlayers()
             self.removePlayerNameLabel()
@@ -160,6 +157,9 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
         self.numberOfPlayers.text = "\(self.game.getNumberOfPlayers()) players"
         self.removeFromAllPlayersView(player)
         self.shouldDisableActionButtons()
+        
+        guard let currentPlayer = self.game.getCurrentPlayer() else { return }
+        self.setPlayerNameView(with: currentPlayer)
     }
     
     private func setupPlayerNameView() {
@@ -311,53 +311,91 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
     }
     
     // MARK: ADD
-    private func addToAllPlayersView() {
-        guard let player = self.game.getAllPlayers().last else { return }
-        
+    private func addToAllPlayersView(_ player: Player? = nil) {
+        // Dimensions.
         let circleSize: CGFloat = 20
         let spacing: CGFloat = 10
         let maxWidth = self.allPlayersView.bounds.width - circleSize
         let maxHeight = self.allPlayersView.bounds.height - circleSize
-    
-        // Create small player circle view.
-        let playerView = UIView()
-        playerView.accessibilityIdentifier = String(player.id)
-        playerView.frame.size = CGSize(width: circleSize, height: circleSize)
-        playerView.layer.cornerRadius = circleSize / 2
-        playerView.backgroundColor = player.getColor()
-        playerView.layer.borderWidth = 1.5
+        
+        if let player = player {
+            // Add only one, usually last, player.
+            
+            // Create small player circle view.
+            let playerView = UIView()
+            playerView.accessibilityIdentifier = String(player.id)
+            playerView.frame.size = CGSize(width: circleSize, height: circleSize)
+            playerView.layer.cornerRadius = circleSize / 2
+            playerView.backgroundColor = player.getColor()
+            playerView.layer.borderWidth = 1.5
+            
+            for view in self.allPlayersView.subviews {
+                view.layer.borderColor = view.accessibilityIdentifier == String(player.id) ? UIColor(named: "SoftBlack")?.cgColor : UIColor(named: "SoftGray")?.cgColor
+            }
+            
+            let x = maxWidth - (circleSize + spacing) * CGFloat(self.currentColumn)
+            let y = (circleSize + spacing) * CGFloat(self.currentRow)
+            playerView.frame.origin = CGPoint(x: x, y: y)
+            
+            allPlayersView.addSubview(playerView)
+            self.currentColumn += 1
+            
+            if CGFloat(self.currentColumn) > maxWidth / (circleSize + spacing) {
+                self.currentColumn = 0
+                self.currentRow += 1
+            }
+            
+            if CGFloat(self.currentRow) > maxHeight / (circleSize + spacing) {
+                self.addPlayerButton.isEnabled = false
+                self.shouldAddPlayer = false
+            }
+            
+        } else {
+            // Add all players one by one.
+            
+            self.game.getAllPlayers().forEach { player in
+                // Create small player circle view.
+                let playerView = UIView()
+                playerView.accessibilityIdentifier = String(player.id)
+                playerView.frame.size = CGSize(width: circleSize, height: circleSize)
+                playerView.layer.cornerRadius = circleSize / 2
+                playerView.backgroundColor = player.getColor()
+                playerView.layer.borderWidth = 1.5
 
-        for view in self.allPlayersView.subviews {
-            view.layer.borderColor = view.accessibilityIdentifier == String(player.id) ? UIColor(named: "SoftBlack")?.cgColor : UIColor(named: "SoftGray")?.cgColor
-        }
-        
-        let x = maxWidth - (circleSize + spacing) * CGFloat(self.currentColumn)
-        let y = (circleSize + spacing) * CGFloat(self.currentRow)
-        playerView.frame.origin = CGPoint(x: x, y: y)
-        
-        allPlayersView.addSubview(playerView)
-        self.currentColumn += 1
-        
-        if CGFloat(self.currentColumn) > maxWidth / (circleSize + spacing) {
-            self.currentColumn = 0
-            self.currentRow += 1
-        }
-        
-        if CGFloat(self.currentRow) > maxHeight / (circleSize + spacing) {
-            self.addPlayerButton.isEnabled = false
-            self.shouldAddPlayer = false
+                playerView.layer.borderColor = player.id == self.game.getCurrentPlayer()?.id ? UIColor(named: "SoftBlack")?.cgColor : UIColor(named: "SoftGray")?.cgColor
+
+                let x = maxWidth - (circleSize + spacing) * CGFloat(self.currentColumn)
+                let y = (circleSize + spacing) * CGFloat(self.currentRow)
+                playerView.frame.origin = CGPoint(x: x, y: y)
+                
+                allPlayersView.addSubview(playerView)
+                self.currentColumn += 1
+                
+                if CGFloat(self.currentColumn) > maxWidth / (circleSize + spacing) {
+                    self.currentColumn = 0
+                    self.currentRow += 1
+                }
+                
+                if CGFloat(self.currentRow) > maxHeight / (circleSize + spacing) {
+                    self.addPlayerButton.isEnabled = false
+                    self.shouldAddPlayer = false
+                }
+            }
         }
     }
     
     // MARK: REMOVE
     private func removeFromAllPlayersView(_ player: Player) {
-        for view in self.allPlayersView.subviews {
-            if view.accessibilityIdentifier == String(player.id) {
-                view.removeFromSuperview()
-                self.currentColumn -= 1
-                break
-            }
-        }
+        // NOTE: May need update in the future.
+        // Clean whole view and rebuild again
+        
+        // Clean part.
+        self.allPlayersView.subviews.forEach({$0.removeFromSuperview()})
+        self.currentRow = 0
+        self.currentColumn = 0
+        
+        // Rebuild part.
+        self.addToAllPlayersView()
     }
     
     private func setPlayerNameView(with player: Player) {
