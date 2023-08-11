@@ -100,7 +100,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 0.0.0 (000000)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7T-ZS-Dhv">
                                 <rect key="frame" x="89.5" y="537" width="141" height="16"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                <color key="textColor" name="SoftBlack"/>
+                                <color key="textColor" name="TapColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by Imran Hajiyev ©" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCa-9x-2hK">
+                                <rect key="frame" x="76.5" y="516" width="167" height="16"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" name="TapColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -110,16 +116,18 @@
                             <constraint firstItem="eTv-4L-J95" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="0Bu-0g-eTb"/>
                             <constraint firstItem="eTv-4L-J95" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="BQ9-sg-9Ks"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XQP-zP-VYb" secondAttribute="trailing" constant="30" id="EdB-kj-ejP"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="h7T-ZS-Dhv" secondAttribute="bottom" constant="15" id="KOJ-p7-aCQ"/>
                             <constraint firstItem="XQP-zP-VYb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Kp4-g3-T2M"/>
                             <constraint firstItem="N9u-0W-tEb" firstAttribute="top" secondItem="XQP-zP-VYb" secondAttribute="bottom" constant="15" id="OGx-1E-alY"/>
                             <constraint firstItem="N9u-0W-tEb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="PDT-mk-X9P"/>
                             <constraint firstItem="OfI-kA-rvx" firstAttribute="top" secondItem="nDG-fw-JAb" secondAttribute="bottom" constant="10" id="PYE-MK-Ida"/>
                             <constraint firstItem="XQP-zP-VYb" firstAttribute="top" secondItem="rHx-z6-i7s" secondAttribute="bottom" constant="15" id="Pkl-fJ-sS1"/>
                             <constraint firstItem="rHx-z6-i7s" firstAttribute="top" secondItem="OfI-kA-rvx" secondAttribute="bottom" constant="30" id="Tw1-bO-6G0"/>
+                            <constraint firstItem="h7T-ZS-Dhv" firstAttribute="top" secondItem="wCa-9x-2hK" secondAttribute="bottom" constant="5" id="VS1-6H-9hr"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OfI-kA-rvx" secondAttribute="trailing" constant="30" id="WZN-XW-BNg"/>
+                            <constraint firstItem="wCa-9x-2hK" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Wen-U4-j6C"/>
                             <constraint firstItem="rHx-z6-i7s" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Xin-3t-xyk"/>
                             <constraint firstItem="OfI-kA-rvx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="YXj-lf-22q"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="h7T-ZS-Dhv" secondAttribute="bottom" constant="15" id="adq-ub-9NO"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="N9u-0W-tEb" secondAttribute="trailing" constant="30" id="bZF-7e-Gfj"/>
                             <constraint firstItem="nDG-fw-JAb" firstAttribute="top" secondItem="eTv-4L-J95" secondAttribute="bottom" constant="30" id="cqn-Ov-aDR"/>
                             <constraint firstItem="h7T-ZS-Dhv" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="lee-zd-1bc"/>
@@ -147,6 +155,9 @@
         </namedColor>
         <namedColor name="SoftBlack">
             <color red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TapColor">
+            <color red="0.88627450980392153" green="0.8784313725490196" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
