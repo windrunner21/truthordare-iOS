@@ -14,9 +14,16 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var chatGPTStackView: UIStackView!
     @IBOutlet weak var contentStackView: UIStackView!
     
+    var versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
+    var buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion")
+    
+    @IBOutlet weak var versionBuildLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.versionBuildLabel.text = "Version \(versionNumber ?? "") (\(buildNumber ?? ""))"
+        
         self.addBorder(to: [gameModeStackView, chatGPTStackView, contentStackView])
 
         let gameModeLongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))

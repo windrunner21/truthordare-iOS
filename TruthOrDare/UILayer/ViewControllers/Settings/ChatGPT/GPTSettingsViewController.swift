@@ -8,9 +8,14 @@
 import UIKit
 
 class GPTSettingsViewController: UIViewController {
+    
+    var isPremium: Bool = false
 
     @IBOutlet weak var truthStackView: UIStackView!
     @IBOutlet weak var dareStackView: UIStackView!
+    
+    @IBOutlet weak var truthLabel: UILabel!
+    @IBOutlet weak var dareLabel: UILabel!
     
     @IBOutlet weak var truthSwitch: UISwitch!
     @IBOutlet weak var dareSwitch: UISwitch!
@@ -25,6 +30,12 @@ class GPTSettingsViewController: UIViewController {
         
         self.settings = Settings.retrieveSettings()
         self.setSettings()
+        
+        self.truthSwitch.isEnabled = isPremium
+        self.dareSwitch.isEnabled = isPremium
+        
+        self.truthLabel.textColor = isPremium ? UIColor(named: "SoftBlack") : UIColor(named: "TapColor")
+        self.dareLabel.textColor = isPremium ? UIColor(named: "SoftBlack") : UIColor(named: "TapColor")
     }
 
     @IBAction func onBack(_ sender: Any) {
@@ -34,7 +45,7 @@ class GPTSettingsViewController: UIViewController {
     private func addBorder(to stackViews: [UIStackView]) {
         for stackView in stackViews {
             stackView.layer.borderWidth = 1
-            stackView.layer.borderColor = UIColor(named: "SoftBlack")?.cgColor
+            stackView.layer.borderColor = isPremium ? UIColor(named: "SoftBlack")?.cgColor : UIColor(named: "TapColor")?.cgColor
             stackView.layer.cornerRadius = 6
         }
     }
