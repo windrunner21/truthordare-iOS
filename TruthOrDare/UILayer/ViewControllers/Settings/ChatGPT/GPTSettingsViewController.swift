@@ -57,9 +57,16 @@ class GPTSettingsViewController: UIViewController {
     }
     
     @IBAction func onActivateSubscription(_ sender: Any) {
+        
+        self.activateButton.configuration?.showsActivityIndicator = true
+        self.activateButton.setTitle("", for: .normal)
+        
         Task {
             guard let montlySubscription = transactionManager.products.first else { return}
             try await transactionManager.purchase(montlySubscription)
+            
+            self.activateButton.configuration?.showsActivityIndicator = false
+            self.activateButton.setTitle("Activate TruthAI+", for: .normal)
         }
     }
     
