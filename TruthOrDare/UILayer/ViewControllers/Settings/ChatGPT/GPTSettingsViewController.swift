@@ -9,8 +9,7 @@ import UIKit
 
 class GPTSettingsViewController: UIViewController {
     
-    var isPremium: Bool = false
-
+    // Storyboard related properties.
     @IBOutlet weak var truthStackView: UIStackView!
     @IBOutlet weak var dareStackView: UIStackView!
     
@@ -20,8 +19,13 @@ class GPTSettingsViewController: UIViewController {
     @IBOutlet weak var truthSwitch: UISwitch!
     @IBOutlet weak var dareSwitch: UISwitch!
     
+    @IBOutlet weak var activateLabel: UILabel!
+    @IBOutlet weak var activateButton: UIButton!
+    @IBOutlet weak var restoreButton: UIButton!
+    
     // Other properties.
-    var settings: Settings?
+    private var transactionManager: TransactionManager = TransactionManager.shared
+    private var settings: Settings?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,21 +35,44 @@ class GPTSettingsViewController: UIViewController {
         self.settings = Settings.retrieveSettings()
         self.setSettings()
         
-        self.truthSwitch.isEnabled = isPremium
-        self.dareSwitch.isEnabled = isPremium
+        self.truthSwitch.isEnabled = transactionManager.isPremium
+        self.dareSwitch.isEnabled = transactionManager.isPremium
         
-        self.truthLabel.textColor = isPremium ? UIColor(named: "SoftBlack") : UIColor(named: "TapColor")
-        self.dareLabel.textColor = isPremium ? UIColor(named: "SoftBlack") : UIColor(named: "TapColor")
+        self.truthLabel.textColor = transactionManager.isPremium ? UIColor(named: "SoftBlack") : UIColor(named: "TapColor")
+        self.dareLabel.textColor = transactionManager.isPremium ? UIColor(named: "SoftBlack") : UIColor(named: "TapColor")
+        
+        self.activateLabel.isHidden = transactionManager.isPremium
+        self.restoreButton.isHidden = !transactionManager.isPremium
+        self.activateButton.isHidden = transactionManager.isPremium
+        
+        if !transactionManager.isPremium {
+            Task {
+                try await transactionManager.fetchProducts()
+            }
+        }
     }
 
     @IBAction func onBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func onActivateSubscription(_ sender: Any) {
+        Task {
+            guard let montlySubscription = transactionManager.products.first else { return}
+            try await transactionManager.purchase(montlySubscription)
+        }
+    }
+    
+    @IBAction func onRestorePurchases(_ sender: Any) {
+        Task {
+            try await transactionManager.restorePurchases()
+        }
+    }
+    
     private func addBorder(to stackViews: [UIStackView]) {
         for stackView in stackViews {
             stackView.layer.borderWidth = 1
-            stackView.layer.borderColor = isPremium ? UIColor(named: "SoftBlack")?.cgColor : UIColor(named: "TapColor")?.cgColor
+            stackView.layer.borderColor = transactionManager.isPremium ? UIColor(named: "SoftBlack")?.cgColor : UIColor(named: "TapColor")?.cgColor
             stackView.layer.cornerRadius = 6
         }
     }

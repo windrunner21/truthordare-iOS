@@ -28,8 +28,8 @@
                                     <action selector="onBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CJf-VT-W5Z"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TruthGPT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwi-os-lRo">
-                                <rect key="frame" x="30" y="104" width="90.5" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TruthAI+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwi-os-lRo">
+                                <rect key="frame" x="30" y="104" width="83.5" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" name="SoftBlack"/>
                                 <nil key="highlightedColor"/>
@@ -84,15 +84,33 @@
                                 </subviews>
                                 <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdd-Qn-gOc">
-                                <rect key="frame" x="30" y="503.5" width="260" height="34.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Activate Premium">
-                                    <color key="baseBackgroundColor" name="SoftBlack"/>
-                                </buttonConfiguration>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zVE-gu-c2U">
+                                <rect key="frame" x="30" y="454" width="260" height="84"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PG4-XU-9Ia">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Restore Purchases">
+                                            <color key="baseBackgroundColor" name="SoftBlack"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onRestorePurchases:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WhW-r9-vVC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdd-Qn-gOc">
+                                        <rect key="frame" x="0.0" y="49.5" width="260" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Activate TruthAI+">
+                                            <color key="baseBackgroundColor" name="SoftBlack"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onActivateSubscription:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EgA-TY-hFS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribe for $0.99 per month to access premium and use TruthGPT content." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcX-Ec-mp2">
-                                <rect key="frame" x="30" y="438" width="260" height="50.5"/>
+                                <rect key="frame" x="30" y="393.5" width="260" height="50.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="SoftBlack"/>
                                 <nil key="highlightedColor"/>
@@ -102,22 +120,22 @@
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DcX-Ec-mp2" secondAttribute="trailing" constant="30" id="22p-85-hJ8"/>
+                            <constraint firstItem="zVE-gu-c2U" firstAttribute="top" secondItem="DcX-Ec-mp2" secondAttribute="bottom" constant="10" id="35V-wq-tFy"/>
                             <constraint firstItem="dTW-cT-egw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="F4j-Cj-Kee"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3Wp-p8-ZFp" secondAttribute="trailing" constant="30" id="Fqu-AC-0NL"/>
                             <constraint firstItem="dTW-cT-egw" firstAttribute="top" secondItem="Pwi-os-lRo" secondAttribute="bottom" constant="10" id="Igc-pG-hV2"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dTW-cT-egw" secondAttribute="trailing" constant="30" id="Lsl-vU-HYF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zVE-gu-c2U" secondAttribute="trailing" constant="30" id="Meh-Cw-NVX"/>
                             <constraint firstItem="Pwi-os-lRo" firstAttribute="top" secondItem="StN-wq-Ucb" secondAttribute="bottom" constant="30" id="Oix-3Q-CU0"/>
                             <constraint firstItem="StN-wq-Ucb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Scs-ST-qyC"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Xdd-Qn-gOc" secondAttribute="bottom" constant="30" id="Sio-T4-kTc"/>
-                            <constraint firstItem="Xdd-Qn-gOc" firstAttribute="top" secondItem="DcX-Ec-mp2" secondAttribute="bottom" constant="15" id="TBs-Ef-bYH"/>
                             <constraint firstItem="Mk1-vy-c0d" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Y1Z-Uf-qkf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mk1-vy-c0d" secondAttribute="trailing" constant="30" id="YzF-5J-6Lq"/>
                             <constraint firstItem="StN-wq-Ucb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="iHa-5B-hJs"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Xdd-Qn-gOc" secondAttribute="trailing" constant="30" id="ifz-un-ccW"/>
-                            <constraint firstItem="Xdd-Qn-gOc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="j7I-vk-u25"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="zVE-gu-c2U" secondAttribute="bottom" constant="30" id="iaA-jx-2ou"/>
                             <constraint firstItem="3Wp-p8-ZFp" firstAttribute="top" secondItem="Mk1-vy-c0d" secondAttribute="bottom" constant="15" id="jiG-UV-Y7n"/>
                             <constraint firstItem="Xf0-09-EG3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="mhv-GQ-h5R"/>
                             <constraint firstItem="Pwi-os-lRo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="rVO-J6-dxO"/>
+                            <constraint firstItem="zVE-gu-c2U" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="rZO-5e-mgg"/>
                             <constraint firstItem="Xf0-09-EG3" firstAttribute="leading" secondItem="StN-wq-Ucb" secondAttribute="trailing" constant="15" id="uLm-rF-hEt"/>
                             <constraint firstItem="Mk1-vy-c0d" firstAttribute="top" secondItem="dTW-cT-egw" secondAttribute="bottom" constant="30" id="udf-Sm-5V4"/>
                             <constraint firstItem="DcX-Ec-mp2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="yNH-7q-Jjh"/>
@@ -125,9 +143,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activateButton" destination="Xdd-Qn-gOc" id="3c2-nG-xv0"/>
+                        <outlet property="activateLabel" destination="DcX-Ec-mp2" id="5ew-em-VFs"/>
                         <outlet property="dareLabel" destination="pWm-iD-xbA" id="ECJ-1v-FFb"/>
                         <outlet property="dareStackView" destination="3Wp-p8-ZFp" id="rOn-Yk-7MG"/>
                         <outlet property="dareSwitch" destination="Srq-Ds-djB" id="O6g-fL-wWW"/>
+                        <outlet property="restoreButton" destination="PG4-XU-9Ia" id="fpv-3c-zJc"/>
                         <outlet property="truthLabel" destination="bjs-bY-akK" id="qJ7-JF-54X"/>
                         <outlet property="truthStackView" destination="Mk1-vy-c0d" id="lnm-4Y-Q3H"/>
                         <outlet property="truthSwitch" destination="eVy-gC-X0B" id="O2L-NH-EhJ"/>
