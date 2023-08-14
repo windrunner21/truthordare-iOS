@@ -71,8 +71,15 @@ class GPTSettingsViewController: UIViewController {
     }
     
     @IBAction func onRestorePurchases(_ sender: Any) {
+        
+        self.restoreButton.configuration?.showsActivityIndicator = true
+        self.restoreButton.setTitle("", for: .normal)
+        
         Task {
             try await transactionManager.restorePurchases()
+            
+            self.activateButton.configuration?.showsActivityIndicator = false
+            self.activateButton.setTitle("Restore Purchases", for: .normal)
         }
     }
     
