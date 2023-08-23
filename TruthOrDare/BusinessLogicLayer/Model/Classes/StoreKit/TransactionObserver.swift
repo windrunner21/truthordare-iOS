@@ -36,8 +36,6 @@ class TransactionObserver {
             return
         }
         
-        print(transaction)
-        
         if let revocationDate = transaction.revocationDate {
             // Remove access to the product identified by transaction.productID.
             // Transaction.revocationReason provides details about
@@ -55,6 +53,7 @@ class TransactionObserver {
         } else {
             // Provide access to the product identified by
             // transaction.productID.
+            print(transaction.productID)
             TransactionManager.shared.purchasedProductIds.insert(transaction.productID)
         }
     }

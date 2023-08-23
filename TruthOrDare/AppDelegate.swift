@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func checkForSavedSettings() {
         if UserDefaults.standard.value(forKey: "settings") == nil {
            
-            print("Trying to retrieve/set settings.")
+            print("Trying to set settings.")
             
             do {
                 let settings = Settings()
@@ -57,6 +57,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error)
                 NSLog("Cannot set initial settings. Archiving data failed.")
                 UserDefaults.standard.removeObject(forKey: "settings")
+            }
+        } else {
+            print("Retrieved settings.")
+            
+            if let settings = Settings.retrieveSettings(), !TransactionManager.shared.isPremium  {
+                settings.isChatGPTTruthEnabled = false
+                settings.isChatGPTDareEnabled = false
+
+                Settings.updateSettings(using: settings)
             }
         }
     }

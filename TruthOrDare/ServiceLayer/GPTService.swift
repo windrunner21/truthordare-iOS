@@ -13,7 +13,7 @@ class GPTService {
     private let gptModel = "gpt-3.5-turbo"
     
     func retrieveTruth(completion: @escaping (Response, String?) -> Void) {
-        let gptMessage = GPTMessage(role: "system", content: "give me 1 spicy or creative truth question")
+        let gptMessage = GPTMessage(role: "system", content: "give me 1 interesting truth question. do not repeat yourself.")
         let createGptCompletion = CreateGPTCompletion(model: gptModel, messages: [gptMessage])
         
         self.client.sendRequest(path: self.path, method: .POST, body: createGptCompletion.encode()) {
@@ -35,7 +35,7 @@ class GPTService {
     }
     
     func retrieveDare(completion: @escaping (Response, String?) -> Void) {
-        let gptMessage = GPTMessage(role: "system", content: "give me 1 spicy or creative dare")
+        let gptMessage = GPTMessage(role: "system", content: "give me 1 spicy or creative dare. do not repeat yourself.")
         let createGptCompletion = CreateGPTCompletion(model: gptModel, messages: [gptMessage])
         
         self.client.sendRequest(path: self.path, method: .POST, body: createGptCompletion.encode()) {
