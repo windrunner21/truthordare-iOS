@@ -419,7 +419,13 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
             // Call layoutIfNeeded to apply the updated position during animation.
             self.view.layoutIfNeeded()
         }) { _ in
-            self.contentLabel.text = self.game.activateContent(type: type)
+            self.contentLabel.text = ". . ."
+            self.game.activateContent(type: type) { text in
+                DispatchQueue.main.async {
+                    self.contentLabel.text = text
+                }
+            }
+            
             self.updateScreen(with: type)
         }
     }
@@ -438,18 +444,42 @@ class GameViewController: UIViewController, UIGestureRecognizerDelegate, PlayerM
         case .ended:
             if playerNameViewXPosition > UIScreen.main.bounds.width - view.frame.width / 3 {
                 if !self.game.getSettings().isTruthGameModeEnabled {
-                    self.contentLabel.text = self.game.activateContent(type: .dare)
+                    self.contentLabel.text = ". . ."
+                    self.game.activateContent(type: .dare) { text in
+                        DispatchQueue.main.async {
+                            self.contentLabel.text = text
+                        }
+                    }
+                    
                     self.updateScreen(with: .dare)
                 } else {
-                    self.contentLabel.text = self.game.activateContent(type: .truth)
+                    self.contentLabel.text = ". . ."
+                    self.game.activateContent(type: .truth) { text in
+                        DispatchQueue.main.async {
+                            self.contentLabel.text = text
+                        }
+                    }
+                    
                     self.updateScreen(with: .truth)
                 }
             } else if playerNameViewXPosition < 0 + view.frame.width / 3 {
                 if !self.game.getSettings().isDareGameModeEnabled {
-                    self.contentLabel.text = self.game.activateContent(type: .truth)
+                    self.contentLabel.text = ". . ."
+                    self.game.activateContent(type: .truth) { text in
+                        DispatchQueue.main.async {
+                            self.contentLabel.text = text
+                        }
+                    }
+                    
                     self.updateScreen(with: .truth)
                 } else {
-                    self.contentLabel.text = self.game.activateContent(type: .dare)
+                    self.contentLabel.text = ". . ."
+                    self.game.activateContent(type: .dare) { text in
+                        DispatchQueue.main.async {
+                            self.contentLabel.text = text
+                        }
+                    }
+                    
                     self.updateScreen(with: .dare)
                 }
             }

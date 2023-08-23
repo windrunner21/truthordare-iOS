@@ -20,6 +20,16 @@
 		CAB47E872A84F725004A4FA1 /* DefaultContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB47E862A84F725004A4FA1 /* DefaultContent.swift */; };
 		CABB7E212A8A135600D81A00 /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E202A8A135600D81A00 /* TransactionManager.swift */; };
 		CABB7E232A8A51C900D81A00 /* TransactionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E222A8A51C900D81A00 /* TransactionObserver.swift */; };
+		CABB7E252A8CC7DB00D81A00 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E242A8CC7DB00D81A00 /* APIClient.swift */; };
+		CABB7E272A8CCC5500D81A00 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E262A8CCC5500D81A00 /* HTTPMethod.swift */; };
+		CABB7E292A95EF7800D81A00 /* ServiceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E282A95EF7800D81A00 /* ServiceConfig.swift */; };
+		CABB7E2B2A95F7AC00D81A00 /* GPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E2A2A95F7AC00D81A00 /* GPTService.swift */; };
+		CABB7E2E2A95F87A00D81A00 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E2D2A95F87A00D81A00 /* Response.swift */; };
+		CABB7E302A95FC7600D81A00 /* CreateGPTCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E2F2A95FC7600D81A00 /* CreateGPTCompletion.swift */; };
+		CABB7E342A96030F00D81A00 /* GPTCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E332A96030F00D81A00 /* GPTCompletion.swift */; };
+		CABB7E362A962F5500D81A00 /* GPTMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E352A962F5500D81A00 /* GPTMessage.swift */; };
+		CABB7E382A962F7A00D81A00 /* GPTUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E372A962F7A00D81A00 /* GPTUsage.swift */; };
+		CABB7E3A2A962FAE00D81A00 /* GPTChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E392A962FAE00D81A00 /* GPTChoice.swift */; };
 		CAC458C22A7D3BC600508D11 /* CustomTruthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458C12A7D3BC600508D11 /* CustomTruthTableViewController.swift */; };
 		CAC458C42A7D910500508D11 /* CustomTruth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458C32A7D910500508D11 /* CustomTruth.storyboard */; };
 		CAC458C62A7D910E00508D11 /* CustomDare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458C52A7D910E00508D11 /* CustomDare.storyboard */; };
@@ -90,6 +100,16 @@
 		CABB7E1D2A877B8B00D81A00 /* StoreKitLocalConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitLocalConfig.storekit; sourceTree = "<group>"; };
 		CABB7E202A8A135600D81A00 /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		CABB7E222A8A51C900D81A00 /* TransactionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionObserver.swift; sourceTree = "<group>"; };
+		CABB7E242A8CC7DB00D81A00 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		CABB7E262A8CCC5500D81A00 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		CABB7E282A95EF7800D81A00 /* ServiceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConfig.swift; sourceTree = "<group>"; };
+		CABB7E2A2A95F7AC00D81A00 /* GPTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTService.swift; sourceTree = "<group>"; };
+		CABB7E2D2A95F87A00D81A00 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		CABB7E2F2A95FC7600D81A00 /* CreateGPTCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGPTCompletion.swift; sourceTree = "<group>"; };
+		CABB7E332A96030F00D81A00 /* GPTCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTCompletion.swift; sourceTree = "<group>"; };
+		CABB7E352A962F5500D81A00 /* GPTMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTMessage.swift; sourceTree = "<group>"; };
+		CABB7E372A962F7A00D81A00 /* GPTUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTUsage.swift; sourceTree = "<group>"; };
+		CABB7E392A962FAE00D81A00 /* GPTChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChoice.swift; sourceTree = "<group>"; };
 		CAC458C12A7D3BC600508D11 /* CustomTruthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTruthTableViewController.swift; sourceTree = "<group>"; };
 		CAC458C32A7D910500508D11 /* CustomTruth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomTruth.storyboard; sourceTree = "<group>"; };
 		CAC458C52A7D910E00508D11 /* CustomDare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomDare.storyboard; sourceTree = "<group>"; };
@@ -211,6 +231,36 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		CABB7E2C2A95F87000D81A00 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CABB7E2F2A95FC7600D81A00 /* CreateGPTCompletion.swift */,
+				CABB7E332A96030F00D81A00 /* GPTCompletion.swift */,
+				CABB7E322A9602FC00D81A00 /* Enums */,
+				CABB7E352A962F5500D81A00 /* GPTMessage.swift */,
+				CABB7E372A962F7A00D81A00 /* GPTUsage.swift */,
+				CABB7E392A962FAE00D81A00 /* GPTChoice.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CABB7E312A9602F300D81A00 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				CABB7E282A95EF7800D81A00 /* ServiceConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		CABB7E322A9602FC00D81A00 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				CABB7E262A8CCC5500D81A00 /* HTTPMethod.swift */,
+				CABB7E2D2A95F87A00D81A00 /* Response.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		CAC458D12A7E647800508D11 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +371,10 @@
 		CAE031B02A5C23D30089E839 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				CABB7E312A9602F300D81A00 /* Config */,
+				CABB7E2C2A95F87000D81A00 /* Model */,
+				CABB7E242A8CC7DB00D81A00 /* APIClient.swift */,
+				CABB7E2A2A95F7AC00D81A00 /* GPTService.swift */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -639,6 +693,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAC458D02A7E647300508D11 /* CustomDareTableViewController.swift in Sources */,
+				CABB7E292A95EF7800D81A00 /* ServiceConfig.swift in Sources */,
+				CABB7E252A8CC7DB00D81A00 /* APIClient.swift in Sources */,
 				CAB47E872A84F725004A4FA1 /* DefaultContent.swift in Sources */,
 				CAB47E7B2A828FD4004A4FA1 /* PlayerDelegate.swift in Sources */,
 				CAB47E7D2A83D54E004A4FA1 /* PersistentContainer.swift in Sources */,
@@ -648,6 +704,7 @@
 				CAE031C22A5C390A0089E839 /* Game.swift in Sources */,
 				CA2BC2602A79226C0085AC9F /* GameSettingsViewController.swift in Sources */,
 				CAE031CA2A5C65E00089E839 /* SettingsViewController.swift in Sources */,
+				CABB7E3A2A962FAE00D81A00 /* GPTChoice.swift in Sources */,
 				CAB47E762A827A85004A4FA1 /* PlayerCellView.swift in Sources */,
 				CABB7E232A8A51C900D81A00 /* TransactionObserver.swift in Sources */,
 				CAB47E832A83EF61004A4FA1 /* ContentDelegate.swift in Sources */,
@@ -655,18 +712,25 @@
 				CAE031D42A5CA1510089E839 /* AddPlayerView.swift in Sources */,
 				CAC458EA2A80D34A00508D11 /* TruthOrDare.xcdatamodeld in Sources */,
 				CAE031802A5C21CA0089E839 /* AppDelegate.swift in Sources */,
+				CABB7E382A962F7A00D81A00 /* GPTUsage.swift in Sources */,
 				CAE031C52A5C39220089E839 /* Player.swift in Sources */,
 				CA2BC2622A79227D0085AC9F /* GPTSettingsViewController.swift in Sources */,
 				CAB47E782A828924004A4FA1 /* EventType.swift in Sources */,
 				CAC458F62A82524300508D11 /* PlayersViewController.swift in Sources */,
 				CA09BCD22A7CC1710026A8A5 /* CustomPool.swift in Sources */,
+				CABB7E2E2A95F87A00D81A00 /* Response.swift in Sources */,
+				CABB7E362A962F5500D81A00 /* GPTMessage.swift in Sources */,
+				CABB7E272A8CCC5500D81A00 /* HTTPMethod.swift in Sources */,
 				CA2BC2662A797A130085AC9F /* Settings.swift in Sources */,
+				CABB7E302A95FC7600D81A00 /* CreateGPTCompletion.swift in Sources */,
 				CAE031E02A61847E0089E839 /* RoundType.swift in Sources */,
 				CAC458DA2A7FDF6A00508D11 /* AddCustomContentViewController.swift in Sources */,
 				CA2BC2642A7922860085AC9F /* ContentSettingsViewController.swift in Sources */,
 				CAC458C82A7D919C00508D11 /* CustomTruthViewController.swift in Sources */,
 				CAC458F82A8273BD00508D11 /* PlayersTableViewController.swift in Sources */,
+				CABB7E2B2A95F7AC00D81A00 /* GPTService.swift in Sources */,
 				CAE031CD2A5C681B0089E839 /* UIViewExtension.swift in Sources */,
+				CABB7E342A96030F00D81A00 /* GPTCompletion.swift in Sources */,
 				CAC458CA2A7D91A400508D11 /* CustomDareViewController.swift in Sources */,
 				CAE031822A5C21CA0089E839 /* SceneDelegate.swift in Sources */,
 				CAE031D82A5D37680089E839 /* PlayerPropertyType.swift in Sources */,

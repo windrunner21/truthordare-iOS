@@ -9,6 +9,8 @@ import CoreData
 import Foundation
 
 class Game {
+    private let gptService: GPTService = GPTService()
+    
     private var settings: Settings
     
     private var currentPlayer: Player?
@@ -21,7 +23,7 @@ class Game {
     private var currentOption: String?
     
     private var isActiveRound: Bool
-    
+        
     init(with persistentContainer: PersistentContainer) {
         // Try to retrieve settings first.
         if let encodedSettings = UserDefaults.standard.value(forKey: "settings"),
@@ -43,11 +45,10 @@ class Game {
         )
         
         // Will add empty pools if not initialized in self class. If no content selected use static no content.
-        
         let defaultContent = DefaultContent()
         
-        self.truthPool = self.settings.isNoContentEnabled ? ["Your own Truth."] : defaultContent.truthPool + self.customPool.getTruthPool()
-        self.darePool = self.settings.isNoContentEnabled ? ["Your own Dare."] : defaultContent.darePool + self.customPool.getDarePool()
+        self.truthPool = self.settings.isNoContentEnabled ? ["Your Truth"] : defaultContent.truthPool + self.customPool.getTruthPool()
+        self.darePool = self.settings.isNoContentEnabled ? ["Your Dare"] : defaultContent.darePool + self.customPool.getDarePool()
     }
     
     func getNumberOfPlayers() -> Int {
@@ -114,14 +115,52 @@ class Game {
         }
     }
     
-    func activateContent(type: RoundType) -> String {
-        let pool: [String] = type == .truth ? truthPool : darePool
+    func activateContent(type: RoundType, completion: @escaping (String) -> Void) {
+        guard currentPlayer != nil else {
+            completion(String())
+            return
+        }
         
-        guard currentPlayer != nil else { return String() }
-        self.currentOption = pool.filter({$0 != self.currentOption}).randomElement()
         self.isActiveRound = true
         
-        return self.currentOption!
+        if self.settings.isChatGPTTruthEnabled && type == .truth {
+            self.gptService.retrieveTruth() {
+                response, data in
+                
+                switch response {
+                case .success:
+                    self.currentOption = data
+                    completion(self.currentOption!)
+                case .error:
+                    self.currentOption = "Sorry for the inconvenience. Error occured. Please try again."
+                    completion(self.currentOption!)
+                }
+            }
+            
+            return
+        }
+        
+        if self.settings.isChatGPTDareEnabled && type == .dare {            
+            self.gptService.retrieveDare() {
+                response, data in
+                
+                switch response {
+                case .success:
+                    self.currentOption = data
+                    completion(self.currentOption!)
+                case .error:
+                    self.currentOption = "Sorry for the inconvenience. Error occured. Please try again."
+                    completion(self.currentOption!)
+                }
+            }
+            
+            return
+        }
+        
+        let pool: [String] = type == .truth ? truthPool : darePool
+        self.currentOption = pool.filter({$0 != self.currentOption}).randomElement()
+        
+        completion(self.currentOption!)
     }
 
     

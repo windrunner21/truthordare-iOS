@@ -16,7 +16,7 @@ class TransactionManager {
     var purchasedProductIds: Set<String> = Set<String>()
     var products: [Product] = []
     var isPremium: Bool {
-        !self.purchasedProductIds.isEmpty
+        self.purchasedProductIds.isEmpty
     }
     
     func fetchProducts() async throws {

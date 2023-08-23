@@ -63,6 +63,7 @@ class CustomDareViewController: UIViewController, ContentDelegate {
         
         if settings.isCustomDareEnabled {
             settings.isNoContentEnabled = false
+            settings.isChatGPTDareEnabled = false
         }
         
         self.addDareButton.isHidden = !settings.isCustomDareEnabled

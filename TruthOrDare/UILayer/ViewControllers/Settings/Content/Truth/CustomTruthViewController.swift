@@ -63,6 +63,7 @@ class CustomTruthViewController: UIViewController, ContentDelegate {
         
         if settings.isCustomTruthEnabled {
             settings.isNoContentEnabled = false
+            settings.isChatGPTTruthEnabled = false
         }
     
         self.addTruthButton.isHidden = !settings.isCustomTruthEnabled

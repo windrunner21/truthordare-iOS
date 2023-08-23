@@ -95,12 +95,24 @@ class GPTSettingsViewController: UIViewController {
     @IBAction func onTruthSwitch(_ sender: UISwitch) {
         guard let settings = settings else { return }
         settings.isChatGPTTruthEnabled = sender.isOn
+        
+        if settings.isChatGPTTruthEnabled {
+            settings.isNoContentEnabled = false
+            settings.isCustomTruthEnabled = false
+        }
+        
         Settings.updateSettings(using: settings)
     }
     
     @IBAction func onDareSwitch(_ sender: UISwitch) {
         guard let settings = settings else { return }
         settings.isChatGPTDareEnabled = sender.isOn
+        
+        if settings.isChatGPTDareEnabled {
+            settings.isNoContentEnabled = false
+            settings.isCustomDareEnabled = false
+        }
+        
         Settings.updateSettings(using: settings)
     }
     
