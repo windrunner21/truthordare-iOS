@@ -30,8 +30,6 @@ class Game {
            let encodedSettings = encodedSettings as? Data,
            let decodedSettings = try? NSKeyedUnarchiver.unarchivedObject(ofClass: Settings.self, from: encodedSettings) {
             self.settings = decodedSettings
-            
-            print(settings)
         } else {
             self.settings = Settings()
         }
@@ -61,8 +59,6 @@ class Game {
                let encodedSettings = encodedSettings as? Data,
                let decodedSettings = try? NSKeyedUnarchiver.unarchivedObject(ofClass: Settings.self, from: encodedSettings) {
                 self.settings = decodedSettings
-                
-                print(settings)
             } else {
                 self.settings = Settings()
             }
