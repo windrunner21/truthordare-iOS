@@ -25,7 +25,6 @@ class TransactionManager {
         } catch {
             print("Error occured while trying to fetch products: \(error)")
         }
-        
     }
     
     func purchase(_ product: Product) async throws {
@@ -45,22 +44,32 @@ class TransactionManager {
             }
         case .userCancelled:
             print("Transaction is user cancelled")
-        default:
+        @unknown default:
             print("Unknown error during purchase.")
         }
     }
     
     func refreshPurchasedProducts() async {
+        var hasCurrentEntitlement: Bool = false
+        
         // Iterate through the user's purchased products.
         for await verificationResult in Transaction.currentEntitlements {
             switch verificationResult {
             case .verified(let transaction):
+                hasCurrentEntitlement = true
                 // Check the type of product for the transaction
                 // and provide access to the content as appropriate.
-                if transaction.revocationDate == nil {
+                if transaction.revocationDate == nil, let expirationDate = transaction.expirationDate, expirationDate >= Date() {
+                    print("Subscription active.\nTransaction is: \(transaction)")
                     self.purchasedProductIds.insert(transaction.productID)
-                } else {
+                } else if transaction.revocationDate == nil, let expirationDate = transaction.expirationDate, expirationDate < Date() {
+                    print("Subscription expired.\nTransaction is: \(transaction)")
                     self.purchasedProductIds.remove(transaction.productID)
+                    Settings.revokeTruthAIPlusAccess()
+                } else {
+                    print("Subscription refunded.\nTransaction is: \(transaction)")
+                    self.purchasedProductIds.remove(transaction.productID)
+                    Settings.revokeTruthAIPlusAccess()
                 }
             case .unverified(let unverifiedTransaction, let verificationError):
                 // Handle unverified transactions based on your
@@ -68,6 +77,11 @@ class TransactionManager {
                 print(unverifiedTransaction)
                 print(verificationError)
             }
+        }
+        
+        if !hasCurrentEntitlement {
+            Settings.revokeTruthAIPlusAccess()
+            self.purchasedProductIds.removeAll()
         }
     }
     

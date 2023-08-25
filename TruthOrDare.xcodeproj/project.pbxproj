@@ -97,7 +97,6 @@
 		CAB47E7C2A83D54E004A4FA1 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		CAB47E822A83EF61004A4FA1 /* ContentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDelegate.swift; sourceTree = "<group>"; };
 		CAB47E862A84F725004A4FA1 /* DefaultContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultContent.swift; sourceTree = "<group>"; };
-		CABB7E1D2A877B8B00D81A00 /* StoreKitLocalConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitLocalConfig.storekit; sourceTree = "<group>"; };
 		CABB7E202A8A135600D81A00 /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		CABB7E222A8A51C900D81A00 /* TransactionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionObserver.swift; sourceTree = "<group>"; };
 		CABB7E242A8CC7DB00D81A00 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		CABB7E352A962F5500D81A00 /* GPTMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTMessage.swift; sourceTree = "<group>"; };
 		CABB7E372A962F7A00D81A00 /* GPTUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTUsage.swift; sourceTree = "<group>"; };
 		CABB7E392A962FAE00D81A00 /* GPTChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChoice.swift; sourceTree = "<group>"; };
+		CABB7E3B2A98C57A00D81A00 /* StoreKitTest.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitTest.storekit; sourceTree = "<group>"; };
 		CAC458C12A7D3BC600508D11 /* CustomTruthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTruthTableViewController.swift; sourceTree = "<group>"; };
 		CAC458C32A7D910500508D11 /* CustomTruth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomTruth.storyboard; sourceTree = "<group>"; };
 		CAC458C52A7D910E00508D11 /* CustomDare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomDare.storyboard; sourceTree = "<group>"; };
@@ -335,8 +335,8 @@
 				CAE031B22A5C23E00089E839 /* StorageLayer */,
 				CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */,
 				CAE031812A5C21CA0089E839 /* SceneDelegate.swift */,
+				CABB7E3B2A98C57A00D81A00 /* StoreKitTest.storekit */,
 				CAE031882A5C21CB0089E839 /* Assets.xcassets */,
-				CABB7E1D2A877B8B00D81A00 /* StoreKitLocalConfig.storekit */,
 				CAE0318D2A5C21CB0089E839 /* Info.plist */,
 			);
 			path = TruthOrDare;
@@ -910,7 +910,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20230714;
+				CURRENT_PROJECT_VERSION = 20230823;
 				DEVELOPMENT_TEAM = 9258H7N9X2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TruthOrDare/Info.plist;
@@ -925,7 +925,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.imranhajiyev.TruthOrDare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -943,7 +943,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20230714;
+				CURRENT_PROJECT_VERSION = 20230823;
 				DEVELOPMENT_TEAM = 9258H7N9X2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TruthOrDare/Info.plist;
@@ -958,7 +958,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.imranhajiyev.TruthOrDare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

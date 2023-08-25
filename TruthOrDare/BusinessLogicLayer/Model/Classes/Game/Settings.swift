@@ -110,4 +110,13 @@ class Settings: NSObject, NSSecureCoding {
         
         return nil
     }
+    
+    static func revokeTruthAIPlusAccess() {
+        if let settings = self.retrieveSettings() {
+            settings.isChatGPTTruthEnabled = false
+            settings.isChatGPTDareEnabled = false
+
+            Settings.updateSettings(using: settings)
+        }
+    }
 }

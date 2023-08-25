@@ -25,7 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Check for saved settings.
         self.checkForSavedSettings()
+     
+        // Check for created transactions.
+        Task {
+            await TransactionManager.shared.refreshPurchasedProducts()
+        }
+
         return true
     }
 
@@ -57,15 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error)
                 NSLog("Cannot set initial settings. Archiving data failed.")
                 UserDefaults.standard.removeObject(forKey: "settings")
-            }
-        } else {
-            print("Retrieved settings.")
-            
-            if let settings = Settings.retrieveSettings(), !TransactionManager.shared.isPremium  {
-                settings.isChatGPTTruthEnabled = false
-                settings.isChatGPTDareEnabled = false
-
-                Settings.updateSettings(using: settings)
             }
         }
     }

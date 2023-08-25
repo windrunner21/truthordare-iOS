@@ -30,10 +30,12 @@ class Game {
            let encodedSettings = encodedSettings as? Data,
            let decodedSettings = try? NSKeyedUnarchiver.unarchivedObject(ofClass: Settings.self, from: encodedSettings) {
             self.settings = decodedSettings
+            
+            print(settings)
         } else {
             self.settings = Settings()
         }
-       
+        
         self.players = []
         self.isActiveRound = false
 
@@ -49,6 +51,22 @@ class Game {
         
         self.truthPool = self.settings.isNoContentEnabled ? ["Your Truth"] : defaultContent.truthPool + self.customPool.getTruthPool()
         self.darePool = self.settings.isNoContentEnabled ? ["Your Dare"] : defaultContent.darePool + self.customPool.getDarePool()
+        
+        // Check if subscription has expired.
+        Task {
+            await TransactionManager.shared.refreshPurchasedProducts()
+            
+            // Try to retrieve settings first.
+            if let encodedSettings = UserDefaults.standard.value(forKey: "settings"),
+               let encodedSettings = encodedSettings as? Data,
+               let decodedSettings = try? NSKeyedUnarchiver.unarchivedObject(ofClass: Settings.self, from: encodedSettings) {
+                self.settings = decodedSettings
+                
+                print(settings)
+            } else {
+                self.settings = Settings()
+            }
+        }
     }
     
     func getNumberOfPlayers() -> Int {

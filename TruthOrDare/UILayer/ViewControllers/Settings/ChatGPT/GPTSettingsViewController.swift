@@ -33,23 +33,20 @@ class GPTSettingsViewController: UIViewController {
         self.addBorder(to: [truthStackView, dareStackView])
         
         self.settings = Settings.retrieveSettings()
-        self.setSettings()
         
-        self.truthSwitch.isEnabled = transactionManager.isPremium
-        self.dareSwitch.isEnabled = transactionManager.isPremium
-        
-        self.truthLabel.textColor = transactionManager.isPremium ? UIColor(named: "SoftBlack") : UIColor(named: "TapColor")
-        self.dareLabel.textColor = transactionManager.isPremium ? UIColor(named: "SoftBlack") : UIColor(named: "TapColor")
-        
-        self.activateLabel.isHidden = transactionManager.isPremium
-        self.restoreButton.isHidden = !transactionManager.isPremium
-        self.activateButton.isHidden = transactionManager.isPremium
+        self.checkSubscriptionAccess()
         
         if !transactionManager.isPremium {
             Task {
                 try await transactionManager.fetchProducts()
             }
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(checkSubscriptionAccess), name: NSNotification.Name("CheckAccess"), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("REFUND"), object: nil)
     }
 
     @IBAction func onBack(_ sender: Any) {
@@ -57,9 +54,9 @@ class GPTSettingsViewController: UIViewController {
     }
     
     @IBAction func onActivateSubscription(_ sender: Any) {
-        
         self.activateButton.configuration?.showsActivityIndicator = true
         self.activateButton.setTitle("", for: .normal)
+        self.activateButton.isEnabled = false
         
         Task {
             guard let montlySubscription = transactionManager.products.first else { return}
@@ -67,30 +64,40 @@ class GPTSettingsViewController: UIViewController {
             
             self.activateButton.configuration?.showsActivityIndicator = false
             self.activateButton.setTitle("Activate TruthAI+", for: .normal)
+            self.activateButton.isEnabled = true
+            
+            self.checkSubscriptionAccess()
         }
     }
     
     @IBAction func onRestorePurchases(_ sender: Any) {
-        
         self.restoreButton.configuration?.showsActivityIndicator = true
         self.restoreButton.setTitle("", for: .normal)
+        self.restoreButton.isEnabled = false
         
         Task {
             try await transactionManager.restorePurchases()
             
-            self.activateButton.configuration?.showsActivityIndicator = false
-            self.activateButton.setTitle("Restore Purchases", for: .normal)
+            self.restoreButton.configuration?.showsActivityIndicator = false
+            self.restoreButton.setTitle("Restore Purchases", for: .normal)
+            self.restoreButton.isEnabled = true
+            
+            self.checkSubscriptionAccess()
         }
     }
     
     private func addBorder(to stackViews: [UIStackView]) {
         for stackView in stackViews {
             stackView.layer.borderWidth = 1
-            stackView.layer.borderColor = transactionManager.isPremium ? UIColor(named: "SoftBlack")?.cgColor : UIColor(named: "TapColor")?.cgColor
             stackView.layer.cornerRadius = 6
         }
     }
     
+    private func setBorderColor(to stackViews: [UIStackView]) {
+        for stackView in stackViews {
+            stackView.layer.borderColor = transactionManager.isPremium ? UIColor(named: "SoftBlack")?.cgColor : UIColor(named: "TapColor")?.cgColor
+        }
+    }
     
     @IBAction func onTruthSwitch(_ sender: UISwitch) {
         guard let settings = settings else { return }
@@ -118,8 +125,8 @@ class GPTSettingsViewController: UIViewController {
     
     private func setSettings() {
         if let settings = self.settings {
-            self.truthSwitch.isOn = settings.isChatGPTTruthEnabled
-            self.dareSwitch.isOn = settings.isChatGPTDareEnabled
+            self.truthSwitch.isOn = self.transactionManager.isPremium ? settings.isChatGPTTruthEnabled : false
+            self.dareSwitch.isOn = self.transactionManager.isPremium ? settings.isChatGPTDareEnabled : false
         } else {
             let alert = UIAlertController(title: "Error", message: "Could not retrieve settings", preferredStyle: .alert)
             alert.addAction(
@@ -135,5 +142,24 @@ class GPTSettingsViewController: UIViewController {
             
             self.present(alert, animated: true)
         }
+    }
+    
+    @objc private func checkSubscriptionAccess() {
+        DispatchQueue.main.async {
+            self.truthSwitch.isEnabled = self.transactionManager.isPremium
+            self.dareSwitch.isEnabled = self.transactionManager.isPremium
+            
+            self.truthLabel.textColor = self.transactionManager.isPremium ? UIColor(named: "SoftBlack") : UIColor(named: "TapColor")
+            self.dareLabel.textColor = self.transactionManager.isPremium ? UIColor(named: "SoftBlack") : UIColor(named: "TapColor")
+            
+            self.activateLabel.isHidden = self.transactionManager.isPremium
+            self.restoreButton.isHidden = self.transactionManager.isPremium
+            self.activateButton.isHidden = self.transactionManager.isPremium
+            
+            self.setBorderColor(to: [self.truthStackView, self.dareStackView])
+            
+            self.setSettings()
+        }
+
     }
 }

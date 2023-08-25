@@ -87,24 +87,24 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zVE-gu-c2U">
                                 <rect key="frame" x="30" y="454" width="260" height="84"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PG4-XU-9Ia">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Restore Purchases">
-                                            <color key="baseBackgroundColor" name="SoftBlack"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="onRestorePurchases:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WhW-r9-vVC"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdd-Qn-gOc">
-                                        <rect key="frame" x="0.0" y="49.5" width="260" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Activate TruthAI+">
                                             <color key="baseBackgroundColor" name="SoftBlack"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="onActivateSubscription:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EgA-TY-hFS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PG4-XU-9Ia">
+                                        <rect key="frame" x="0.0" y="49.5" width="260" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Restore Purchases">
+                                            <color key="baseBackgroundColor" name="SoftBlack"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onRestorePurchases:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WhW-r9-vVC"/>
                                         </connections>
                                     </button>
                                 </subviews>
