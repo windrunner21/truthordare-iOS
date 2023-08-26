@@ -22,7 +22,6 @@
 		CABB7E232A8A51C900D81A00 /* TransactionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E222A8A51C900D81A00 /* TransactionObserver.swift */; };
 		CABB7E252A8CC7DB00D81A00 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E242A8CC7DB00D81A00 /* APIClient.swift */; };
 		CABB7E272A8CCC5500D81A00 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E262A8CCC5500D81A00 /* HTTPMethod.swift */; };
-		CABB7E292A95EF7800D81A00 /* ServiceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E282A95EF7800D81A00 /* ServiceConfig.swift */; };
 		CABB7E2B2A95F7AC00D81A00 /* GPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E2A2A95F7AC00D81A00 /* GPTService.swift */; };
 		CABB7E2E2A95F87A00D81A00 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E2D2A95F87A00D81A00 /* Response.swift */; };
 		CABB7E302A95FC7600D81A00 /* CreateGPTCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E2F2A95FC7600D81A00 /* CreateGPTCompletion.swift */; };
@@ -30,6 +29,7 @@
 		CABB7E362A962F5500D81A00 /* GPTMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E352A962F5500D81A00 /* GPTMessage.swift */; };
 		CABB7E382A962F7A00D81A00 /* GPTUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E372A962F7A00D81A00 /* GPTUsage.swift */; };
 		CABB7E3A2A962FAE00D81A00 /* GPTChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E392A962FAE00D81A00 /* GPTChoice.swift */; };
+		CABB7E3D2A9A22B900D81A00 /* ServiceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABB7E3C2A9A22B900D81A00 /* ServiceConfig.swift */; };
 		CAC458C22A7D3BC600508D11 /* CustomTruthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC458C12A7D3BC600508D11 /* CustomTruthTableViewController.swift */; };
 		CAC458C42A7D910500508D11 /* CustomTruth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458C32A7D910500508D11 /* CustomTruth.storyboard */; };
 		CAC458C62A7D910E00508D11 /* CustomDare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC458C52A7D910E00508D11 /* CustomDare.storyboard */; };
@@ -101,7 +101,6 @@
 		CABB7E222A8A51C900D81A00 /* TransactionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionObserver.swift; sourceTree = "<group>"; };
 		CABB7E242A8CC7DB00D81A00 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		CABB7E262A8CCC5500D81A00 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		CABB7E282A95EF7800D81A00 /* ServiceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConfig.swift; sourceTree = "<group>"; };
 		CABB7E2A2A95F7AC00D81A00 /* GPTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTService.swift; sourceTree = "<group>"; };
 		CABB7E2D2A95F87A00D81A00 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		CABB7E2F2A95FC7600D81A00 /* CreateGPTCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGPTCompletion.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		CABB7E372A962F7A00D81A00 /* GPTUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTUsage.swift; sourceTree = "<group>"; };
 		CABB7E392A962FAE00D81A00 /* GPTChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChoice.swift; sourceTree = "<group>"; };
 		CABB7E3B2A98C57A00D81A00 /* StoreKitTest.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitTest.storekit; sourceTree = "<group>"; };
+		CABB7E3C2A9A22B900D81A00 /* ServiceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConfig.swift; sourceTree = SOURCE_ROOT; };
 		CAC458C12A7D3BC600508D11 /* CustomTruthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTruthTableViewController.swift; sourceTree = "<group>"; };
 		CAC458C32A7D910500508D11 /* CustomTruth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomTruth.storyboard; sourceTree = "<group>"; };
 		CAC458C52A7D910E00508D11 /* CustomDare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomDare.storyboard; sourceTree = "<group>"; };
@@ -247,7 +247,7 @@
 		CABB7E312A9602F300D81A00 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				CABB7E282A95EF7800D81A00 /* ServiceConfig.swift */,
+				CABB7E3C2A9A22B900D81A00 /* ServiceConfig.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -693,7 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAC458D02A7E647300508D11 /* CustomDareTableViewController.swift in Sources */,
-				CABB7E292A95EF7800D81A00 /* ServiceConfig.swift in Sources */,
+				CABB7E3D2A9A22B900D81A00 /* ServiceConfig.swift in Sources */,
 				CABB7E252A8CC7DB00D81A00 /* APIClient.swift in Sources */,
 				CAB47E872A84F725004A4FA1 /* DefaultContent.swift in Sources */,
 				CAB47E7B2A828FD4004A4FA1 /* PlayerDelegate.swift in Sources */,
