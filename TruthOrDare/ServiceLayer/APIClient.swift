@@ -10,7 +10,7 @@ import Foundation
 class APIClient {
     private let session: URLSession
     private let baseURL: String
-    private let apiKey = ServiceConfig.testKey
+    private let apiKey = ServiceConfig.liveKey
     
     init(baseURL: String) {
         self.baseURL = baseURL
