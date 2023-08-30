@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,7 +41,7 @@
                                 <color key="textColor" name="SoftBlack"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play using AI generated truth and dare content. If on, only AI content will be used." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTW-cT-egw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribe for $0.99 per month to access premium and use AI generated content." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTW-cT-egw">
                                 <rect key="frame" x="30" y="138" width="260" height="50.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="SoftBlack"/>
@@ -85,7 +86,7 @@
                                 <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zVE-gu-c2U">
-                                <rect key="frame" x="30" y="454" width="260" height="84"/>
+                                <rect key="frame" x="30" y="424.5" width="260" height="84"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdd-Qn-gOc">
                                         <rect key="frame" x="0.0" y="0.0" width="260" height="34.5"/>
@@ -109,46 +110,47 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribe for $0.99 per month to access premium and use AI content." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcX-Ec-mp2">
-                                <rect key="frame" x="30" y="410.5" width="260" height="33.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" name="SoftBlack"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Label" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ssa-J3-XJE">
+                                <rect key="frame" x="30" y="508.5" width="260" height="29.5"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DcX-Ec-mp2" secondAttribute="trailing" constant="30" id="22p-85-hJ8"/>
-                            <constraint firstItem="zVE-gu-c2U" firstAttribute="top" secondItem="DcX-Ec-mp2" secondAttribute="bottom" constant="10" id="35V-wq-tFy"/>
                             <constraint firstItem="dTW-cT-egw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="F4j-Cj-Kee"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3Wp-p8-ZFp" secondAttribute="trailing" constant="30" id="Fqu-AC-0NL"/>
+                            <constraint firstItem="Ssa-J3-XJE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Ifi-cJ-9ec"/>
                             <constraint firstItem="dTW-cT-egw" firstAttribute="top" secondItem="Pwi-os-lRo" secondAttribute="bottom" constant="10" id="Igc-pG-hV2"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dTW-cT-egw" secondAttribute="trailing" constant="30" id="Lsl-vU-HYF"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zVE-gu-c2U" secondAttribute="trailing" constant="30" id="Meh-Cw-NVX"/>
                             <constraint firstItem="Pwi-os-lRo" firstAttribute="top" secondItem="StN-wq-Ucb" secondAttribute="bottom" constant="30" id="Oix-3Q-CU0"/>
+                            <constraint firstItem="Ssa-J3-XJE" firstAttribute="top" secondItem="zVE-gu-c2U" secondAttribute="bottom" id="Q1e-S2-ZGY"/>
                             <constraint firstItem="StN-wq-Ucb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Scs-ST-qyC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ssa-J3-XJE" secondAttribute="trailing" constant="30" id="XYP-sL-eD2"/>
                             <constraint firstItem="Mk1-vy-c0d" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Y1Z-Uf-qkf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mk1-vy-c0d" secondAttribute="trailing" constant="30" id="YzF-5J-6Lq"/>
                             <constraint firstItem="StN-wq-Ucb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="iHa-5B-hJs"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="zVE-gu-c2U" secondAttribute="bottom" constant="30" id="iaA-jx-2ou"/>
                             <constraint firstItem="3Wp-p8-ZFp" firstAttribute="top" secondItem="Mk1-vy-c0d" secondAttribute="bottom" constant="15" id="jiG-UV-Y7n"/>
                             <constraint firstItem="Xf0-09-EG3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="mhv-GQ-h5R"/>
                             <constraint firstItem="Pwi-os-lRo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="rVO-J6-dxO"/>
                             <constraint firstItem="zVE-gu-c2U" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="rZO-5e-mgg"/>
                             <constraint firstItem="Xf0-09-EG3" firstAttribute="leading" secondItem="StN-wq-Ucb" secondAttribute="trailing" constant="15" id="uLm-rF-hEt"/>
                             <constraint firstItem="Mk1-vy-c0d" firstAttribute="top" secondItem="dTW-cT-egw" secondAttribute="bottom" constant="30" id="udf-Sm-5V4"/>
-                            <constraint firstItem="DcX-Ec-mp2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="yNH-7q-Jjh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Ssa-J3-XJE" secondAttribute="bottom" constant="30" id="wJz-06-yJ4"/>
                             <constraint firstItem="3Wp-p8-ZFp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="zWM-8L-wHv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activateButton" destination="Xdd-Qn-gOc" id="3c2-nG-xv0"/>
-                        <outlet property="activateLabel" destination="DcX-Ec-mp2" id="5ew-em-VFs"/>
                         <outlet property="dareLabel" destination="pWm-iD-xbA" id="ECJ-1v-FFb"/>
                         <outlet property="dareStackView" destination="3Wp-p8-ZFp" id="rOn-Yk-7MG"/>
                         <outlet property="dareSwitch" destination="Srq-Ds-djB" id="O6g-fL-wWW"/>
                         <outlet property="restoreButton" destination="PG4-XU-9Ia" id="fpv-3c-zJc"/>
+                        <outlet property="termsAndConditionsTextView" destination="Ssa-J3-XJE" id="7Ai-yH-JgR"/>
                         <outlet property="truthLabel" destination="bjs-bY-akK" id="qJ7-JF-54X"/>
                         <outlet property="truthStackView" destination="Mk1-vy-c0d" id="lnm-4Y-Q3H"/>
                         <outlet property="truthSwitch" destination="eVy-gC-X0B" id="O2L-NH-EhJ"/>
@@ -170,5 +172,8 @@
         <namedColor name="SwitchColor">
             <color red="0.47843137254901963" green="0.63921568627450975" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

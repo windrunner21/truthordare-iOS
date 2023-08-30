@@ -9,6 +9,10 @@ import UIKit
 
 class GPTSettingsViewController: UIViewController {
     
+    // Links to Privacy Policy and Terms of Use
+    private let privacyPolicyLink = "https://truth-or-dare-ai.vercel.app/privacy-policy"
+    private let termsOfUseLink = "https://www.apple.com/legal/internet-services/itunes/dev/stdeula"
+    
     // Storyboard related properties.
     @IBOutlet weak var truthStackView: UIStackView!
     @IBOutlet weak var dareStackView: UIStackView!
@@ -19,9 +23,10 @@ class GPTSettingsViewController: UIViewController {
     @IBOutlet weak var truthSwitch: UISwitch!
     @IBOutlet weak var dareSwitch: UISwitch!
     
-    @IBOutlet weak var activateLabel: UILabel!
     @IBOutlet weak var activateButton: UIButton!
     @IBOutlet weak var restoreButton: UIButton!
+    
+    @IBOutlet weak var termsAndConditionsTextView: UITextView!
     
     // Other properties.
     private var transactionManager: TransactionManager = TransactionManager.shared
@@ -31,6 +36,8 @@ class GPTSettingsViewController: UIViewController {
         super.viewDidLoad()
 
         self.addBorder(to: [truthStackView, dareStackView])
+        
+        self.setupTermsAndConditionsLabel()
         
         self.settings = Settings.retrieveSettings()
         
@@ -152,7 +159,6 @@ class GPTSettingsViewController: UIViewController {
             self.truthLabel.textColor = self.transactionManager.isPremium ? UIColor(named: "SoftBlack") : UIColor(named: "TapColor")
             self.dareLabel.textColor = self.transactionManager.isPremium ? UIColor(named: "SoftBlack") : UIColor(named: "TapColor")
             
-            self.activateLabel.isHidden = self.transactionManager.isPremium
             self.restoreButton.isHidden = self.transactionManager.isPremium
             self.activateButton.isHidden = self.transactionManager.isPremium
             
@@ -161,5 +167,44 @@ class GPTSettingsViewController: UIViewController {
             self.setSettings()
         }
 
+    }
+    
+    private func setupTermsAndConditionsLabel() {
+        let attributedString = NSMutableAttributedString(string: "By using TruthAI+, you agree to our ")
+        let concatAttributedString = NSAttributedString(string: " and ")
+        
+        // Terms of Use Link
+        let termsOfUseText = "Terms of Use (EULA)"
+        let termsOfUseLinkAttributes: [NSAttributedString.Key: Any] = [
+            .link: termsOfUseLink,
+            .foregroundColor: UIColor.systemBlue
+        ]
+        let termsOfUseLinkAttributedString = NSAttributedString(string: termsOfUseText, attributes: termsOfUseLinkAttributes)
+        
+        attributedString.append(termsOfUseLinkAttributedString)
+        
+        // Concatenate next link
+        attributedString.append(concatAttributedString)
+
+        // Privacy Policy Link
+        let privacyPolicyText = "Privacy Policy"
+        let privacyPolicyLinkAttributes: [NSAttributedString.Key: Any] = [
+            .link: privacyPolicyLink,
+            .foregroundColor: UIColor.systemBlue
+        ]
+        let privacyPolicyLinkAttributedString = NSAttributedString(string: privacyPolicyText, attributes: privacyPolicyLinkAttributes)
+
+        attributedString.append(privacyPolicyLinkAttributedString)
+        
+        // Apply the line height to the entire attributed string
+        let style = NSMutableParagraphStyle()
+        style.lineHeightMultiple = 1.5
+        attributedString.addAttribute(.paragraphStyle, value: style, range: NSRange(location: 0, length: attributedString.length))
+        
+        termsAndConditionsTextView.attributedText = attributedString
+        termsAndConditionsTextView.textAlignment = .center
+        
+        termsAndConditionsTextView.isUserInteractionEnabled = true
+        termsAndConditionsTextView.delegate = self
     }
 }

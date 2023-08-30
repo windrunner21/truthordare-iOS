@@ -12,6 +12,7 @@
 		CA2BC2622A79227D0085AC9F /* GPTSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2612A79227D0085AC9F /* GPTSettingsViewController.swift */; };
 		CA2BC2642A7922860085AC9F /* ContentSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2632A7922860085AC9F /* ContentSettingsViewController.swift */; };
 		CA2BC2662A797A130085AC9F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2BC2652A797A130085AC9F /* Settings.swift */; };
+		CAAF750C2A9F349200978B5F /* GPTSettingsViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAF750B2A9F349200978B5F /* GPTSettingsViewControllerExtension.swift */; };
 		CAB47E762A827A85004A4FA1 /* PlayerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB47E752A827A85004A4FA1 /* PlayerCellView.swift */; };
 		CAB47E782A828924004A4FA1 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB47E772A828924004A4FA1 /* EventType.swift */; };
 		CAB47E7B2A828FD4004A4FA1 /* PlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB47E7A2A828FD4004A4FA1 /* PlayerDelegate.swift */; };
@@ -91,6 +92,7 @@
 		CA2BC2612A79227D0085AC9F /* GPTSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTSettingsViewController.swift; sourceTree = "<group>"; };
 		CA2BC2632A7922860085AC9F /* ContentSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSettingsViewController.swift; sourceTree = "<group>"; };
 		CA2BC2652A797A130085AC9F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		CAAF750B2A9F349200978B5F /* GPTSettingsViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTSettingsViewControllerExtension.swift; sourceTree = "<group>"; };
 		CAB47E752A827A85004A4FA1 /* PlayerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCellView.swift; sourceTree = "<group>"; };
 		CAB47E772A828924004A4FA1 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
 		CAB47E7A2A828FD4004A4FA1 /* PlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDelegate.swift; sourceTree = "<group>"; };
@@ -108,8 +110,8 @@
 		CABB7E352A962F5500D81A00 /* GPTMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTMessage.swift; sourceTree = "<group>"; };
 		CABB7E372A962F7A00D81A00 /* GPTUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTUsage.swift; sourceTree = "<group>"; };
 		CABB7E392A962FAE00D81A00 /* GPTChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChoice.swift; sourceTree = "<group>"; };
-		CABB7E3B2A98C57A00D81A00 /* StoreKitTest.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitTest.storekit; sourceTree = "<group>"; };
 		CABB7E3C2A9A22B900D81A00 /* ServiceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConfig.swift; sourceTree = SOURCE_ROOT; };
+		CABB7E3E2A9B7ED300D81A00 /* StoreKit Connect.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "StoreKit Connect.storekit"; sourceTree = "<group>"; };
 		CAC458C12A7D3BC600508D11 /* CustomTruthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTruthTableViewController.swift; sourceTree = "<group>"; };
 		CAC458C32A7D910500508D11 /* CustomTruth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomTruth.storyboard; sourceTree = "<group>"; };
 		CAC458C52A7D910E00508D11 /* CustomDare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomDare.storyboard; sourceTree = "<group>"; };
@@ -335,7 +337,6 @@
 				CAE031B22A5C23E00089E839 /* StorageLayer */,
 				CAE0317F2A5C21CA0089E839 /* AppDelegate.swift */,
 				CAE031812A5C21CA0089E839 /* SceneDelegate.swift */,
-				CABB7E3B2A98C57A00D81A00 /* StoreKitTest.storekit */,
 				CAE031882A5C21CB0089E839 /* Assets.xcassets */,
 				CAE0318D2A5C21CB0089E839 /* Info.plist */,
 			);
@@ -374,6 +375,7 @@
 				CABB7E312A9602F300D81A00 /* Config */,
 				CABB7E2C2A95F87000D81A00 /* Model */,
 				CABB7E242A8CC7DB00D81A00 /* APIClient.swift */,
+				CABB7E3E2A9B7ED300D81A00 /* StoreKit Connect.storekit */,
 				CABB7E2A2A95F7AC00D81A00 /* GPTService.swift */,
 			);
 			path = ServiceLayer;
@@ -486,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				CAE031CC2A5C681B0089E839 /* UIViewExtension.swift */,
+				CAAF750B2A9F349200978B5F /* GPTSettingsViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				CAC458D02A7E647300508D11 /* CustomDareTableViewController.swift in Sources */,
 				CABB7E3D2A9A22B900D81A00 /* ServiceConfig.swift in Sources */,
 				CABB7E252A8CC7DB00D81A00 /* APIClient.swift in Sources */,
+				CAAF750C2A9F349200978B5F /* GPTSettingsViewControllerExtension.swift in Sources */,
 				CAB47E872A84F725004A4FA1 /* DefaultContent.swift in Sources */,
 				CAB47E7B2A828FD4004A4FA1 /* PlayerDelegate.swift in Sources */,
 				CAB47E7D2A83D54E004A4FA1 /* PersistentContainer.swift in Sources */,
@@ -910,7 +914,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20230826;
+				CURRENT_PROJECT_VERSION = 20230830;
 				DEVELOPMENT_TEAM = 9258H7N9X2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TruthOrDare/Info.plist;
@@ -925,7 +929,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.imranhajiyev.TruthOrDare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -943,7 +947,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20230826;
+				CURRENT_PROJECT_VERSION = 20230830;
 				DEVELOPMENT_TEAM = 9258H7N9X2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TruthOrDare/Info.plist;
@@ -958,7 +962,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.imranhajiyev.TruthOrDare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

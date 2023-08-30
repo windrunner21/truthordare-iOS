@@ -74,7 +74,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <StoreKitConfigurationFileReference
-         identifier = "../../TruthOrDare/StoreKitTest.storekit">
+         identifier = "../../TruthOrDare/ServiceLayer/StoreKit Connect.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
