@@ -1,0 +1,54 @@
+{
+  "identifier" : "A030699C",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6451315962",
+    "_developerTeamID" : "9258H7N9X2",
+    "_lastSynchronizedDate" : 716215218.72312701
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21387415",
+      "localizations" : [
+
+      ],
+      "name" : "TruthAI+",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6466177218",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Access AI generated game content.",
+              "displayName" : "TruthAI+",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "truthAIPlusMonthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "TruthAI+ Monthly",
+          "subscriptionGroupID" : "21387415",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}
