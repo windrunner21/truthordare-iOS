@@ -1,6 +1,6 @@
 # TruthDare AI
 
-TruthDare AI is a new look at the Truth or Dare game:
+TruthDare AI is an iOS application that grants new look at the traditional "Truth or Dare" game:
 
 - Includes AI.
 - No ads. 
