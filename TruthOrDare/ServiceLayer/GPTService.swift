@@ -35,7 +35,7 @@ class GPTService {
     }
     
     func retrieveDare(completion: @escaping (Response, String?) -> Void) {
-        let gptMessage = GPTMessage(role: "system", content: "give me 1 spicy or creative dare. do not repeat yourself.")
+        let gptMessage = GPTMessage(role: "system", content: "give me 1 spicy or creative dare. do not repeat yourself. do not suggest potentially physically harmful dare.")
         let createGptCompletion = CreateGPTCompletion(model: gptModel, messages: [gptMessage])
         
         self.client.sendRequest(path: self.path, method: .POST, body: createGptCompletion.encode()) {

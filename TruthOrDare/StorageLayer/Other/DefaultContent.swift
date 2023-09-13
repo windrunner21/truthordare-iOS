@@ -21,12 +21,12 @@ struct DefaultContent {
     
     let darePool: [String] = [
         "Send a heart-eye emoji in response to your crush’s Instagram story.",
-        "I dare you to order me $10 worth of food delivery.",
+        "I dare you to order me $5 worth of food delivery.",
         "Dress up like me and send a photo.",
-        "Try to touch your nose with your tongue. If you can’t, you have to touch another player’s nose with your tongue.",
+        "Tell us your most embarassing story.",
         "Tell the funniest story of how you met someone in the group.",
-        "Do 50 sit-ups.",
-        "Do 50 pushups.",
+        "Do 10 sit-ups.",
+        "Do 10 pushups.",
         "Write a love letter to someone in the group.",
         "Imitate your favorite emoji.",
         "Call one of your contacts and pretend to be a different personality."
