@@ -25,10 +25,10 @@ struct DefaultContent {
         "Dress up like me and send a photo.",
         "Try to touch your nose with your tongue. If you can’t, you have to touch another player’s nose with your tongue.",
         "Tell the funniest story of how you met someone in the group.",
-        "Give the person to your left a wet willy.",
+        "Do 50 sit-ups.",
         "Do 50 pushups.",
         "Write a love letter to someone in the group.",
         "Imitate your favorite emoji.",
-        "Call a random number and pretend to be a different personality."
+        "Call one of your contacts and pretend to be a different personality."
     ]
 }
