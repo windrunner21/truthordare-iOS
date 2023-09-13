@@ -10,6 +10,7 @@ TruthDare AI is an iOS application that grants new look at the traditional "Trut
 ### Availability:
 - iOS 15.0 and higher
 - App Store Link (In Review)
+- Link to Public Beta TestFlight: https://testflight.apple.com/join/aATH9EKU
 
 ##
 <p align="row">
