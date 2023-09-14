@@ -9,7 +9,7 @@
   "settings" : {
     "_applicationInternalID" : "6451315962",
     "_developerTeamID" : "9258H7N9X2",
-    "_lastSynchronizedDate" : 716215218.72312701
+    "_lastSynchronizedDate" : 716371485.95903599
   },
   "subscriptionGroups" : [
     {
@@ -29,16 +29,16 @@
           "displayPrice" : "0.99",
           "familyShareable" : false,
           "groupNumber" : 1,
-          "internalID" : "6466177218",
+          "internalID" : "6466397378",
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "Access AI generated game content.",
+              "description" : "Gain access to AI generated truths and dares",
               "displayName" : "TruthAI+",
               "locale" : "en_US"
             }
           ],
-          "productID" : "truthAIPlusMonthly",
+          "productID" : "truthai30",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "TruthAI+ Monthly",
           "subscriptionGroupID" : "21387415",

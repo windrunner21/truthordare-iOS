@@ -11,7 +11,7 @@ import StoreKit
 class TransactionManager {
     static let shared = TransactionManager()
     
-    private let productIds: [String] = ["truthAIPlusMonthly"]
+    private let productIds: [String] = ["truthai30"]
     
     var purchasedProductIds: Set<String> = Set<String>()
     var products: [Product] = []
